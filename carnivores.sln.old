@@ -1,0 +1,77 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcproj", "{A584D798-CA9A-4032-B16E-188B85EBD847}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sound", "sound\sound.vcproj", "{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug_C2_3DFX
+		ConfigName.1 = Debug_C2_D3D
+		ConfigName.2 = Debug_C2_Soft
+		ConfigName.3 = Debug_Ice_3DFX
+		ConfigName.4 = Debug_Ice_D3D
+		ConfigName.5 = Debug_Ice_Soft
+		ConfigName.6 = Release_C2_3DFX
+		ConfigName.7 = Release_C2_D3D
+		ConfigName.8 = Release_C2_Soft
+		ConfigName.9 = Release_Ice_3DFX
+		ConfigName.10 = Release_Ice_D3D
+		ConfigName.11 = Release_Ice_Soft
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_C2_3DFX.ActiveCfg = Debug_C2_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_C2_3DFX.Build.0 = Debug_C2_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_C2_D3D.ActiveCfg = Debug_C2_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_C2_D3D.Build.0 = Debug_C2_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_C2_Soft.ActiveCfg = Debug_C2_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_C2_Soft.Build.0 = Debug_C2_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_Ice_3DFX.ActiveCfg = Debug_Ice_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_Ice_3DFX.Build.0 = Debug_Ice_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_Ice_D3D.ActiveCfg = Debug_Ice_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_Ice_D3D.Build.0 = Debug_Ice_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_Ice_Soft.ActiveCfg = Debug_Ice_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Debug_Ice_Soft.Build.0 = Debug_Ice_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_3DFX.ActiveCfg = Release_C2_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_3DFX.Build.0 = Release_C2_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_D3D.ActiveCfg = Release_C2_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_D3D.Build.0 = Release_C2_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_Soft.ActiveCfg = Release_C2_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_Soft.Build.0 = Release_C2_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_3DFX.ActiveCfg = Release_Ice_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_3DFX.Build.0 = Release_Ice_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_D3D.ActiveCfg = Release_Ice_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_D3D.Build.0 = Release_Ice_D3D|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_Soft.ActiveCfg = Release_Ice_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_Soft.Build.0 = Release_Ice_Soft|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_C2_3DFX.ActiveCfg = Debug_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_C2_3DFX.Build.0 = Debug_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_C2_D3D.ActiveCfg = Debug_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_C2_D3D.Build.0 = Debug_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_C2_Soft.ActiveCfg = Debug_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_C2_Soft.Build.0 = Debug_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_Ice_3DFX.ActiveCfg = Debug_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_Ice_3DFX.Build.0 = Debug_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_Ice_D3D.ActiveCfg = Debug_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_Ice_D3D.Build.0 = Debug_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_Ice_Soft.ActiveCfg = Debug_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Debug_Ice_Soft.Build.0 = Debug_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_C2_3DFX.ActiveCfg = Release_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_C2_3DFX.Build.0 = Release_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_C2_D3D.ActiveCfg = Release_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_C2_D3D.Build.0 = Release_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_C2_Soft.ActiveCfg = Release_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_C2_Soft.Build.0 = Release_C2|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_Ice_3DFX.ActiveCfg = Release_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_Ice_3DFX.Build.0 = Release_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_Ice_D3D.ActiveCfg = Release_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_Ice_D3D.Build.0 = Release_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_Ice_Soft.ActiveCfg = Release_Ice|Win32
+		{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}.Release_Ice_Soft.Build.0 = Release_Ice|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

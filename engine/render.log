@@ -1,0 +1,8 @@
+Carnivores 2 ADP Soft video driver. Build ADPv2.14.102. Apr 18 2009.
+Creating main window...Ok.
+
+==Init Direct Draw==
+DirectDrawCreate: Ok
+Direct Draw activated.
+
+ABNORMAL_HALT: Can't open resources file _res.txt
