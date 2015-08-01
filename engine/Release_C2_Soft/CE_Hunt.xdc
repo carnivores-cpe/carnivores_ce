@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
-<doc>
+<?xml version="1.0"?><doc>
 <members>
-<member name="M:DrawWarningHUD" decl="false" source="f:\[files]\xp documents\my dropbox\carnivoressource\carnivores-src_minorenhanced_build\engine\ce_hunt.cpp" line="2158">
+<member name="M:DrawWarningHUD" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_hunt.cpp" line="2158">
 Draw a warning HUD if dangerous dinosaurs are nearby
 @author tminard
 

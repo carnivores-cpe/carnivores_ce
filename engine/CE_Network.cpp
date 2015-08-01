@@ -24,7 +24,7 @@ Uses Rakk
 #include "hunt.h"
 
 #include "rak\MessageIdentifiers.h"
-#include "rak\RakNetworkFactory.h"
+//#include "rak\RakNetworkFactory.h"
 #include "rak\RakPeerInterface.h"
 #include "rak\RakNetStatistics.h"
 #include "rak\RakNetTypes.h"
@@ -36,8 +36,8 @@ Uses Rakk
 void Test_PlaceMPlayer();
 
 // ========================= Devices for Network ==================== //
-RakPeerInterface *network;
-Packet *packet;
+RakNet::RakPeerInterface *network;
+RakNet::Packet *packet;
 
 
 // ========================= Enums ============================= //
@@ -155,7 +155,7 @@ void ReceivePacket();
 void SendState();
 int GetLOCfromID(int pid);
 void ProcessAdvancedHealthSystem(TCharacter *cptr, int dmg);
-unsigned char GetPacketIdentifier(Packet *p);
+unsigned char GetPacketIdentifier(RakNet::Packet *p);
 
 // == Done == //
 
@@ -173,7 +173,7 @@ void InitNetwork() {
 	if (!NetworkEnabled)
 		return;
 	PrintLog("Network: Init Network...\n");
-	network = RakNetworkFactory::GetRakPeerInterface();
+	network = RakNet::RakPeerInterface::GetInstance();
 	// == Reset MPlayers... == //
 	for (int i = 0; i < 201; i++) {
 		MPLocalData[i].NetID = -1;
@@ -181,14 +181,14 @@ void InitNetwork() {
 	if (!IsServer)
 	{
 		PrintLog("Network: Running as Client\n");
-		network->Startup(1,0,&SocketDescriptor(), 1);
+		network->Startup(1,&RakNet::SocketDescriptor(), 1);
 		// == Place the server's man == //
 		//PlaceHuman(999);
 		Test_PlaceMPlayer();
 		//PingLimit = 30;
 	} else {
 		PrintLog("Network: Running as Server\n");
-		network->Startup(MAX_CLIENTS, 0, &SocketDescriptor(SERVER_PORT,0), 1);
+		network->Startup(MAX_CLIENTS, &RakNet::SocketDescriptor(SERVER_PORT,0), 1);
 		network->SetMaximumIncomingConnections(MAX_CLIENTS);
 		NET_MYUSERID = 999;
 		// === Place my own model, that way shots at me can be traced === //
@@ -210,7 +210,7 @@ void DestroyNetwork() {
 	// -> First, send server notice!
 	PrintLog("Network: Shutting Down Network...\n");
 	// -> Shutdown RakNet...
-	RakNetworkFactory::DestroyRakPeerInterface(network);
+	RakNet::RakPeerInterface::DestroyInstance(network);
 }
 
 bool ConnectToServer(char * server) {
@@ -290,7 +290,7 @@ bool ConnectToServer(char * server) {
 void Disconnect() {
 	// == Global Function == //
 	// -> Simply leave the server, but let the server know first so it can remove your person
-	network->CloseConnection(UNASSIGNED_SYSTEM_ADDRESS,true,0);
+	network->CloseConnection(RakNet::UNASSIGNED_SYSTEM_ADDRESS,true,0);
 }
 
 void SetServer(bool beserver) {
@@ -352,7 +352,7 @@ void NetSendShotServer(float serverx, float servery, float serverz, int GunType)
 	sendshot.typeId = ID_SHOTSERVER;
 	// == Send the Data == //
 	outStream.Write(sendshot);
-	network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_FIRE,UNASSIGNED_SYSTEM_ADDRESS,true);
+	network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_FIRE,RakNet::UNASSIGNED_SYSTEM_ADDRESS,true);
 
 }
 
@@ -373,7 +373,7 @@ void NetSendShotPlayer(int pid, int damage) {
 	shotp.z = Characters[MPLocalData[pid].ChCount].pos.z;
 	shotp.typeId = ID_PLAYERSTATE;
 	outStream.Write(shotp);
-	network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_FIRE,UNASSIGNED_SYSTEM_ADDRESS,true);
+	network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_FIRE,RakNet::UNASSIGNED_SYSTEM_ADDRESS,true);
 
 }
 
@@ -396,7 +396,7 @@ void NetSendFireCommand(float ax, float ay, float az,float bx, float by, float b
 	sendfire.typeId = ID_PLAYERFIRE;
 	// == Send the Data == //
 	outStream.Write(sendfire);
-	network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_FIRE,UNASSIGNED_SYSTEM_ADDRESS,true);
+	network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_FIRE,RakNet::UNASSIGNED_SYSTEM_ADDRESS,true);
 }
 
 void SendState() {
@@ -438,9 +438,9 @@ void SendState() {
 	outStream.Write(MyPlayerStats);
 	if (IsServer) {
 		// == Update myself == //
-		network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_PLAYER,UNASSIGNED_SYSTEM_ADDRESS,true);
+		network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_PLAYER,RakNet::UNASSIGNED_SYSTEM_ADDRESS,true);
 	} else {
-		network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_PLAYER,UNASSIGNED_SYSTEM_ADDRESS,true);
+		network->Send(&outStream,HIGH_PRIORITY,RELIABLE_ORDERED,PRIORITY_PLAYER,RakNet::UNASSIGNED_SYSTEM_ADDRESS,true);
 	}
 
 }
@@ -459,7 +459,7 @@ void NetSendElementPacket(float x, float y, float z, int type, int count) {
 	elp.y = y;
 
 	outStream.Write(elp);
-	network->Send(&outStream,LOW_PRIORITY,RELIABLE_ORDERED,PRIORITY_ELEMENT,UNASSIGNED_SYSTEM_ADDRESS,true);
+	network->Send(&outStream,LOW_PRIORITY,RELIABLE_ORDERED,PRIORITY_ELEMENT,RakNet::UNASSIGNED_SYSTEM_ADDRESS,true);
 }
 
 
@@ -590,7 +590,7 @@ void ReceivePacket() {
 			ServerID.theirID = UNQ_NETIDS;
 			//I want to only send the ID to the client...
 			outStream.Write(ServerID);
-			result = network->Send(&outStream,HIGH_PRIORITY,RELIABLE,0,UNASSIGNED_SYSTEM_ADDRESS,true);
+			result = network->Send(&outStream,HIGH_PRIORITY,RELIABLE,0,RakNet::UNASSIGNED_SYSTEM_ADDRESS,true);
 			if (!result) {
 				PrintLog("Network: Failed to send ServerState to client...\n"); 
 			} else {
@@ -645,7 +645,7 @@ int GetLOCfromID(int pid) {
 	return returnvalue;
 }
 
-unsigned char GetPacketIdentifier(Packet *p)
+unsigned char GetPacketIdentifier(RakNet::Packet *p)
 {
 	// == Local Function == //
 	if (p==0)

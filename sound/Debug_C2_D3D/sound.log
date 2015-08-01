@@ -1,0 +1,20 @@
+﻿Build started 7/31/2015 9:10:36 AM.
+     1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\sound.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D SOUND_EXPORTS /D _VC80_UPGRADE=0x0700 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug_C2_D3D\\" /Fd"Debug_C2_D3D\vc120.pdb" /Gz /TP /analyze- /errorReport:prompt Audio.cpp ds_extra.cpp
+         ds_extra.cpp
+         Audio.cpp
+         Generating Code...
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\Debug_C2_D3D\sound.dll) does not match the Linker's OutputFile property value (\\psf\Home\Downloads\carnivores-src_minorenhanced_build\Debug_C2\A_SOFT.DLL). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(sound) does not match the Linker's OutputFile property value (A_SOFT). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../Debug_C2/A_SOFT.DLL" /INCREMENTAL /NOLOGO dsound.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"dsdll.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug_C2_D3D\sound.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Debug_C2_D3D\sound.lib" /MACHINE:X86 /SAFESEH /DLL Debug_C2_D3D\Audio.obj
+         Debug_C2_D3D\ds_extra.obj
+     1>Audio.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+            Creating library Debug_C2_D3D\sound.lib and object Debug_C2_D3D\sound.exp
+         sound.vcxproj -> \\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\Debug_C2_D3D\sound.dll
+     1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\sound.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:13.04

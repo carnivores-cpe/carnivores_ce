@@ -1,4 +1,6 @@
 #include "math.h"
+#include <WinSock2.h>
+#include <WS2tcpip.h>
 #include "windows.h"
 //== 4.15.9 -> Multithreading support by Adelphospro
 #include <process.h>

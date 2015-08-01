@@ -1,0 +1,19 @@
+﻿Build started 7/31/2015 9:52:23 AM.
+     1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\sound.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D SOUND_EXPORTS /D _VC80_UPGRADE=0x0700 /D _WINDLL /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_D3D\\" /Fd"Release_C2_D3D\vc120.pdb" /Gz /TP /analyze- /errorReport:prompt Audio.cpp ds_extra.cpp
+         Audio.cpp
+         ds_extra.cpp
+         Generating Code...
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\Release_C2_D3D\sound.dll) does not match the Linker's OutputFile property value (\\psf\Home\Downloads\carnivores-src_minorenhanced_build\Release_C2\A_SOFT.DLL). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(sound) does not match the Linker's OutputFile property value (A_SOFT). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../Release_C2/A_SOFT.DLL" /INCREMENTAL:NO /NOLOGO dsound.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"dsdll.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"Release_C2_D3D\sound.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release_C2_D3D\sound.lib" /MACHINE:X86 /SAFESEH /DLL Release_C2_D3D\Audio.obj
+         Release_C2_D3D\ds_extra.obj
+            Creating library Release_C2_D3D\sound.lib and object Release_C2_D3D\sound.exp
+         sound.vcxproj -> \\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\Release_C2_D3D\sound.dll
+     1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\sound\sound.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.42
