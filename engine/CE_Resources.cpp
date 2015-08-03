@@ -1490,9 +1490,9 @@ void LoadCharacters()
 	FillMemory(pres, sizeof(pres), 0);
 	TPicture tmppic;
 	pres[0]=TRUE;
-	//pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!
-	//PrintLog("Loading Dead Body Model...");
-	//LoadCharacterInfo(ChInfo[0][1], "HUNTDAT\\hunter1rotten.car");
+	pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!
+	PrintLog("Loading Dead Body Model hunter1rotten...");
+	LoadCharacterInfo(ChInfo[0][1], "HUNTDAT\\hunter1rotten.car");
 	//PrintLog("...Done\n");
 
 	for (int c=0; c<ChCount; c++) {

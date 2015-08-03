@@ -1,0 +1,41 @@
+AnimatableModel {
+  Note: "CAR file loading."
+  Character {
+    Note: "Movement and animations."
+    Ambient {
+      Note: "No value. Spawns often."
+    }
+    Huntable {
+      Note: "Has value (or poacher cost). Low spawn."
+      Allosaurus {
+
+      }
+    }
+  }
+}
+
+*CEAllosaurusCharacter {
+  AI: AILandCarnivore
+  SetAIParams() (override)
+  TakeDamage(i, source*) (deduct)
+  Kill(source*) (override, count score and call pickup)
+}
+
+AI {
+  UpdateSinceLastTime
+    -> Sense surroundings
+      -> Update tracking, target, etc
+    -> Call Character.MoveTowardsTarget, or specific action (PerformAttack, PerformEat, etc)
+}
+
+AILandCarnivore {
+  note: "Hunts and Attacks target actively. Specializes in attack."
+}
+
+AILandHerbivore {
+ note: "Attacks when feeling threatened. Specializes in defense. Looks for food."
+}
+
+AIAirHerbivore {
+  note: "Flies around in the air. Ignores player."
+}

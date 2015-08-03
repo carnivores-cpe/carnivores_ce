@@ -1,10 +1,26 @@
-﻿Build started 7/31/2015 2:08:07 PM.
+﻿Build started 8/3/2015 6:09:30 PM.
      1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /O2 /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_Soft\\" /Fd"Release_C2_Soft\vc120.pdb" /doc"Release_C2_Soft\\" /Gd /TP /analyze- /errorReport:prompt /LTCG xmlParser.cpp
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /O2 /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_Soft\\" /Fd"Release_C2_Soft\vc120.pdb" /doc"Release_C2_Soft\\" /Gd /TP /analyze- /errorReport:prompt /LTCG CE_AI.cpp CE_Allosaurus.cpp CE_ArtificialIntelligence.cpp CE_Characters.cpp CE_EnhancedSound.cpp CE_Game.cpp CE_Hunt.cpp CE_Interface.cpp CE_Network.cpp CE_RenderSoft.cpp CE_Resources.cpp CE_messageconsole.cpp CE_vehicle.cpp characters\C2AnimatableModel.cpp characters\C2Character.cpp mathematics.cpp
      1>cl : Command line warning D9002: ignoring unknown option '/LTCG'
+         C2Character.cpp
+         Compiling...
+         mathematics.cpp
+         C2AnimatableModel.cpp
+         CE_vehicle.cpp
+         CE_messageconsole.cpp
+         CE_Resources.cpp
+         CE_RenderSoft.cpp
+         CE_Network.cpp
+         CE_Interface.cpp
+         CE_Hunt.cpp
+         CE_Game.cpp
+         CE_EnhancedSound.cpp
+         CE_Characters.cpp
+         CE_Allosaurus.cpp
+         CE_AI.cpp
          Skipping... (no relevant changes detected)
-         xmlParser.cpp
+         CE_ArtificialIntelligence.cpp
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Release_C2_Soft\engine.exe) does not match the Linker's OutputFile property value (\\psf\Home\Downloads\carnivores-src_minorenhanced_build\Release_C2\V_SOFT.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.exe) does not match the Linker's OutputFile property value (.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(engine) does not match the Linker's OutputFile property value (V_SOFT). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
@@ -12,6 +28,7 @@
          C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../Release_C2/V_SOFT.REN" /INCREMENTAL:NO /NOLOGO ddraw.lib winmm.lib RakNetLibStatic.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"Release_C2_Soft\engine.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release_C2_Soft\engine.lib" /MACHINE:X86 /SAFESEH Release_C2_Soft\resource.res
          Release_C2_Soft\Audio_DLL.obj
          Release_C2_Soft\CE_AI.obj
+         Release_C2_Soft\CE_ArtificialIntelligence.obj
          Release_C2_Soft\CE_Characters.obj
          Release_C2_Soft\CE_EnhancedSound.obj
          Release_C2_Soft\CE_Game.obj
@@ -25,6 +42,9 @@
          Release_C2_Soft\CE_RenderSoft.obj
          Release_C2_Soft\CE_Resources.obj
          Release_C2_Soft\CE_vehicle.obj
+         Release_C2_Soft\C2AnimatableModel.obj
+         Release_C2_Soft\C2Character.obj
+         Release_C2_Soft\CE_Allosaurus.obj
          Release_C2_Soft\irrXML.obj
          Release_C2_Soft\mathematics.obj
          Release_C2_Soft\xmlParser.obj
@@ -32,9 +52,9 @@
          Finished generating code
          engine.vcxproj -> \\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Release_C2_Soft\engine.exe
        XdcMake:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\xdcmake.exe /old "engine" /nologo /Fo"Release_C2_Soft\engine.xml" /FsRelease_C2_Soft\Audio_DLL.xdc /FsRelease_C2_Soft\CE_AI.xdc /FsRelease_C2_Soft\CE_Characters.xdc /FsRelease_C2_Soft\CE_EnhancedSound.xdc /FsRelease_C2_Soft\CE_Game.xdc /FsRelease_C2_Soft\CE_Hunt.xdc /FsRelease_C2_Soft\CE_Interface.xdc /FsRelease_C2_Soft\CE_messageconsole.xdc /FsRelease_C2_Soft\CE_Network.xdc /FsRelease_C2_Soft\CE_Render3DFX.xdc /FsRelease_C2_Soft\CE_RenderD3D.xdc /FsRelease_C2_Soft\CE_RenderDX9.xdc /FsRelease_C2_Soft\CE_RenderSoft.xdc /FsRelease_C2_Soft\CE_Resources.xdc /FsRelease_C2_Soft\CE_vehicle.xdc /FsRelease_C2_Soft\irrXML.xdc /FsRelease_C2_Soft\mathematics.xdc /FsRelease_C2_Soft\xmlParser.xdc
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\xdcmake.exe /old "engine" /nologo /Fo"Release_C2_Soft\engine.xml" /FsRelease_C2_Soft\Audio_DLL.xdc /FsRelease_C2_Soft\CE_AI.xdc /FsRelease_C2_Soft\CE_ArtificialIntelligence.xdc /FsRelease_C2_Soft\CE_Characters.xdc /FsRelease_C2_Soft\CE_EnhancedSound.xdc /FsRelease_C2_Soft\CE_Game.xdc /FsRelease_C2_Soft\CE_Hunt.xdc /FsRelease_C2_Soft\CE_Interface.xdc /FsRelease_C2_Soft\CE_messageconsole.xdc /FsRelease_C2_Soft\CE_Network.xdc /FsRelease_C2_Soft\CE_Render3DFX.xdc /FsRelease_C2_Soft\CE_RenderD3D.xdc /FsRelease_C2_Soft\CE_RenderDX9.xdc /FsRelease_C2_Soft\CE_RenderSoft.xdc /FsRelease_C2_Soft\CE_Resources.xdc /FsRelease_C2_Soft\CE_vehicle.xdc /FsRelease_C2_Soft\C2AnimatableModel.xdc /FsRelease_C2_Soft\C2Character.xdc /FsRelease_C2_Soft\CE_Allosaurus.xdc /FsRelease_C2_Soft\irrXML.xdc /FsRelease_C2_Soft\mathematics.xdc /FsRelease_C2_Soft\xmlParser.xdc
      1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.04
+Time Elapsed 00:00:14.87

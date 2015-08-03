@@ -3150,6 +3150,14 @@ void RenderShip()
 {
 }
 
+/*
+* 1. Create the morphed model based on current animation
+* 2. Double check the view range
+* 3. Set transparency based on distance
+* 4. If beyond certain (fixed) range, draw Clipped model
+* 5. Else, Draw model
+* 6. Render shadows, unless dead or shadows disabled
+*/
 void RenderCharacterPost(TCharacter *cptr)
 {      
    //mdlScale = 1.0f;

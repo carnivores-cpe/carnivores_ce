@@ -262,7 +262,10 @@ void RenderMList()
 
 
 
-
+/*
+* This method is unique to software mode. Create a list of renderable characters,
+* then render in the future draw method. 3D mode handles this differently.
+*/
 void CreateChRenderList()
 {
 //=========== ship ================//   
@@ -377,6 +380,8 @@ NOBAG: ;
       ChRenderList[ri].Items[i].Index = c;
    }
 
+   //======= CUSTOM: Render Characters in world manager ===========//
+
 
 
    
@@ -391,6 +396,7 @@ void RenderChList(int r)
 	  if (ChRenderList[r].Items[c].CType ==3) RenderShip();
       if (ChRenderList[r].Items[c].CType ==4) RenderSupplyShip();
       if (ChRenderList[r].Items[c].CType ==5) RenderAmmoBag();
+	  //if CType == 7) RenderManagedCharacter(ChRenderList[r].Items[c].Index); (index is set to index of item in ManagedCharacters array (an array of pointers to TCharacter)
 	  //if (ChRenderList[r].Items[c].CType ==6) RenderPlayerModel();
   }
 }

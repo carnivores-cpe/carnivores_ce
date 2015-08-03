@@ -17,31 +17,6 @@ This should be a multiplayer testing function.
 @date 11.19.2009
 
 </member>
-        <member name="M:MakeShotNew(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
-This function has more advanced water-hit detection (to enable bullets passing
-through water), but the path is messed up (bullet path is a few inches below where
-the player is aiming....
-
-</member>
-        <member name="M:TVehicle.process_slide">
-Process gravity in vehicle
-
-</member>
-        <member name="M:TVehicle.process(_TCharacter*)">
-Process jeep movement and animation
-@type Static function
-@author adelphospro
-@date 9.19.2009
-
-</member>
-        <member name="M:TVehicle.Dispose">
-Vehicle destructor
-
-</member>
-        <member name="M:TVehicle.#ctor">
-Vehicle constructor
-
-</member>
         <member name="M:DrawWarningHUD">
 Draw a warning HUD if dangerous dinosaurs are nearby
 @author tminard
@@ -130,6 +105,25 @@ It does, however, contain its own sound and manages the playing of it(maybe?).
 Each animation has only one sound at the moment.
 Access is public, because CharacterAnimation is primarily a container of information. It does not manage its 'models'
 animation process.
+
+</member>
+        <member name="M:TVehicle.process_slide">
+Process gravity in vehicle
+
+</member>
+        <member name="M:TVehicle.process(_TCharacter*)">
+Process jeep movement and animation
+@type Static function
+@author adelphospro
+@date 9.19.2009
+
+</member>
+        <member name="M:TVehicle.Dispose">
+Vehicle destructor
+
+</member>
+        <member name="M:TVehicle.#ctor">
+Vehicle constructor
 
 </member>
         <member name="F:RakNet.BitStream.stackData">
@@ -3229,6 +3223,12 @@ This is a typedef for signed char, it ensures portability of the engine.
 </member>
         <member name="D:irrklang.ik_u8">
 This is a typedef for unsigned char, it ensures portability of the engine. 
+</member>
+        <member name="M:MakeShotNew(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+This function has more advanced water-hit detection (to enable bullets passing
+through water), but the path is messed up (bullet path is a few inches below where
+the player is aiming....
+
 </member>
         <!-- Discarding badly formed XML document comment for member 'T:irr.io.IXMLBase'. -->
         <!-- Discarding badly formed XML document comment for member 'T:irr.io.IXMLBase'. -->

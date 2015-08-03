@@ -402,7 +402,7 @@ int CheckPlaceCollisionP(Vector3d &v)
 	        FMap[ccz][ccx] | 
 		    FMap[ccz+1][ccx] | FMap[ccz][ccx+1] | FMap[ccz+1][ccx+1]);
 
-   if (F & (fmWater + fmNOWAY)) return 1;
+   if (F & (fmWater + fmNOWAY)) return 1; // if in the water, or in an area marked explicitly as impassible, try again
 
 
    float h = GetLandH(v.x, v.z);
@@ -7736,7 +7736,8 @@ void PlaceCharacters()
 #else
      Characters[ChCount].CType = 1 + c % 5;
 #endif
-replace1:
+ replace1:
+	 // place ambient near player
 	 Characters[ChCount].pos.x = PlayerX + siRand(10040);
      Characters[ChCount].pos.z = PlayerZ + siRand(10040);
 	 Characters[ChCount].pos.y = GetLandH(Characters[ChCount].pos.x, 

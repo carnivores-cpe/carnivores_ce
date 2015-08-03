@@ -1,3 +1,6 @@
+#ifndef HUNT_HEADER
+#define HUNT_HEADER
+
 #include "math.h"
 #include <WinSock2.h>
 #include <WS2tcpip.h>
@@ -307,7 +310,7 @@ typedef struct _TSnowElement {
 typedef struct _TCharacter  {
   //-> Modified to support different types PER character
   int CType, AI,SUBAI; //subai is the subai of the CType. Used for different skins per AI
-  TCharacterInfo *pinfo;
+  TCharacterInfo *pinfo; // pointer to shared 3d model
   int StateF;
   int State;
   int NoWayCnt, NoFindCnt, AfraidTime, tgtime;
@@ -1209,4 +1212,6 @@ _EXTORNOT char KeysName[256][24] = {
 	};
 #else
    _EXTORNOT char KeysName[128][24];
+#endif
+
 #endif

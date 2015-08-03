@@ -586,6 +586,7 @@
   <ItemGroup>
     <ClCompile Include="Audio_DLL.cpp" />
     <ClCompile Include="CE_AI.cpp" />
+    <ClCompile Include="CE_ArtificialIntelligence.cpp" />
     <ClCompile Include="CE_Characters.cpp" />
     <ClCompile Include="CE_EnhancedSound.cpp" />
     <ClCompile Include="CE_Game.cpp" />
@@ -599,11 +600,20 @@
     <ClCompile Include="CE_RenderSoft.cpp" />
     <ClCompile Include="CE_Resources.cpp" />
     <ClCompile Include="CE_vehicle.cpp" />
+    <ClCompile Include="characters\C2AnimatableModel.cpp" />
+    <ClCompile Include="characters\C2Character.cpp" />
+    <ClCompile Include="CE_Allosaurus.cpp" />
     <ClCompile Include="IrrXML1.2\irrXML.cpp" />
     <ClCompile Include="mathematics.cpp" />
     <ClCompile Include="xmlParser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CE_ArtificialIntelligence.h" />
+    <ClInclude Include="characters\AI_Allosaurus.h" />
+    <ClInclude Include="characters\C2AnimatableModel.h" />
+    <ClInclude Include="characters\C2Character.h" />
+    <ClInclude Include="characters\C2HuntableCharacter.h" />
+    <ClInclude Include="CE_Allosaurus.h" />
     <ClInclude Include="Hunt.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
