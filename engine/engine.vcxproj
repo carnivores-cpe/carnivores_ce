@@ -235,6 +235,7 @@
     <IntDir>Debug_C2_Soft\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>\\psf\Home\Downloads\carnivores-src_minorenhanced_build\libs;$(LibraryPath)</LibraryPath>
+    <IncludePath>\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_C2_3DFX|Win32'">
     <OutDir>Debug_C2_3DFX\</OutDir>
@@ -245,6 +246,8 @@
     <OutDir>Release_C2_D3D\</OutDir>
     <IntDir>Release_C2_D3D\</IntDir>
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine;$(IncludePath)</IncludePath>
+    <LibraryPath>\\psf\Home\Downloads\carnivores-src_minorenhanced_build\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_C2_Soft|Win32'">
     <OutDir>Release_C2_Soft\</OutDir>
@@ -440,10 +443,12 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ddraw.lib;winmm.lib;RakNetLibStatic.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Debug_C2/V_SOFT.REN</OutputFile>
+      <OutputFile>Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(OutDir)engine.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -489,9 +494,9 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ddraw.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Release_C2/V_D3D.REN</OutputFile>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>ddraw.lib;winmm.lib;RakNetLibStatic.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_D3D.REN</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -523,8 +528,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>ddraw.lib;winmm.lib;RakNetLibStatic.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../Release_C2/V_SOFT.REN</OutputFile>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <OutputFile>Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -585,6 +590,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Audio_DLL.cpp" />
+    <ClCompile Include="C2CharacterCollection.cpp" />
+    <ClCompile Include="C2HuntableCharacter.cpp" />
     <ClCompile Include="CE_AI.cpp" />
     <ClCompile Include="CE_ArtificialIntelligence.cpp" />
     <ClCompile Include="CE_Characters.cpp" />
@@ -608,6 +615,7 @@
     <ClCompile Include="xmlParser.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C2CharacterCollection.h" />
     <ClInclude Include="CE_ArtificialIntelligence.h" />
     <ClInclude Include="characters\AI_Allosaurus.h" />
     <ClInclude Include="characters\C2AnimatableModel.h" />

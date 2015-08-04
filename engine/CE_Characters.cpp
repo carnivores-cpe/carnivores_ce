@@ -2,6 +2,9 @@
 #include "stdio.h"
 #include "vehicle.h"
 
+#include "C2CharacterCollection.h"
+#include "CE_Allosaurus.h"
+
 BOOL NewPhase;
 
 #define fx_DIE    0
@@ -7392,6 +7395,9 @@ void AnimateTrophyDino(TCharacter *cptr) {
    if (cptr->PPMorphTime > PMORPHTIME) cptr->PrevPhase = cptr->Phase;
 
    cptr->PrevPFTime+=TimeDt;
+   if (!cptr->pinfo) {
+	   return;
+   }
    cptr->PrevPFTime %= cptr->pinfo->Animation[cptr->PrevPhase].AniTime;
 }
 
@@ -7747,6 +7753,9 @@ void PlaceCharacters()
 
 	 if (CheckPlaceCollisionP(Characters[ChCount].pos)) goto replace1;
 
+	 // Test managed characters
+	 //ManagedC2Characters.push_back(dynamic_cast<C2Character*>(new CE_Allosaurus()));
+
 	 ResetCharacter(&Characters[ChCount]);     
 
 #ifdef _iceage // alacn
@@ -7806,8 +7815,8 @@ replace3:
    tr = 0;
    
    //======== main =========//
-   for (c=0; c<MC; c++) {        	 
-	   
+   for (c=0; c<MC; c++) {     
+	
 	 if ((c<4) || (!TargetDino)) Characters[ChCount].CType = AI_to_CIndex[10] + rRand(6); else
 #ifdef _iceage // alacn
      if (c<10) 
@@ -7840,6 +7849,10 @@ replace2:
 	 ResetCharacter(&Characters[ChCount]);     
 	 ChCount++;
    }
+
+   // Place test character
+   CE_Allosaurus* allo = new CE_Allosaurus();
+   ManagedC2Characters->add(allo);
 
    PrintLog("\n");
    DemoPoint.DemoTime = 0;

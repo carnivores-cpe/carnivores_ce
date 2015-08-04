@@ -1,12 +1,15 @@
-﻿Build started 7/31/2015 9:25:39 AM.
-     1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" on node 2 (Rebuild target(s)).
+﻿Build started 8/3/2015 10:45:47 PM.
+     1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug_C2_Soft\\" /Fd"Debug_C2_Soft\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Audio_DLL.cpp CE_AI.cpp CE_Characters.cpp CE_EnhancedSound.cpp CE_Game.cpp CE_Hunt.cpp CE_Interface.cpp CE_messageconsole.cpp CE_Network.cpp CE_Render3DFX.cpp CE_RenderD3D.cpp CE_RenderDX9.cpp CE_RenderSoft.cpp CE_Resources.cpp CE_vehicle.cpp IrrXML1.2\irrXML.cpp mathematics.cpp xmlParser.cpp
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug_C2_Soft\\" /Fd"Debug_C2_Soft\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Audio_DLL.cpp C2HuntableCharacter.cpp CE_AI.cpp CE_ArtificialIntelligence.cpp CE_Characters.cpp CE_EnhancedSound.cpp CE_Game.cpp CE_Hunt.cpp CE_Interface.cpp CE_messageconsole.cpp CE_Network.cpp CE_Render3DFX.cpp CE_RenderD3D.cpp CE_RenderDX9.cpp CE_RenderSoft.cpp CE_Resources.cpp CE_vehicle.cpp characters\C2AnimatableModel.cpp characters\C2Character.cpp CE_Allosaurus.cpp IrrXML1.2\irrXML.cpp mathematics.cpp xmlParser.cpp
          xmlParser.cpp
          mathematics.cpp
          irrXML.cpp
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\irrxml1.2\irrxml.cpp(26): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
+         CE_Allosaurus.cpp
+         C2Character.cpp
+         C2AnimatableModel.cpp
          CE_vehicle.cpp
          CE_Resources.cpp
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_resources.cpp(2011): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -38,35 +41,36 @@
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_resources.cpp(2292): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(211) : see declaration of 'fopen'
          CE_RenderSoft.cpp
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(638): warning C4102: 'S2' : unreferenced label
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(625): warning C4102: 'S1' : unreferenced label
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(745): warning C4102: 'S2' : unreferenced label
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(731): warning C4102: 'S1' : unreferenced label
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2379): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2381): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(644): warning C4102: 'S2' : unreferenced label
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(631): warning C4102: 'S1' : unreferenced label
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(751): warning C4102: 'S2' : unreferenced label
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(737): warning C4102: 'S1' : unreferenced label
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2385): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2387): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2389): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2393): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2405): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2395): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2406): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2411): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2452): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2453): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2412): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2458): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2459): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2757): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2464): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2465): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_rendersoft.cpp(2763): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
          CE_RenderDX9.cpp
          CE_RenderD3D.cpp
          CE_Render3DFX.cpp
          CE_Network.cpp
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_network.cpp(223): warning C4800: 'RakNet::ConnectionAttemptResult' : forcing value to bool 'true' or 'false' (performance warning)
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_network.cpp(227): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_network.cpp(472): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
@@ -114,9 +118,7 @@
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_characters.cpp(7589): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files\microsoft visual studio 12.0\vc\include\stdio.h(356) : see declaration of 'sprintf'
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_characters.cpp(7614): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-         CE_AI.cpp
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_ai.cpp(49): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-         Audio_DLL.cpp
+         CE_ArtificialIntelligence.cpp
          Generating Code...
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(76): warning C4731: 'HLineTDGlass50' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(153): warning C4731: 'HLineTDGlass50' : frame pointer register 'ebp' modified by inline assembly code
@@ -142,14 +144,12 @@
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1362): warning C4731: 'HLineTxC' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1417): warning C4731: 'HLineTxC' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1428): warning C4731: 'HLineTxC' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1585): warning C4731: 'HLineTxModel' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1676): warning C4731: 'HLineTxModel' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1831): warning C4731: 'HLineTxModel2' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1887): warning C4731: 'HLineTxModel2' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2044): warning C4731: 'HLineTxModel3' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2100): warning C4731: 'HLineTxModel3' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1057): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1063): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1141): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1146): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1204): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1215): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2170): warning C4731: 'HLineTxModelBMP' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2197): warning C4731: 'HLineTxModelBMP' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2358): warning C4731: 'HLineTxModel25' : frame pointer register 'ebp' modified by inline assembly code
@@ -158,6 +158,12 @@
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2594): warning C4731: 'HLineTxModel50' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2756): warning C4731: 'HLineTxModel75' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(2797): warning C4731: 'HLineTxModel75' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1057): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1063): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1141): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1146): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1204): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1215): warning C4731: 'HLineTxB' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(3874): warning C4731: 'RenderSkyLine' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(3894): warning C4731: 'RenderSkyLine' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(3917): warning C4731: 'RenderSkyLineLo' : frame pointer register 'ebp' modified by inline assembly code
@@ -166,19 +172,21 @@
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(3988): warning C4731: 'RenderSkyLineFadeLo' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(4016): warning C4731: 'RenderSkyLineFade' : frame pointer register 'ebp' modified by inline assembly code
      1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(4036): warning C4731: 'RenderSkyLineFade' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1585): warning C4731: 'HLineTxModel' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1676): warning C4731: 'HLineTxModel' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1831): warning C4731: 'HLineTxModel2' : frame pointer register 'ebp' modified by inline assembly code
-     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\renderasm.cpp(1887): warning C4731: 'HLineTxModel2' : frame pointer register 'ebp' modified by inline assembly code
-       ResourceCompile:
-         C:\Program Files\Windows Kits\8.1\bin\x86\rc.exe /D _VC80_UPGRADE=0x0700 /l"0x0409" /nologo /fo"Debug_C2_Soft\resource.res" resource.rc 
-     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Debug_C2_Soft\engine.exe) does not match the Linker's OutputFile property value (\\psf\Home\Downloads\carnivores-src_minorenhanced_build\Debug_C2\V_SOFT.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+         Compiling...
+         CE_AI.cpp
+     1>\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_ai.cpp(49): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+         C2HuntableCharacter.cpp
+         Audio_DLL.cpp
+         Generating Code...
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Debug_C2_Soft\engine.exe) does not match the Linker's OutputFile property value (Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.exe) does not match the Linker's OutputFile property value (.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(engine) does not match the Linker's OutputFile property value (V_SOFT). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"../Debug_C2/V_SOFT.REN" /INCREMENTAL /NOLOGO ddraw.lib winmm.lib RakNetLibStatic.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug_C2_Soft\engine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Debug_C2_Soft\engine.lib" /MACHINE:X86 /SAFESEH Debug_C2_Soft\resource.res
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN" /INCREMENTAL /NOLOGO ddraw.lib winmm.lib RakNetLibStatic.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug_C2_Soft\engine.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Debug_C2_Soft\engine.lib" /MACHINE:X86 /SAFESEH Debug_C2_Soft\resource.res
          Debug_C2_Soft\Audio_DLL.obj
+         Debug_C2_Soft\C2HuntableCharacter.obj
          Debug_C2_Soft\CE_AI.obj
+         Debug_C2_Soft\CE_ArtificialIntelligence.obj
          Debug_C2_Soft\CE_Characters.obj
          Debug_C2_Soft\CE_EnhancedSound.obj
          Debug_C2_Soft\CE_Game.obj
@@ -192,58 +200,98 @@
          Debug_C2_Soft\CE_RenderSoft.obj
          Debug_C2_Soft\CE_Resources.obj
          Debug_C2_Soft\CE_vehicle.obj
+         Debug_C2_Soft\C2AnimatableModel.obj
+         Debug_C2_Soft\C2Character.obj
+         Debug_C2_Soft\CE_Allosaurus.obj
          Debug_C2_Soft\irrXML.obj
          Debug_C2_Soft\mathematics.obj
          Debug_C2_Soft\xmlParser.obj
      1>Audio_DLL.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-     1>RakNetLibStatic.lib(BitStream.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(BitStream.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakString.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakString.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakMemoryOverride.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakMemoryOverride.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(StringCompressor.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(StringCompressor.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(SimpleMutex.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(SimpleMutex.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakThread.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(RakThread.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
-     1>RakNetLibStatic.lib(DS_HuffmanEncodingTree.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_Network.obj
-     1>RakNetLibStatic.lib(DS_HuffmanEncodingTree.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_Network.obj
+     1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakPeer.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakPeer.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(BitStream.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(BitStream.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakString.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakString.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(PluginInterface2.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(PluginInterface2.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakThread.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakThread.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(SimpleMutex.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(SimpleMutex.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(ReliabilityLayer.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(ReliabilityLayer.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(StringCompressor.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(StringCompressor.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(StringTable.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(StringTable.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakMemoryOverride.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(RakMemoryOverride.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(CCRakNetSlidingWindow.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(CCRakNetSlidingWindow.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(DR_SHA1.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(DR_SHA1.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(DS_HuffmanEncodingTree.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(DS_HuffmanEncodingTree.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(DS_ByteQueue.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(DS_ByteQueue.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in CE_AI.obj
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MTd_StaticDebug' in CE_AI.obj
      1>LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>CE_Network.obj : error LNK2019: unresolved external symbol "public: static class RakPeerInterface * __cdecl RakNetworkFactory::GetRakPeerInterface(void)" (?GetRakPeerInterface@RakNetworkFactory@@SAPAVRakPeerInterface@@XZ) referenced in function "void __cdecl InitNetwork(void)" (?InitNetwork@@YAXXZ)
-     1>CE_Network.obj : error LNK2019: unresolved external symbol "public: static void __cdecl RakNetworkFactory::DestroyRakPeerInterface(class RakPeerInterface *)" (?DestroyRakPeerInterface@RakNetworkFactory@@SAXPAVRakPeerInterface@@@Z) referenced in function "void __cdecl DestroyNetwork(void)" (?DestroyNetwork@@YAXXZ)
-     1>CE_Network.obj : error LNK2019: unresolved external symbol "public: __thiscall SocketDescriptor::SocketDescriptor(void)" (??0SocketDescriptor@@QAE@XZ) referenced in function "void __cdecl InitNetwork(void)" (?InitNetwork@@YAXXZ)
-     1>CE_Network.obj : error LNK2019: unresolved external symbol "public: __thiscall SocketDescriptor::SocketDescriptor(unsigned short,char const *)" (??0SocketDescriptor@@QAE@GPBD@Z) referenced in function "void __cdecl InitNetwork(void)" (?InitNetwork@@YAXXZ)
-     1>CE_Network.obj : error LNK2019: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ) referenced in function "public: __thiscall AddressOrGUID::AddressOrGUID(struct SystemAddress const &)" (??0AddressOrGUID@@QAE@ABUSystemAddress@@@Z)
-     1>CE_Network.obj : error LNK2019: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z) referenced in function "public: __thiscall NetworkID::NetworkID(void)" (??0NetworkID@@QAE@XZ)
-     1>RakNetLibStatic.lib(BitStream.obj) : error LNK2019: unresolved external symbol __imp__htonl@4 referenced in function "public: bool __thiscall RakNet::BitStream::Read<unsigned short>(unsigned short &)" (??$Read@G@BitStream@RakNet@@QAE_NAAG@Z)
-     1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2001: unresolved external symbol __imp__htonl@4
+     1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2019: unresolved external symbol __imp__htonl@4 referenced in function "public: bool __thiscall RakNet::SystemAddress::IsLoopback(void)const " (?IsLoopback@SystemAddress@RakNet@@QBE_NXZ)
+     1>RakNetLibStatic.lib(BitStream.obj) : error LNK2001: unresolved external symbol __imp__htonl@4
      1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2019: unresolved external symbol __imp__htons@4 referenced in function "public: __thiscall RakNet::SystemAddress::SystemAddress(char const *)" (??0SystemAddress@RakNet@@QAE@PBD@Z)
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2001: unresolved external symbol __imp__htons@4
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2001: unresolved external symbol __imp__htons@4
      1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2019: unresolved external symbol __imp__inet_addr@4 referenced in function "public: bool __thiscall RakNet::SystemAddress::SetBinaryAddress(char const *,char)" (?SetBinaryAddress@SystemAddress@RakNet@@QAE_NPBDD@Z)
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2001: unresolved external symbol __imp__inet_addr@4
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2001: unresolved external symbol __imp__inet_addr@4
      1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2019: unresolved external symbol __imp__inet_ntoa@4 referenced in function "public: void __thiscall RakNet::SystemAddress::ToString_Old(bool,char *,char)const " (?ToString_Old@SystemAddress@RakNet@@QBEX_NPADD@Z)
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2001: unresolved external symbol __imp__inet_ntoa@4
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2001: unresolved external symbol __imp__inet_ntoa@4
      1>RakNetLibStatic.lib(RakNetTypes.obj) : error LNK2019: unresolved external symbol __imp__ntohs@4 referenced in function "public: __thiscall RakNet::SystemAddress::SystemAddress(char const *,unsigned short)" (??0SystemAddress@RakNet@@QAE@PBDG@Z)
+     1>RakNetLibStatic.lib(RakPeer.obj) : error LNK2001: unresolved external symbol __imp__ntohs@4
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__bind@12 referenced in function "protected: enum RakNet::RNS2BindResult __thiscall RakNet::RNS2_Berkley::BindSharedIPV4(struct RakNet::RNS2_BerkleyBindParameters *,char const *,unsigned int)" (?BindSharedIPV4@RNS2_Berkley@RakNet@@IAE?AW4RNS2BindResult@2@PAURNS2_BerkleyBindParameters@2@PBDI@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2001: unresolved external symbol __imp__bind@12
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__closesocket@4 referenced in function "public: virtual __thiscall RakNet::RNS2_Berkley::~RNS2_Berkley(void)" (??1RNS2_Berkley@RakNet@@UAE@XZ)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2001: unresolved external symbol __imp__closesocket@4
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__ioctlsocket@12 referenced in function "protected: enum RakNet::RNS2BindResult __thiscall RakNet::RNS2_Berkley::BindSharedIPV4(struct RakNet::RNS2_BerkleyBindParameters *,char const *,unsigned int)" (?BindSharedIPV4@RNS2_Berkley@RakNet@@IAE?AW4RNS2BindResult@2@PAURNS2_BerkleyBindParameters@2@PBDI@Z)
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2001: unresolved external symbol __imp__ioctlsocket@12
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__getsockname@12 referenced in function "protected: static void __cdecl RakNet::RNS2_Berkley::GetSystemAddressIPV4(int,struct RakNet::SystemAddress *)" (?GetSystemAddressIPV4@RNS2_Berkley@RakNet@@KAXHPAUSystemAddress@2@@Z)
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2001: unresolved external symbol __imp__getsockname@12
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__getsockopt@20 referenced in function "protected: static int __cdecl RakNet::RNS2_Windows_Linux_360::Send_Windows_Linux_360NoVDP(int,struct RakNet::RNS2_SendParameters *,char const *,unsigned int)" (?Send_Windows_Linux_360NoVDP@RNS2_Windows_Linux_360@RakNet@@KAHHPAURNS2_SendParameters@2@PBDI@Z)
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__recvfrom@24 referenced in function "protected: void __thiscall RakNet::RNS2_Berkley::RecvFromBlockingIPV4(struct RakNet::RNS2RecvStruct *)" (?RecvFromBlockingIPV4@RNS2_Berkley@RakNet@@IAEXPAURNS2RecvStruct@2@@Z)
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__sendto@24 referenced in function "protected: static int __cdecl RakNet::RNS2_Windows_Linux_360::Send_Windows_Linux_360NoVDP(int,struct RakNet::RNS2_SendParameters *,char const *,unsigned int)" (?Send_Windows_Linux_360NoVDP@RNS2_Windows_Linux_360@RakNet@@KAHHPAURNS2_SendParameters@2@PBDI@Z)
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__setsockopt@20 referenced in function "protected: enum RakNet::RNS2BindResult __thiscall RakNet::RNS2_Berkley::BindSharedIPV4(struct RakNet::RNS2_BerkleyBindParameters *,char const *,unsigned int)" (?BindSharedIPV4@RNS2_Berkley@RakNet@@IAE?AW4RNS2BindResult@2@PAURNS2_BerkleyBindParameters@2@PBDI@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2001: unresolved external symbol __imp__setsockopt@20
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2001: unresolved external symbol __imp__setsockopt@20
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__socket@12 referenced in function "protected: enum RakNet::RNS2BindResult __thiscall RakNet::RNS2_Berkley::BindSharedIPV4(struct RakNet::RNS2_BerkleyBindParameters *,char const *,unsigned int)" (?BindSharedIPV4@RNS2_Berkley@RakNet@@IAE?AW4RNS2BindResult@2@PAURNS2_BerkleyBindParameters@2@PBDI@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2001: unresolved external symbol __imp__socket@12
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__gethostbyname@4 referenced in function "void __cdecl DomainNameToIP_Berkley_IPV4(char const *,char * const)" (?DomainNameToIP_Berkley_IPV4@@YAXPBDQAD@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2001: unresolved external symbol __imp__gethostbyname@4
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2001: unresolved external symbol __imp__gethostbyname@4
      1>RakNetLibStatic.lib(RakNetSocket2.obj) : error LNK2019: unresolved external symbol __imp__gethostname@8 referenced in function "void __cdecl GetMyIP_Windows_Linux_IPV4(struct RakNet::SystemAddress * const)" (?GetMyIP_Windows_Linux_IPV4@@YAXQAUSystemAddress@RakNet@@@Z)
-     1>../Debug_C2/V_SOFT.REN : fatal error LNK1120: 22 unresolved externals
-     1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" (Rebuild target(s)) -- FAILED.
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2001: unresolved external symbol __imp__gethostname@8
+     1>RakNetLibStatic.lib(WSAStartupSingleton.obj) : error LNK2019: unresolved external symbol __imp__WSAStartup@8 referenced in function "public: static void __cdecl WSAStartupSingleton::AddRef(void)" (?AddRef@WSAStartupSingleton@@SAXXZ)
+     1>RakNetLibStatic.lib(WSAStartupSingleton.obj) : error LNK2019: unresolved external symbol __imp__WSACleanup@0 referenced in function "public: static void __cdecl WSAStartupSingleton::Deref(void)" (?Deref@WSAStartupSingleton@@SAXXZ)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol ___WSAFDIsSet@8 referenced in function "unsigned int __stdcall RakNet::UpdateTCPInterfaceLoop(void *)" (?UpdateTCPInterfaceLoop@RakNet@@YGIPAX@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol __imp__accept@12 referenced in function "unsigned int __stdcall RakNet::UpdateTCPInterfaceLoop(void *)" (?UpdateTCPInterfaceLoop@RakNet@@YGIPAX@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol __imp__connect@12 referenced in function "protected: unsigned int __thiscall RakNet::TCPInterface::SocketConnect(char const *,unsigned short,unsigned short,char const *)" (?SocketConnect@TCPInterface@RakNet@@IAEIPBDGG0@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol __imp__listen@8 referenced in function "protected: bool __thiscall RakNet::TCPInterface::CreateListenSocket(unsigned short,unsigned short,unsigned short,char const *)" (?CreateListenSocket@TCPInterface@RakNet@@IAE_NGGGPBD@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol __imp__recv@16 referenced in function "public: int __thiscall RakNet::RemoteClient::Recv(char *,int)" (?Recv@RemoteClient@RakNet@@QAEHPADH@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol __imp__select@20 referenced in function "unsigned int __stdcall RakNet::UpdateTCPInterfaceLoop(void *)" (?UpdateTCPInterfaceLoop@RakNet@@YGIPAX@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol __imp__send@16 referenced in function "public: int __thiscall RakNet::RemoteClient::Send(char const *,unsigned int)" (?Send@RemoteClient@RakNet@@QAEHPBDI@Z)
+     1>RakNetLibStatic.lib(TCPInterface.obj) : error LNK2019: unresolved external symbol __imp__shutdown@8 referenced in function "public: void __thiscall RakNet::TCPInterface::Stop(void)" (?Stop@TCPInterface@RakNet@@QAEXXZ)
+     1>RakNetLibStatic.lib(SocketLayer.obj) : error LNK2019: unresolved external symbol __imp__WSAIoctl@36 referenced in function "public: static class RakNet::RakString __cdecl RakNet::SocketLayer::GetSubNetForSocketAndIp(unsigned int,class RakNet::RakString)" (?GetSubNetForSocketAndIp@SocketLayer@RakNet@@SA?AVRakString@2@IV32@@Z)
+     1>Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN : fatal error LNK1120: 27 unresolved externals
+     1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:24.26
+Time Elapsed 00:00:13.96

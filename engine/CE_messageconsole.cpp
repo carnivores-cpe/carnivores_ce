@@ -5,6 +5,9 @@
 
 #include "hunt.h"
 
+#include "C2CharacterCollection.h"
+#include "CE_Allosaurus.h"
+
 // -> External Functions accessed
 void CallSupply();
 void SwitchMode(LPSTR lps, BOOL& b);
@@ -71,6 +74,24 @@ void Console_PlaceJeep()
 	Console_PrintLog(logt);
 }
 
+void Console_PrintManagedCharacterStats()
+{
+	int numCharacters = ManagedC2Characters->size();
+	wsprintf(logt, "Number of Managed Characters: %d", numCharacters);
+	Console_PrintLog(logt);
+
+	for (int c = 0; c < numCharacters; c++) {
+		C2Character* charDetail = ManagedC2Characters->at(0);
+		std::string debugginInfo = "";
+		charDetail->printDebuggingInfo(debugginInfo);
+		char *cstr = new char[debugginInfo.length() + 1];
+		strcpy(cstr, debugginInfo.c_str());
+
+		wsprintf(logt, "Debugging Info: %s", cstr);
+		Console_PrintLog(logt);
+	}
+}
+
 void Console_ProcessInput(void*) {
 	// == Process Console Input Commands and Vars == //
 	//AddVoicev(TypeSound[1].length, 
@@ -79,6 +100,8 @@ void Console_ProcessInput(void*) {
 
 	/* -> List <- */
 	// -> Developer Toggles/Tools
+	if (Console_TypedTextParseCheck("managed_characters debug"))
+		Console_PrintManagedCharacterStats();
 	if (Console_TypedTextParseCheck("place jeep"))
 		Console_PlaceJeep();
 	if (Console_TypedTextParseCheck("place body"))

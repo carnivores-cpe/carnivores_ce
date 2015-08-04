@@ -1,4 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_C2_Soft|Win32'">
+    <LocalDebuggerCommandArguments>reg=00 prj=HUNTDAT\AREAS\area1 din=6 wep=6 dtm=1 -debug -double -radar</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>..\..\CCEv1.12.4ADP\Carnivores 2\Carnivores 2</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>\\psf\Home\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN</LocalDebuggerCommand>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_C2_D3D|Win32'">
+    <LocalDebuggerCommand>\\psf\Home\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_D3D.REN</LocalDebuggerCommand>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>reg=00 prj=HUNTDAT\AREAS\area1 din=6 wep=6 dtm=1 -debug -double -radar</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>..\..\CCEv1.12.4ADP\Carnivores 2\Carnivores 2</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
 </Project>

@@ -1,5 +1,4 @@
-#ifndef HUNT_HEADER
-#define HUNT_HEADER
+#pragma once
 
 #include "math.h"
 #include <WinSock2.h>
@@ -826,6 +825,8 @@ _EXTORNOT TCharacterInfo WindModel;
 _EXTORNOT TCharacterInfo PlayerInfo;
 _EXTORNOT TCharacterInfo ChInfo[64][256]; //Up to 256 characters per AI. This holds model data
 _EXTORNOT TCharacter     Characters[256];
+class C2CharacterCollection;
+_EXTORNOT C2CharacterCollection* ManagedC2Characters; // Pointer to a C2Characters. Replace this with Character Manager in World/Level
 _EXTORNOT TVehicle		 Vehicles[5];
 _EXTORNOT TWCircle       WCircles[128];
 _EXTORNOT TSnowElement   Snow[8024];
@@ -1212,6 +1213,4 @@ _EXTORNOT char KeysName[256][24] = {
 	};
 #else
    _EXTORNOT char KeysName[128][24];
-#endif
-
 #endif

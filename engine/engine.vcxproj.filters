@@ -111,6 +111,12 @@
     <ClCompile Include="xmlParser.cpp">
       <Filter>Source Files\CE</Filter>
     </ClCompile>
+    <ClCompile Include="C2HuntableCharacter.cpp">
+      <Filter>Source Files\Characters\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C2CharacterCollection.cpp">
+      <Filter>Source Files\Characters\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hunt.h">
@@ -135,6 +141,9 @@
       <Filter>Header Files\Characters\Common</Filter>
     </ClInclude>
     <ClInclude Include="characters\C2HuntableCharacter.h">
+      <Filter>Header Files\Characters\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C2CharacterCollection.h">
       <Filter>Header Files\Characters\Common</Filter>
     </ClInclude>
   </ItemGroup>

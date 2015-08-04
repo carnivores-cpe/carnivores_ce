@@ -25,5 +25,5 @@ public:
 	~CE_ArtificialIntelligence();
 	virtual void tick(time_t timestamp) = 0;
 };
-typedef std::tr1::shared_ptr<CE_ArtificialIntelligence> CE_ArtificialIntelligencePtr;
+//typedef std::tr1::shared_ptr<CE_ArtificialIntelligence> CE_ArtificialIntelligencePtr;
 

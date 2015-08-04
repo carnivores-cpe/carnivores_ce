@@ -1,4 +1,7 @@
 #include "Hunt.h"
+#include <memory>
+#include <vector>
+#include "C2CharacterCollection.h"
 
 void SetupRes()
 {
@@ -831,7 +834,10 @@ void InitEngine()
 	FogsList[127].FLimit = 200;
 
 	FillMemory( FogsMap, sizeof(FogsMap), 0);
-	PrintLog("Init Engine: Ok.\n");
+
+  // Init managed characters
+  ManagedC2Characters = new C2CharacterCollection();
+  PrintLog("Init Engine: Ok.\n");
 }
 
 
@@ -973,6 +979,7 @@ DWORD ColorSum(DWORD C1, DWORD C2)
 void AddElements(float x, float y, float z, int etype, int cnt)
 {
 	if (ElCount > 30) {
+		// water shoot crash in here
 		memcpy(&Elements[0], &Elements[1], (ElCount-1) * sizeof(TElements));
 		ElCount--;
 	}
@@ -1118,8 +1125,8 @@ ENDTRACE:
 
     
   if (sres == tresWater) {
-	  AddElements(bx, by, bz, partWater, (int)(4 + WeapInfo[CurrentWeapon].Power*3));
-	  //AddElements(bx, GetLandH(bx, bz), bz, partBubble);  
+	  //AddElements(bx, by, bz, partWater, (int)(4 + WeapInfo[CurrentWeapon].Power*3)); // this line causes memory overflow.
+	  AddElements(bx, GetLandH(bx, bz), bz, partBubble, 1);  
 	  AddWCircle(bx, bz, 1.2f);
 	  AddWCircle(bx, bz, 1.2f);
   }
