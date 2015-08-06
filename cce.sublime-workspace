@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"character",
+				"character_state"
+			],
+			[
+				"in",
+				"intelligence"
+			],
+			[
+				"C2",
+				"C2AnimatableModel"
+			],
+			[
+				"Am",
+				"AmbientHerbivore"
+			],
+			[
 				"vehicle",
 				"vehicle_type"
 			],
@@ -271,6 +287,97 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "engine/characters/C2Character.h",
+			"settings":
+			{
+				"buffer_size": 2145,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "engine/characters/C2Character.cpp",
+			"settings":
+			{
+				"buffer_size": 3088,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "engine/CE_Hunt.cpp",
+			"settings":
+			{
+				"buffer_size": 66266,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "engine/Hunt.h",
+			"settings":
+			{
+				"buffer_size": 28227,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "engine/CE_Game.cpp",
+			"settings":
+			{
+				"buffer_size": 53626,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "engine/characters/C2AnimatableModel.h",
+			"settings":
+			{
+				"buffer_size": 544,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "engine/CE_Resources.cpp",
+			"settings":
+			{
+				"buffer_size": 64853,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "engine/TCharacterInfoCache.h",
+			"settings":
+			{
+				"buffer_size": 506,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "engine/TCharacterInfoCache.cpp",
+			"settings":
+			{
+				"buffer_size": 760,
+				"line_ending": "Unix",
+				"name": "#include <TCharacterCache.h>"
+			}
+		},
+		{
+			"contents": "Searching 442 files for \"LoadCharacterInfo\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp:\n 2307  \n 2308  	PrintLog(\"Loading common character info...\");\n 2309: 	LoadCharacterInfo(WCircleModel , \"HUNTDAT\\\\WCIRCLE2.CAR\"); 	\n 2310: 	LoadCharacterInfo(ShipModel, \"HUNTDAT\\\\ship2a.car\"); \n 2311: 	LoadCharacterInfo(WindModel, \"HUNTDAT\\\\WIND.CAR\");\n 2312  \n 2313:     LoadCharacterInfo(SShipModel, \"HUNTDAT\\\\sship1.car\"); \n 2314:     LoadCharacterInfo(AmmoModel, \"HUNTDAT\\\\bag1.car\"); \n 2315  	PrintLog(\"done\\n\");\n 2316  \n 2317  	//-> Only display this if in software mode...\n 2318: 	//LoadCharacterInfo(ExploCar,\"HUNTDAT\\\\EXPLO.car\");\n 2319  \n 2320  	LoadWav(\"HUNTDAT\\\\SOUNDFX\\\\a_underw.wav\",  fxUnderwater);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n 1488  	pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!\n 1489  	PrintLog(\"Loading Dead Body Model hunter1rotten...\");\n 1490: 	LoadCharacterInfo(ChInfo[0][1], \"HUNTDAT\\\\hunter1rotten.car\");\n 1491  	//PrintLog(\"...Done\\n\");\n 1492  \n ....\n 1500  			wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1501  			PrintLog(\"Loading: \");	PrintLog(logt);	PrintLog(\"\\n\");\n 1502: 			LoadCharacterInfo(ChInfo[c][0], logt);\n 1503  \n 1504  			//PrintLog(\"Morphing Character... \\n\");\n ....\n 1511  					wsprintf(logt, \"HUNTDAT\\\\MODS\\\\%s\", DinoInfo[c][si+1].FName);\n 1512  					PrintLog(\"Loading Mod: \"); PrintLog(logt);PrintLog(\"\\n\");\n 1513: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1514  				} else {\n 1515  					//-> No file... Just load the skin replacement\n ....\n 1518  					wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1519  					PrintLog(\"Loading Mod Override for: \"); PrintLog(logt);\n 1520: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1521  					wsprintf(logt,\"HUNTDAT\\\\MODS\\\\%s\",DinoInfo[c][si+1].Skin);\n 1522  					LoadPictureTGA(tmppic,logt);\n ....\n 1555  			if (!Weapon.chinfo[c].mptr) {\n 1556  			  wsprintf(logt, \"HUNTDAT\\\\WEAPONS\\\\%s\", WeapInfo[c].FName);\n 1557:               LoadCharacterInfo(Weapon.chinfo[c], logt);\n 1558  			  PrintLog(\"Loading: \");  PrintLog(logt);  PrintLog(\"\\n\");			  \n 1559  			}\n ....\n 1678  \n 1679  \n 1680: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName)\n 1681  {\n 1682     ReleaseCharacterInfo(chinfo);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  661  void LoadPicture(TPicture &pic, LPSTR pname);\n  662  void LoadPictureTGA(TPicture &pic, LPSTR pname);\n  663: void LoadCharacterInfo(TCharacterInfo&, char*);\n  664  void LoadModelEx(TModel* &mptr, char* FName);\n  665  void LoadModel(TModel*&);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.cpp:\n    2  #include <Hunt.h>\n    3  \n    4: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName); //Resources.cpp\n    5  \n    6  TCharacherInfoCache::TCharacherInfoCache() : _objects(new TCharacterInfoCacheMap()) {}\n    .\n   19    TCharacterInfo* theTModelInfo = new TCharacterInfo;\n   20  \n   21:   LoadCharacterInfo(&theTModelInfo , \"HUNTDAT\\\\WCIRCLE2.CAR\"); \n   22    myMap[0] = std::make_unique<Class1>();\n   23  }\n\n15 matches across 4 files\n\n\nSearching 442 files for \"LoadCharacterInfo\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp:\n 2307  \n 2308  	PrintLog(\"Loading common character info...\");\n 2309: 	LoadCharacterInfo(WCircleModel , \"HUNTDAT\\\\WCIRCLE2.CAR\"); 	\n 2310: 	LoadCharacterInfo(ShipModel, \"HUNTDAT\\\\ship2a.car\"); \n 2311: 	LoadCharacterInfo(WindModel, \"HUNTDAT\\\\WIND.CAR\");\n 2312  \n 2313:     LoadCharacterInfo(SShipModel, \"HUNTDAT\\\\sship1.car\"); \n 2314:     LoadCharacterInfo(AmmoModel, \"HUNTDAT\\\\bag1.car\"); \n 2315  	PrintLog(\"done\\n\");\n 2316  \n 2317  	//-> Only display this if in software mode...\n 2318: 	//LoadCharacterInfo(ExploCar,\"HUNTDAT\\\\EXPLO.car\");\n 2319  \n 2320  	LoadWav(\"HUNTDAT\\\\SOUNDFX\\\\a_underw.wav\",  fxUnderwater);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n 1488  	pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!\n 1489  	PrintLog(\"Loading Dead Body Model hunter1rotten...\");\n 1490: 	LoadCharacterInfo(ChInfo[0][1], \"HUNTDAT\\\\hunter1rotten.car\");\n 1491  	//PrintLog(\"...Done\\n\");\n 1492  \n ....\n 1500  			wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1501  			PrintLog(\"Loading: \");	PrintLog(logt);	PrintLog(\"\\n\");\n 1502: 			LoadCharacterInfo(ChInfo[c][0], logt);\n 1503  \n 1504  			//PrintLog(\"Morphing Character... \\n\");\n ....\n 1511  					wsprintf(logt, \"HUNTDAT\\\\MODS\\\\%s\", DinoInfo[c][si+1].FName);\n 1512  					PrintLog(\"Loading Mod: \"); PrintLog(logt);PrintLog(\"\\n\");\n 1513: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1514  				} else {\n 1515  					//-> No file... Just load the skin replacement\n ....\n 1518  					wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1519  					PrintLog(\"Loading Mod Override for: \"); PrintLog(logt);\n 1520: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1521  					wsprintf(logt,\"HUNTDAT\\\\MODS\\\\%s\",DinoInfo[c][si+1].Skin);\n 1522  					LoadPictureTGA(tmppic,logt);\n ....\n 1555  			if (!Weapon.chinfo[c].mptr) {\n 1556  			  wsprintf(logt, \"HUNTDAT\\\\WEAPONS\\\\%s\", WeapInfo[c].FName);\n 1557:               LoadCharacterInfo(Weapon.chinfo[c], logt);\n 1558  			  PrintLog(\"Loading: \");  PrintLog(logt);  PrintLog(\"\\n\");			  \n 1559  			}\n ....\n 1678  \n 1679  \n 1680: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName)\n 1681  {\n 1682     ReleaseCharacterInfo(chinfo);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  661  void LoadPicture(TPicture &pic, LPSTR pname);\n  662  void LoadPictureTGA(TPicture &pic, LPSTR pname);\n  663: void LoadCharacterInfo(TCharacterInfo&, char*);\n  664  void LoadModelEx(TModel* &mptr, char* FName);\n  665  void LoadModel(TModel*&);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.cpp:\n    2  #include <Hunt.h>\n    3  \n    4: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName); //Resources.cpp\n    5  \n    6  TCharacherInfoCache::TCharacherInfoCache() : _objects(new TCharacterInfoCacheMap()) {}\n    .\n   19    TCharacterInfo* theTModelInfo = new TCharacterInfo;\n   20  \n   21:   LoadCharacterInfo(*theTModelInfo , \"HUNTDAT\\\\WCIRCLE2.CAR\"); \n   22    myMap[0] = std::make_unique<Class1>();\n   23  }\n\n15 matches across 4 files\n\n\nSearching 442 files for \"AI_to_CIndex\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp:\n 7655  	int tr = 0;\n 7656  	if (pid == 999) ServerCh = ChCount;\n 7657: 	Characters[ChCount].CType = AI_to_CIndex[AI_PLAYERS]; \n 7658  	//I need a command to \"hook\" player to the model\n 7659  	//replaceAgain3:\n ....\n 7782     tr = 0;\n 7783     for (c=0; c<3; c++) {     \n 7784: 	 Characters[ChCount].CType = AI_to_CIndex[AI_BRACH];\n 7785  replace3:\n 7786  	 Characters[ChCount].pos.x = 512*256 + siRand(50*256)*10.f;\n ....\n 7818     for (c=0; c<MC; c++) {     \n 7819  	\n 7820: 	 if ((c<4) || (!TargetDino)) Characters[ChCount].CType = AI_to_CIndex[10] + rRand(6); else\n 7821  #ifdef _iceage // alacn\n 7822       if (c<10) \n 7823  #endif\n 7824: 		 Characters[ChCount].CType = AI_to_CIndex[ TDi[c % (TC)] ]; //Picks one of the target dinosaurs\n 7825  #ifdef _iceage // alacn\n 7826:           else Characters[ChCount].CType = AI_to_CIndex[ TDi[rRand(TC-1)] ];\n 7827  #endif\n 7828:      //Characters[ChCount].CType = AI_to_CIndex[ AI_BIGFOOT];\n 7829  	 //Characters[ChCount].AI = AI_BIGFOOT;\n 7830: 	 //Characters[ChCount].CType = AI_to_CIndex[10] + 7;//rRand(3);     \n 7831  replace2:\n 7832  	 Characters[ChCount].pos.x = (float)(512*256 + siRand(50*256)*10);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Game.cpp:\n  547  	}\n  548  	// ======== Player Model info ========= //\n  549: 	DinoInfo[AI_to_CIndex[AI_PLAYERS]][0].AI = AI_to_CIndex[AI_PLAYERS];\n  550: 	wsprintf(DinoInfo[AI_to_CIndex[AI_PLAYERS]][0].FName, \"huntdat\\\\bigfoot.car\");\n  551: 	DinoInfo[AI_to_CIndex[AI_PLAYERS]][0].SubAICount = 0;\n  552  /*\n  553      WeapInfo[0].Name = \"Shotgun\";\n  ...\n  931  	 TCharacter *cptr = &Characters[c];\n  932  \n  933: 	 if (DinoInfo[AI_to_CIndex[TargetCall] ][cptr->SUBAI].DangerCall)\n  934  		 if (cptr->AI<10) {\n  935  			 cptr->State=2;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp:\n  797     ChCallTime-=TimeDt;\n  798     if (ChCallTime<0) ChCallTime=0;\n  799:    DrawPicture(WinW - 10 - DinoInfo[ AI_to_CIndex[TargetCall] ][0].CallIcon.W, 7, \n  800: 	           DinoInfo[ AI_to_CIndex[TargetCall] ][0].CallIcon);\n  801    }\n  802  \n  ...\n  891  		if (TargetDino & (1<<TargetCall)) break;\n  892  	}\n  893: 	//wsprintf(logt,\"Call: %s\", DinoInfo[ AI_to_CIndex[TargetCall] ].Name);\n  894  	//AddMessage(logt);\n  895  	//CallLockTime+= 1024;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n 1486  	TPicture tmppic;\n 1487  	pres[0]=TRUE;\n 1488: 	pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!\n 1489  	PrintLog(\"Loading Dead Body Model hunter1rotten...\");\n 1490  	LoadCharacterInfo(ChInfo[0][1], \"HUNTDAT\\\\hunter1rotten.car\");\n ....\n 1544  #endif\n 1545  		if (TargetDino & (1<<c) && c != AI_PLAYERS) 	\n 1546: 			if (!DinoInfo[AI_to_CIndex[c]][0].CallIcon.lpImage) {		\n 1547  			  wsprintf(logt, \"HUNTDAT\\\\MENU\\\\PICS\\\\call%d.tga\", c-9);\n 1548: 	          LoadPictureTGA(DinoInfo[AI_to_CIndex[c]][0].CallIcon, logt); \n 1549: 			  conv_pic(DinoInfo[AI_to_CIndex[c]][0].CallIcon);\n 1550  			}\n 1551  \n ....\n 2068  					//DinoInfo[TotalC][0].AI        = atoi(value);\n 2069  					//-> Register new mod\n 2070: 					parentAI = AI_to_CIndex[atoi(value)];\n 2071  					DinoInfo[parentAI][0].SubAICount++;\n 2072  					newSUBAI = DinoInfo[parentAI][0].SubAICount; \n ....\n 2178  				\n 2179  				if (strstr(line, \"}\")) { \n 2180:                     AI_to_CIndex[DinoInfo[TotalC][0].AI] = TotalC;\n 2181  					TotalC++; \n 2182  					break; \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  819  _EXTORNOT TWeapInfo WeapInfo[10];\n  820  _EXTORNOT TCharacterInfo ShipModel, SShipModel, AmmoModel;\n  821: _EXTORNOT int AI_to_CIndex[64];\n  822  _EXTORNOT int ChCount, WCCount, ElCount, SnCount,\n  823                ShotDino, TrophyBody, ServerCh, MPlayersCount, human_model_ch;\n\n22 matches across 5 files\n",
+			"settings":
+			{
+				"buffer_size": 10328,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "engine/characters/C2AnimatableModel.cpp",
+			"settings":
+			{
+				"buffer_size": 128,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -308,6 +415,26 @@
 	},
 	"file_history":
 	[
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/globals.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_ArtificialIntelligence.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2Character.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Allosaurus.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_ArtificialIntelligence.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Allosaurus.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2AnimatableModel.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2HuntableCharacter.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2AnimatableModel.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/AI_Allosaurus.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2Character.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/layout.json",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/CEArtificialIntelligence.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_AI.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/CE_Allosaurus.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/CEArtificialIntelligence.cpp",
 		"/Users/tminard/Downloads/CCEv1.12.4ADP/CCERelease/HUNTDAT/AREAS/area1.c2map",
 		"/Users/tminard/Downloads/CCEv1.12.4ADP/CCERelease/HUNTDAT/AREAS/area2.c2map",
 		"/Users/tminard/Downloads/CCEv1.12.4ADP/CCERelease/HUNTDAT/AREAS/area3.c2map",
@@ -415,27 +542,7 @@
 		"/Users/tminard/Documents/Source/Fortis/global-driver-2/Gemfile.lock",
 		"/Users/tminard/Documents/Source/Fortis/global-driver-2/config/routes.rb",
 		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/controllers/person_users_controller.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/devise/invitations/edit.html.haml",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/client_portal/devise/invitations/edit.html.haml",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/layouts/devise/external.html.haml",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/devise/shared/_links.html.haml",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/controllers/devise_overrides/invitations_controller.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/billing/invoicing/billing_group_invoice_email.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/billing/billing_group_invoices/invoice_presenter.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/config/application.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/billing/billing_group_finalization.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/controllers/billing/invoicing/billing_group_invoice_emails_controller.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/billing/invoicing/billing_group_invoice_emails/new.html.haml",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/client_portal/invite_presenter.rb",
-		"/Users/tminard/Documents/Source/Fortis/devise/lib/devise/models/recoverable.rb",
-		"/Users/tminard/Documents/Source/Fortis/devise/lib/devise/models/authenticatable.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/person_user.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/mailers/client_portal_invites_mailer.rb",
-		"/Users/tminard/Documents/Source/Fortis/devise/README.md",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/mailers/client_confirmations_mailer.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/mailers/billing/invoicing/invoice_mailer.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/layouts/client_email.html.haml",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/billing/invoicing/invoice_mailer/invoice_email.html.haml"
+		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/devise/invitations/edit.html.haml"
 	],
 	"find":
 	{
@@ -443,9 +550,13 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"",
+			"hunt.h",
+			"",
+			"hunt.h",
 			"",
 			"*.rb",
 			"",
@@ -483,6 +594,47 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"AI_to_CIndex",
+			"LoadCharacterInfo",
+			"WCircleModel",
+			"LoadCharacterInfo",
+			"ChInfo",
+			"TModel",
+			"InitEngine",
+			"CreateMainWindow",
+			"main",
+			"Characters",
+			"_legacy_tcharacter_state",
+			"Characters[",
+			";",
+			"void ",
+			"virtual ",
+			"int ",
+			"    virtual ",
+			"{ return 0; }",
+			"{ return; }",
+			"\nvirtual void ",
+			"{ return; }",
+			"virtual",
+			";",
+			"pinfo",
+			"AnimateRa",
+			"AI_",
+			"AI_RE",
+			"RAP",
+			"AI_RAP",
+			"pinfo",
+			"ChInfo",
+			"pinfo",
+			"ChInfo",
+			"LoadCharacterInfo",
+			"TCharacterInfo",
+			"TModel",
+			"mptr",
+			"ChInfo",
+			"LoadCharacterInfo",
+			"LoadCharac",
+			"CharacterAnimation",
 			"CIN+1",
 			"AS80D492C9D4",
 			"EARLY-AM",
@@ -569,48 +721,7 @@
 			"_presenter",
 			"Presenter",
 			"presentor",
-			"invoice_presenter",
-			"services_provided_by_text",
-			"invoice_email",
-			"invitable",
-			"send_devise_notification",
-			"invoice_presenter",
-			"invoice_email",
-			"sign_in_after_reset_password",
-			"rswanson@fortisnet.com",
-			"sign_in_after_reset_password",
-			"jQueryUI",
-			"reservation_edit_actions_button_tag",
-			"commonality_originating_page",
-			"run_query_for_worklist_forecast",
-			"e_id = nil)",
-			"has_associated_model",
-			" begin_time, :end_time => end_time)",
-			"worklist_forecast",
-			"me, end_time)",
-			", end_time",
-			"run_query_for_worklist_forecast",
-			"writeoff_transactions_summary",
-			"dispatch_tasks_summary",
-			"writeoff_transactions_summary",
-			"recent_incident_labels",
-			"datatables_tab_results_count_label_tag",
-			"client",
-			"roadshow_id",
-			"search_partial",
-			"rabbitMQ",
-			"sync_with_reservation_data",
-			"send_to",
-			"precompile",
-			"Start (Local)",
-			"Start (local)",
-			"datatableBase",
-			"pageLength",
-			"orderable",
-			"rate_for",
-			"affiliate_rate_type",
-			"properties_from_affiliate_rate_type_rate",
-			"as_rateable"
+			"invoice_presenter"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -627,6 +738,527 @@
 	},
 	"groups":
 	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "engine/characters/C2Character.h",
+					"settings":
+					{
+						"buffer_size": 2145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								446,
+								446
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "engine/characters/C2Character.cpp",
+					"settings":
+					{
+						"buffer_size": 3088,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 80.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "engine/CE_Hunt.cpp",
+					"settings":
+					{
+						"buffer_size": 66266,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								63442,
+								63442
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 34134.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "engine/Hunt.h",
+					"settings":
+					{
+						"buffer_size": 28227,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3955,
+								3965
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3948.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "engine/CE_Game.cpp",
+					"settings":
+					{
+						"buffer_size": 53626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19845,
+								19845
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "engine/characters/C2AnimatableModel.h",
+					"settings":
+					{
+						"buffer_size": 544,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								512,
+								518
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "engine/CE_Resources.cpp",
+					"settings":
+					{
+						"buffer_size": 64853,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38398,
+								38410
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 22068.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "engine/TCharacterInfoCache.h",
+					"settings":
+					{
+						"buffer_size": 506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								165,
+								165
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "engine/TCharacterInfoCache.cpp",
+					"settings":
+					{
+						"buffer_size": 760,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								756,
+								756
+							]
+						],
+						"settings":
+						{
+							"auto_name": "#include <TCharacterCache.h>",
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"settings":
+					{
+						"buffer_size": 10328,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										195,
+										212
+									],
+									[
+										264,
+										281
+									],
+									[
+										326,
+										343
+									],
+									[
+										396,
+										413
+									],
+									[
+										462,
+										479
+									],
+									[
+										614,
+										631
+									],
+									[
+										976,
+										993
+									],
+									[
+										1224,
+										1241
+									],
+									[
+										1483,
+										1500
+									],
+									[
+										1755,
+										1772
+									],
+									[
+										2047,
+										2064
+									],
+									[
+										2210,
+										2227
+									],
+									[
+										2511,
+										2528
+									],
+									[
+										2778,
+										2795
+									],
+									[
+										3036,
+										3053
+									],
+									[
+										3379,
+										3396
+									],
+									[
+										3448,
+										3465
+									],
+									[
+										3510,
+										3527
+									],
+									[
+										3580,
+										3597
+									],
+									[
+										3646,
+										3663
+									],
+									[
+										3798,
+										3815
+									],
+									[
+										4160,
+										4177
+									],
+									[
+										4408,
+										4425
+									],
+									[
+										4667,
+										4684
+									],
+									[
+										4939,
+										4956
+									],
+									[
+										5231,
+										5248
+									],
+									[
+										5394,
+										5411
+									],
+									[
+										5695,
+										5712
+									],
+									[
+										5962,
+										5979
+									],
+									[
+										6220,
+										6237
+									],
+									[
+										6594,
+										6606
+									],
+									[
+										6801,
+										6813
+									],
+									[
+										7028,
+										7040
+									],
+									[
+										7168,
+										7180
+									],
+									[
+										7316,
+										7328
+									],
+									[
+										7406,
+										7418
+									],
+									[
+										7520,
+										7532
+									],
+									[
+										7809,
+										7821
+									],
+									[
+										7843,
+										7855
+									],
+									[
+										7895,
+										7907
+									],
+									[
+										7973,
+										7985
+									],
+									[
+										8149,
+										8161
+									],
+									[
+										8453,
+										8465
+									],
+									[
+										8528,
+										8540
+									],
+									[
+										8700,
+										8712
+									],
+									[
+										8939,
+										8951
+									],
+									[
+										9240,
+										9252
+									],
+									[
+										9392,
+										9404
+									],
+									[
+										9460,
+										9472
+									],
+									[
+										9633,
+										9645
+									],
+									[
+										9848,
+										9860
+									],
+									[
+										10142,
+										10154
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								6368,
+								6368
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2325.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "engine/characters/C2AnimatableModel.cpp",
+					"settings":
+					{
+						"buffer_size": 128,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
 		{
 			"sheets":
 			[
@@ -650,11 +1282,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.898274265063,
 			1.0
 		],
 		"rows":

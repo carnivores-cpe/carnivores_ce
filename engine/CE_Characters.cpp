@@ -7852,6 +7852,8 @@ replace2:
 
    // Place test character
    CE_Allosaurus* allo = new CE_Allosaurus();
+   allo->place(PlayerX, PlayerZ, GetLandH(PlayerX, PlayerZ));
+
    ManagedC2Characters->add(allo);
 
    PrintLog("\n");

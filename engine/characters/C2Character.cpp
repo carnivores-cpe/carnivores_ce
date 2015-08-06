@@ -4,9 +4,11 @@
 #include <Hunt.h>
 
 C2Character::C2Character(CE_ArtificialIntelligence* intelligence_strategy, TCharacterInfo* character_info)
-	: intelligence(intelligence_strategy), C2AnimatableModel(character_info)
+	: intelligence(intelligence_strategy), C2AnimatableModel(character_info), _character_state( std::make_unique<TCharacter>() )
 {
-  _character_state = std::make_unique<TCharacter>();
+  // TODO: Need to get exact character model info from derived class
+	_character_state->CType = 1;
+	_character_state->pinfo = character_info;
 	resetState();
 }
 
@@ -36,6 +38,18 @@ void C2Character::updateWithTimestamp(time_t timestamp)
 
   // Loop animation if nearing completion
   return;
+}
+
+TCharacter* C2Character::getCharacterState()
+{
+	return _character_state.get();
+}
+
+void C2Character::place(float x, float z, float y)
+{
+	_character_state->pos.x = x;
+	_character_state->pos.y = y;
+	_character_state->pos.z = z;
 }
 
 void C2Character::resetState()

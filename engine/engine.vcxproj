@@ -253,7 +253,7 @@
     <OutDir>Release_C2_Soft\</OutDir>
     <IntDir>Release_C2_Soft\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Include;\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine;$(IncludePath)</IncludePath>
     <LibraryPath>\\psf\Home\Downloads\carnivores-src_minorenhanced_build\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_C2_3DFX|Win32'">
@@ -264,6 +264,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CCE_DX9|Win32'">
     <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>$(Configuration)\</IntDir>
+    <IncludePath>C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Include;\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Lib\x86;\\psf\Home\Downloads\carnivores-src_minorenhanced_build\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CCE_DX9|Win32'">
     <OutDir>$(Configuration)\</OutDir>
@@ -492,6 +494,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ddraw.lib;winmm.lib;RakNetLibStatic.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -507,7 +510,6 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_C2_Soft|Win32'">
     <ClCompile>
-      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -588,6 +590,20 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_CCE_DX9|Win32'">
+    <Link>
+      <OutputFile>Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_DX9.REN</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ddraw.lib;winmm.lib;RakNetLibStatic.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>_dx9;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Audio_DLL.cpp" />
     <ClCompile Include="C2CharacterCollection.cpp" />
@@ -612,6 +628,8 @@
     <ClCompile Include="CE_Allosaurus.cpp" />
     <ClCompile Include="IrrXML1.2\irrXML.cpp" />
     <ClCompile Include="mathematics.cpp" />
+    <ClCompile Include="RenderD3D5.cpp" />
+    <ClCompile Include="TCharacterInfoCache.cpp" />
     <ClCompile Include="xmlParser.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -624,6 +642,7 @@
     <ClInclude Include="CE_Allosaurus.h" />
     <ClInclude Include="Hunt.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="TCharacterInfoCache.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

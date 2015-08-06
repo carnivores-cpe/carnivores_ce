@@ -1,34 +1,94 @@
-﻿Build started 8/4/2015 1:39:52 PM.
+﻿Build started 8/4/2015 3:22:53 PM.
      1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy /D WIN32 /D NDEBUG /D _WINDOWS /D _d3d /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_D3D\\" /Fd"Release_C2_D3D\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CE_RenderD3D.cpp CE_RenderSoft.cpp
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy /D WIN32 /D NDEBUG /D _WINDOWS /D _d3d /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm- /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_D3D\\" /Fd"Release_C2_D3D\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CE_AI.cpp CE_Allosaurus.cpp CE_Characters.cpp CE_EnhancedSound.cpp CE_Game.cpp CE_Hunt.cpp CE_Interface.cpp CE_Network.cpp CE_RenderD3D.cpp CE_Resources.cpp CE_messageconsole.cpp CE_vehicle.cpp characters\C2Character.cpp mathematics.cpp
+         CE_AI.cpp
+     1>CE_AI.cpp(49): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+         CE_Allosaurus.cpp
+         CE_Characters.cpp
+     1>CE_Characters.cpp(3656): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+     1>CE_Characters.cpp(5188): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>CE_Characters.cpp(5193): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>CE_Characters.cpp(5197): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>CE_Characters.cpp(5200): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>CE_Characters.cpp(5229): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(5230): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(5231): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(5232): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(5236): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(5237): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(5250): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(5251): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Characters.cpp(7595): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+     1>CE_Characters.cpp(7620): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
+         CE_EnhancedSound.cpp
+         CE_Game.cpp
+     1>CE_Game.cpp(395): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+         CE_Hunt.cpp
+     1>CE_Hunt.cpp(391): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>CE_Hunt.cpp(530): warning C4305: '=' : truncation from 'double' to 'float'
+     1>CE_Hunt.cpp(550): warning C4305: '=' : truncation from 'double' to 'float'
+     1>CE_Hunt.cpp(667): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>CE_Hunt.cpp(670): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>CE_Hunt.cpp(686): warning C4305: '=' : truncation from 'double' to 'float'
+     1>CE_Hunt.cpp(692): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>CE_Hunt.cpp(738): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>CE_Hunt.cpp(751): warning C4244: '-=' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Hunt.cpp(762): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>CE_Hunt.cpp(765): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>CE_Hunt.cpp(989): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+     1>CE_Hunt.cpp(1213): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>CE_Hunt.cpp(2229): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+         CE_Interface.cpp
+     1>CE_Interface.cpp(166): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+         CE_Network.cpp
+     1>CE_Network.cpp(223): warning C4800: 'RakNet::ConnectionAttemptResult' : forcing value to bool 'true' or 'false' (performance warning)
+     1>CE_Network.cpp(227): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+     1>CE_Network.cpp(472): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>CE_Network.cpp(593): warning C4800: 'uint32_t' : forcing value to bool 'true' or 'false' (performance warning)
          CE_RenderD3D.cpp
-     1>CE_RenderD3D.cpp(749): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         CE_Resources.cpp
+     1>CE_Resources.cpp(2006): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>CE_RenderD3D.cpp(750): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>CE_Resources.cpp(2012): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
-     1>CE_RenderD3D.cpp(1915): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1917): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1923): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1925): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1940): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1941): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1988): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1989): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1995): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(1996): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
-     1>CE_RenderD3D.cpp(5730): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-         CE_RenderSoft.cpp
+     1>CE_Resources.cpp(2017): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2022): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2073): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2131): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2136): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2141): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2146): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2243): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2248): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2253): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_Resources.cpp(2268): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
+     1>CE_Resources.cpp(2287): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : see declaration of 'fopen'
+         CE_messageconsole.cpp
+     1>CE_messageconsole.cpp(88): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\string.h(112) : see declaration of 'strcpy'
+     1>CE_messageconsole.cpp(176): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+         CE_vehicle.cpp
+         C2Character.cpp
+         mathematics.cpp
          Generating Code...
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Release_C2_D3D\engine.exe) does not match the Linker's OutputFile property value (Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_D3D.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.exe) does not match the Linker's OutputFile property value (.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
@@ -58,10 +118,11 @@
          Release_C2_D3D\CE_Allosaurus.obj
          Release_C2_D3D\irrXML.obj
          Release_C2_D3D\mathematics.obj
+         Release_C2_D3D\RenderD3D5.obj
          Release_C2_D3D\xmlParser.obj
          engine.vcxproj -> \\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Release_C2_D3D\engine.exe
      1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.39
+Time Elapsed 00:00:10.32

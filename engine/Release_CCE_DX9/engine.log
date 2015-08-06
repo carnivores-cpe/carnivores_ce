@@ -1,0 +1,38 @@
+﻿Build started 8/4/2015 3:42:04 PM.
+     1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\Release_CCE_DX9\engine.exe) does not match the Linker's OutputFile property value (Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_DX9.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.exe) does not match the Linker's OutputFile property value (.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(engine) does not match the Linker's OutputFile property value (V_DX9). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     1>Link:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_DX9.REN" /NOLOGO ddraw.lib winmm.lib RakNetLibStatic.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"\\psf\Home\Downloads\carnivores-src_minorenhanced_build\Release_CCE_DX9\engine.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"\\psf\Home\Downloads\carnivores-src_minorenhanced_build\Release_CCE_DX9\engine.lib" /MACHINE:X86 /SAFESEH Release_CCE_DX9\resource.res
+         Release_CCE_DX9\Audio_DLL.obj
+         Release_CCE_DX9\C2CharacterCollection.obj
+         Release_CCE_DX9\C2HuntableCharacter.obj
+         Release_CCE_DX9\CE_AI.obj
+         Release_CCE_DX9\CE_ArtificialIntelligence.obj
+         Release_CCE_DX9\CE_Characters.obj
+         Release_CCE_DX9\CE_EnhancedSound.obj
+         Release_CCE_DX9\CE_Game.obj
+         Release_CCE_DX9\CE_Hunt.obj
+         Release_CCE_DX9\CE_Interface.obj
+         Release_CCE_DX9\CE_messageconsole.obj
+         Release_CCE_DX9\CE_Network.obj
+         Release_CCE_DX9\CE_Render3DFX.obj
+         Release_CCE_DX9\CE_RenderD3D.obj
+         Release_CCE_DX9\CE_RenderDX9.obj
+         Release_CCE_DX9\CE_RenderSoft.obj
+         Release_CCE_DX9\CE_Resources.obj
+         Release_CCE_DX9\CE_vehicle.obj
+         Release_CCE_DX9\C2AnimatableModel.obj
+         Release_CCE_DX9\C2Character.obj
+         Release_CCE_DX9\CE_Allosaurus.obj
+         Release_CCE_DX9\irrXML.obj
+         Release_CCE_DX9\mathematics.obj
+         Release_CCE_DX9\RenderD3D5.obj
+         Release_CCE_DX9\xmlParser.obj
+         engine.vcxproj -> \\psf\Home\Downloads\carnivores-src_minorenhanced_build\Release_CCE_DX9\engine.exe
+     1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.35

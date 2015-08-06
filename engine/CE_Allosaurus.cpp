@@ -18,6 +18,8 @@ void CE_Allosaurus::kill()
 
 void CE_Allosaurus::printDebuggingInfo(std::string& output)
 {
+	int AI = getCharacterState()->AI;
+	int aniCount = getCharacterState()->pinfo->AniCount;
 	output = "Class Name: CE_Allosaurus\n\n"
-		"AI Class: AI_Allo\n";
+		"AI Class: AI_Allo\n:::" + std::to_string(AI) + ":: anicount: " + std::to_string(aniCount);
 }

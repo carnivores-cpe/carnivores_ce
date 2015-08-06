@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Original\Renderers">
       <UniqueIdentifier>{c2ee35de-2e9d-42ae-ba97-ef0ef976447a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Level">
+      <UniqueIdentifier>{081ae9c4-d359-422f-b83f-3a3c7d746a52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CE_Game.cpp">
@@ -117,6 +120,12 @@
     <ClCompile Include="C2CharacterCollection.cpp">
       <Filter>Source Files\Characters\Common</Filter>
     </ClCompile>
+    <ClCompile Include="RenderD3D5.cpp">
+      <Filter>Source Files\Original\Renderers</Filter>
+    </ClCompile>
+    <ClCompile Include="TCharacterInfoCache.cpp">
+      <Filter>Source Files\Characters\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hunt.h">
@@ -144,6 +153,9 @@
       <Filter>Header Files\Characters\Common</Filter>
     </ClInclude>
     <ClInclude Include="C2CharacterCollection.h">
+      <Filter>Header Files\Characters\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="TCharacterInfoCache.h">
       <Filter>Header Files\Characters\Common</Filter>
     </ClInclude>
   </ItemGroup>

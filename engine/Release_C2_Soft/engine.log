@@ -1,45 +1,42 @@
-﻿Build started 8/4/2015 1:08:05 PM.
+﻿Build started 8/5/2015 3:28:35 PM.
      1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /O2 /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_Soft\\" /Fd"Release_C2_Soft\vc120.pdb" /doc"Release_C2_Soft\\" /Gd /TP /analyze- /errorReport:prompt /LTCG CE_Game.cpp
-     1>cl : Command line warning D9002: ignoring unknown option '/LTCG'
-         CE_Game.cpp
-     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Release_C2_Soft\engine.exe) does not match the Linker's OutputFile property value (Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.exe) does not match the Linker's OutputFile property value (.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(engine) does not match the Linker's OutputFile property value (V_SOFT). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-       Link:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN" /INCREMENTAL:NO /NOLOGO ddraw.lib winmm.lib RakNetLibStatic.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Release_C2_Soft\engine.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"Release_C2_Soft\engine.lib" /MACHINE:X86 /SAFESEH Release_C2_Soft\resource.res
-         Release_C2_Soft\Audio_DLL.obj
-         Release_C2_Soft\C2CharacterCollection.obj
-         Release_C2_Soft\C2HuntableCharacter.obj
-         Release_C2_Soft\CE_AI.obj
-         Release_C2_Soft\CE_ArtificialIntelligence.obj
-         Release_C2_Soft\CE_Characters.obj
-         Release_C2_Soft\CE_EnhancedSound.obj
-         Release_C2_Soft\CE_Game.obj
-         Release_C2_Soft\CE_Hunt.obj
-         Release_C2_Soft\CE_Interface.obj
-         Release_C2_Soft\CE_messageconsole.obj
-         Release_C2_Soft\CE_Network.obj
-         Release_C2_Soft\CE_Render3DFX.obj
-         Release_C2_Soft\CE_RenderD3D.obj
-         Release_C2_Soft\CE_RenderDX9.obj
-         Release_C2_Soft\CE_RenderSoft.obj
-         Release_C2_Soft\CE_Resources.obj
-         Release_C2_Soft\CE_vehicle.obj
-         Release_C2_Soft\C2AnimatableModel.obj
-         Release_C2_Soft\C2Character.obj
-         Release_C2_Soft\CE_Allosaurus.obj
-         Release_C2_Soft\irrXML.obj
-         Release_C2_Soft\mathematics.obj
-         Release_C2_Soft\xmlParser.obj
-         Generating code
-         Finished generating code
-         engine.vcxproj -> \\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Release_C2_Soft\engine.exe
-       XdcMake:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\xdcmake.exe /old "engine" /nologo /Fo"Release_C2_Soft\engine.xml" /FsRelease_C2_Soft\Audio_DLL.xdc /FsRelease_C2_Soft\C2CharacterCollection.xdc /FsRelease_C2_Soft\C2HuntableCharacter.xdc /FsRelease_C2_Soft\CE_AI.xdc /FsRelease_C2_Soft\CE_ArtificialIntelligence.xdc /FsRelease_C2_Soft\CE_Characters.xdc /FsRelease_C2_Soft\CE_EnhancedSound.xdc /FsRelease_C2_Soft\CE_Game.xdc /FsRelease_C2_Soft\CE_Hunt.xdc /FsRelease_C2_Soft\CE_Interface.xdc /FsRelease_C2_Soft\CE_messageconsole.xdc /FsRelease_C2_Soft\CE_Network.xdc /FsRelease_C2_Soft\CE_Render3DFX.xdc /FsRelease_C2_Soft\CE_RenderD3D.xdc /FsRelease_C2_Soft\CE_RenderDX9.xdc /FsRelease_C2_Soft\CE_RenderSoft.xdc /FsRelease_C2_Soft\CE_Resources.xdc /FsRelease_C2_Soft\CE_vehicle.xdc /FsRelease_C2_Soft\C2AnimatableModel.xdc /FsRelease_C2_Soft\C2Character.xdc /FsRelease_C2_Soft\CE_Allosaurus.xdc /FsRelease_C2_Soft\irrXML.xdc /FsRelease_C2_Soft\mathematics.xdc /FsRelease_C2_Soft\xmlParser.xdc
-     1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" (Build target(s)).
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /O2 /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_Soft\\" /Fd"Release_C2_Soft\vc120.pdb" /doc"Release_C2_Soft\\" /Gd /TP /analyze- /errorReport:prompt TCharacterInfoCache.cpp characters\C2AnimatableModel.cpp
+         C2AnimatableModel.cpp
+     1>C:\Program Files\Microsoft Visual Studio 12.0\VC\include\memory(1198): error C2027: use of undefined type '_TCharacterInfo'
+                 \\psf\home\downloads\carnivores-src_minorenhanced_build\engine\characters\C2AnimatableModel.h(9) : see declaration of '_TCharacterInfo'
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\memory(1197) : while compiling class template member function 'void std::default_delete<_Ty>::operator ()(_Ty *) throw() const'
+                 with
+                 [
+                     _Ty=TCharacterInfo
+                 ]
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\memory(1448) : see reference to function template instantiation 'void std::default_delete<_Ty>::operator ()(_Ty *) throw() const' being compiled
+                 with
+                 [
+                     _Ty=TCharacterInfo
+                 ]
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\type_traits(572) : see reference to class template instantiation 'std::default_delete<_Ty>' being compiled
+                 with
+                 [
+                     _Ty=TCharacterInfo
+                 ]
+                 C:\Program Files\Microsoft Visual Studio 12.0\VC\include\memory(1329) : see reference to class template instantiation 'std::is_empty<_Dx>' being compiled
+                 with
+                 [
+                     _Dx=std::default_delete<TCharacterInfo>
+                 ]
+                 \\psf\home\downloads\carnivores-src_minorenhanced_build\engine\characters\C2AnimatableModel.h(12) : see reference to class template instantiation 'std::unique_ptr<TCharacterInfo,std::default_delete<_Ty>>' being compiled
+                 with
+                 [
+                     _Ty=TCharacterInfo
+                 ]
+     1>C:\Program Files\Microsoft Visual Studio 12.0\VC\include\memory(1199): error C2338: can't delete an incomplete type
+     1>C:\Program Files\Microsoft Visual Studio 12.0\VC\include\memory(1200): warning C4150: deletion of pointer to incomplete type '_TCharacterInfo'; no destructor called
+                 \\psf\home\downloads\carnivores-src_minorenhanced_build\engine\characters\C2AnimatableModel.h(9) : see declaration of '_TCharacterInfo'
+         Compiling...
+         TCharacterInfoCache.cpp
+     1>Done Building Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:05.96
+Time Elapsed 00:00:01.93

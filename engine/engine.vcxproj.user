@@ -12,4 +12,10 @@
     <LocalDebuggerCommandArguments>reg=00 prj=HUNTDAT\AREAS\area1 din=6 wep=6 dtm=1 -debug -double -radar</LocalDebuggerCommandArguments>
     <LocalDebuggerWorkingDirectory>..\..\CCEv1.12.4ADP\Carnivores 2\Carnivores 2</LocalDebuggerWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_CCE_DX9|Win32'">
+    <LocalDebuggerCommand>\\psf\Home\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_DX9.REN</LocalDebuggerCommand>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommandArguments>reg=00 prj=HUNTDAT\AREAS\area1 din=6 wep=6 dtm=1 -debug -double -radar</LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>..\..\CCEv1.12.4ADP\Carnivores 2\Carnivores 2</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
 </Project>

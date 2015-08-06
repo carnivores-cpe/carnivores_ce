@@ -11,10 +11,6 @@ LPVOID _HeapAlloc(HANDLE hHeap,
                   DWORD dwFlags, 
                   DWORD dwBytes)
 {
-	//PrintLog("[HEAP] AllocHeap...\n");
-	//LPVOID res = VirtualAllocEx(hHeap,0,dwBytes,MEM_RESERVE,PAGE_EXECUTE_READWRITE);
-   //wsprintf(logt, "[Heap] Flags: %x, Size: %x",dwFlags,dwBytes );
-   //PrintLog(logt);
    LPVOID res = HeapAlloc(GetProcessHeap(), 
                           dwFlags | HEAP_ZERO_MEMORY,
                           dwBytes);
@@ -24,7 +20,6 @@ LPVOID _HeapAlloc(HANDLE hHeap,
 	}
 
    HeapAllocated+=dwBytes;
-   //PrintLog("Done\n");
    return res;
 }
 

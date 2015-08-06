@@ -8,6 +8,8 @@ typedef struct _tmpoint {
 } tmpoint;
 */
 
+#include "C2CharacterCollection.h"
+#include "characters\C2Character.h"
 
 typedef struct _CharListItem {
     int CType, Index;
@@ -30,6 +32,7 @@ void RenderSupplyShip();
 void RenderAmmoBag();
 void RenderPlayerModel();
 void RenderBMPModel2     (TBMPModel*, float, float, float, int);
+void RenderManagedCharacter(int index);
 
 //================================================================//
 int xa; int xb; int xa16; int xb16;
@@ -367,13 +370,7 @@ NOBAG: ;
       if (cptr->rpos.z > br) continue;
 	  if (cptr->AI == AI_PLAYERS) continue; //NOT VALID. Don't render yourself, but do render other players
       if ( fabs(cptr->rpos.x) > -cptr->rpos.z + br ) continue;            
-      if ( fabs(cptr->rpos.y) > -cptr->rpos.z + br ) continue;            
-
-/*
-      if (cptr->rpos.z > BackViewR + ) continue;
-      if ( fabs(cptr->rpos.x) > -cptr->rpos.z + BackViewR ) continue;      
-*/
-//      AddShadowCircle((int)cptr->pos.x+100, (int)cptr->pos.z+100, 360, 16);
+      if ( fabs(cptr->rpos.y) > -cptr->rpos.z + br ) continue;
 
       int i = ChRenderList[ri].ICount++;
       ChRenderList[ri].Items[i].CType = 0;
@@ -381,9 +378,32 @@ NOBAG: ;
    }
 
    //======= CUSTOM: Render Characters in world manager ===========//
+   int numCharacters = ManagedC2Characters->size();
+   C2Character* c2cptr; 
+   for (int c = 0; c < numCharacters; c++) {
+	   c2cptr = ManagedC2Characters->at(c);
+	   cptr = c2cptr->getCharacterState();
+	   cptr->rpos.x = cptr->pos.x - CameraX;
+	   cptr->rpos.y = cptr->pos.y - CameraY;
+	   cptr->rpos.z = cptr->pos.z - CameraZ;
 
+	   float r = (float)max(fabs(cptr->rpos.x), fabs(cptr->rpos.z));
+	   int ri = -1 + (int)(r / 256.f + 0.5f);
+	   if (ri < 0) ri = 0;
+	   if (ri > ctViewR) continue;
 
+	   cptr->rpos = RotateVector(cptr->rpos);
 
+	   float br = BackViewR + DinoInfo[cptr->CType][cptr->SUBAI].Radius;
+	   if (cptr->rpos.z > br) continue;
+	   if (cptr->AI == AI_PLAYERS) continue; //NOT VALID. Don't render yourself, but do render other players
+	   if (fabs(cptr->rpos.x) > -cptr->rpos.z + br) continue;
+	   if (fabs(cptr->rpos.y) > -cptr->rpos.z + br) continue;
+
+	   int i = ChRenderList[ri].ICount++;
+	   ChRenderList[ri].Items[i].CType = 7;
+	   ChRenderList[ri].Items[i].Index = c;
+   }
    
 }
 
@@ -393,9 +413,10 @@ void RenderChList(int r)
   if (HARD3D) return;
   for (int c=0; c<ChRenderList[r].ICount; c++) {
       if (ChRenderList[r].Items[c].CType ==0) RenderCharacter(ChRenderList[r].Items[c].Index); else
-	  if (ChRenderList[r].Items[c].CType ==3) RenderShip();
-      if (ChRenderList[r].Items[c].CType ==4) RenderSupplyShip();
+	  if (ChRenderList[r].Items[c].CType ==3) RenderShip(); else
+      if (ChRenderList[r].Items[c].CType ==4) RenderSupplyShip(); else
       if (ChRenderList[r].Items[c].CType ==5) RenderAmmoBag();
+	  //if (ChRenderList[r].Items[c].CType == 7) RenderManagedCharacter(ChRenderList[r].Items[c].Index);
 	  //if CType == 7) RenderManagedCharacter(ChRenderList[r].Items[c].Index); (index is set to index of item in ManagedCharacters array (an array of pointers to TCharacter)
 	  //if (ChRenderList[r].Items[c].CType ==6) RenderPlayerModel();
   }
@@ -2062,6 +2083,54 @@ void RenderPlayerModel()
 	cptr->pos.z = PlayerModel.rpos.z;
 
 	RenderCharacter(human_model_ch);
+}
+
+/*
+* TODO: Replace this to render the character using C2Character
+*/
+void RenderManagedCharacter(int index)
+{
+	C2Character* c2cptr = ManagedC2Characters->at(index);	
+	TCharacter *cptr = c2cptr->getCharacterState();
+
+	float zs = (float)VectorLength(cptr->rpos);
+	if (zs > ctViewR * 256) return;
+
+	GlassL = 0;
+	if (zs > 256 * (ctViewR - 4))
+		GlassL = (int)min(255, (zs / 4 - 64 * (ctViewR - 4)));
+
+	//CreateChMorphedModel(cptr); //TODO: Ask C2Character for its morphed model
+
+
+	float wh = GetLandUpH(cptr->pos.x, cptr->pos.z);
+	waterclip = FALSE;
+
+	if (!UNDERWATER)
+		if (wh > cptr->pos.y + 32 * 2) {
+			waterclipbase.x = cptr->pos.x - CameraX;
+			waterclipbase.y = wh - CameraY;
+			waterclipbase.z = cptr->pos.z - CameraZ;
+			waterclipbase = RotateVector(waterclipbase);
+			waterclip = TRUE;
+		}
+
+	if (fabs(cptr->rpos.z) + fabs(cptr->rpos.x) <2560)
+		RenderModelClip(cptr->pinfo->mptr,
+		cptr->rpos.x, cptr->rpos.y, cptr->rpos.z, 240, 0,
+		-cptr->alpha + pi / 2 + CameraAlpha,
+		CameraBeta);
+	else
+		if (waterclip)
+			RenderModelClipWater(cptr->pinfo->mptr,
+			cptr->rpos.x, cptr->rpos.y, cptr->rpos.z, 240, 0,
+			-cptr->alpha + pi / 2 + CameraAlpha,
+			CameraBeta);
+		else
+			RenderModel(cptr->pinfo->mptr,
+			cptr->rpos.x, cptr->rpos.y, cptr->rpos.z, 240, 0,
+			-cptr->alpha + pi / 2 + CameraAlpha,
+			CameraBeta);
 }
 
 void RenderCharacter(int index)

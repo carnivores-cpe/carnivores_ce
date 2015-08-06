@@ -28,6 +28,10 @@ class C2Character: public C2AnimatableModel {
 	C2Character(CE_ArtificialIntelligence* intelligence_strategy, TCharacterInfo* character_info);
 	~C2Character();
 
+	void place(float x, float z, float y);
+
+	TCharacter* getCharacterState();
+
     /* Create a morphed representation of the character based on current time */
     void morphedModel();
 

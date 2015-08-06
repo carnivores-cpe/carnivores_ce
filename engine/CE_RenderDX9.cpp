@@ -8,10 +8,10 @@
 /* References */
 #include "hunt.h"
 #include <d3d9.h>
-#include "D3dx9tex.h"
+#include <d3dx9.h>
 #include <xstring>
 #pragma comment (lib, "d3d9.lib")
-#pragma comment (lib, "D3dx9.lib")
+#pragma comment (lib, "d3dx9.lib")
 
 /* Defines */
 #define SCREEN_WIDTH  1024
