@@ -4,16 +4,36 @@
 		"selected_items":
 		[
 			[
+				"m_an",
+				"m_animation_sounds"
+			],
+			[
+				"animation",
+				"animation_sounds"
+			],
+			[
+				"AI",
+				"AI_Allosaurus"
+			],
+			[
+				"shared",
+				"shared_ptr"
+			],
+			[
+				"shar",
+				"shared_ptr"
+			],
+			[
+				"C2",
+				"C2Geometry"
+			],
+			[
 				"character",
 				"character_state"
 			],
 			[
 				"in",
 				"intelligence"
-			],
-			[
-				"C2",
-				"C2AnimatableModel"
 			],
 			[
 				"Am",
@@ -288,30 +308,6 @@
 	"buffers":
 	[
 		{
-			"file": "engine/characters/C2Character.h",
-			"settings":
-			{
-				"buffer_size": 2145,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "engine/characters/C2Character.cpp",
-			"settings":
-			{
-				"buffer_size": 3088,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "engine/CE_Hunt.cpp",
-			"settings":
-			{
-				"buffer_size": 66266,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "engine/Hunt.h",
 			"settings":
 			{
@@ -320,61 +316,44 @@
 			}
 		},
 		{
-			"file": "engine/CE_Game.cpp",
+			"contents": "Searching 446 files for \"TCharacter\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_AI.cpp:\n    5  \n    6  //-> Extern Functions\n    7: void ThinkY_Beta_Gamma(TCharacter *cptr, float blook, float glook, float blim, float glim);\n    8: void ProcessPrevPhase(TCharacter *cptr);\n    9: void ActivateCharacterFx(TCharacter *cptr);\n   10  \n   11: void AnimateGenericDead(TCharacter *cptr)\n   12  {\n   13  	//======== Adelphos Pro ===========//\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp:\n  191  // \n  192  \n  193: void SetNewTargetPlace(TCharacter *cptr, float R);\n  194: void AnimateTrophyDino(TCharacter *cptr);\n  195: void ProcessAdvancedHealthSystem(TCharacter *cptr, int dmg);\n  196  \n  197  \n  198: void ProcessPrevPhase(TCharacter *cptr)\n  199  {\n  200     cptr->PPMorphTime+=TimeDt;\n  ...\n  206  \n  207  \n  208: void ActivateCharacterFx(TCharacter *cptr)\n  209  {\n  210  	if (cptr->AI) //== not hunter ==//\n  ...\n  221  \n  222  \n  223: int ResetCharacter(TCharacter *cptr)\n  224  {\n  225  	 //-> Determine Sub AI...\n  ...\n  243  			 break;\n  244  	 }\n  245: 	 //wsprintf(logt,\"ResetCharacter->Placed AI: %d SUBAI: %d\\n\",DinoInfo[cptr->CType][0].AI,subai);\n  246  	 //PrintLog(logt);\n  247  	 //-> Now set attributes from dino info...\n  ...\n  278  \n  279  \n  280: void AddDeadBody(TCharacter *cptr, int phase)\n  281  {\n  282     if (!MyHealth || CHEAT_GOD) return;\n  ...\n  295     Characters[ChCount].AI = 0;\n  296     Characters[ChCount].alpha = CameraAlpha;\n  297:    ResetCharacter(&Characters[ChCount]);\n  298  \n  299     int v = rRand(3);\n  ...\n  368  }\n  369  \n  370: void ThinkY_Beta_Gamma(TCharacter *cptr, float blook, float glook, float blim, float glim)\n  371  {\n  372      cptr->pos.y = GetLandH(cptr->pos.x, cptr->pos.z);\n  ...\n  513  \n  514  \n  515: int CheckPossiblePath(TCharacter *cptr, BOOL wc, BOOL mc)\n  516  {\n  517    Vector3d p = cptr->pos;\n  ...\n  528  \n  529  \n  530: void LookForAWay(TCharacter *cptr, BOOL wc, BOOL mc)\n  531  {\n  532    float alpha = cptr->tgalpha;\n  ...\n  565  \n  566  \n  567: BOOL ReplaceCharacterForward(TCharacter *cptr)\n  568  {\n  569    float al = CameraAlpha + (float)siRand(2048) / 2048.f;\n  ...\n  621  	 Characters[ChCount].tgtime = 0;\n  622  \n  623: 	 ResetCharacter(&Characters[ChCount]);     \n  624  	 ChCount++;\n  625  }\n  ...\n  627  \n  628  \n  629: void MoveCharacter(TCharacter *cptr, float dx, float dz, BOOL wc, BOOL mc)\n  630  {\n  631  	if (CHEAT_FREEZE) return;\n  ...\n  663  \n  664  \n  665: void MoveCharacter2(TCharacter *cptr, float dx, float dz)\n  666  {\n  667  	cptr->pos.x+=dx; \n  ...\n  672  \n  673  \n  674: void SetNewTargetPlace(TCharacter *cptr, float R)\n  675  {\n  676  	 Vector3d p;\n  ...\n  696  \n  697  \n  698: void SetNewTargetPlace_Brahi(TCharacter *cptr, float R)\n  699  {\n  700  	 Vector3d p;\n  ...\n  722  \n  723  \n  724: void AnimateHuntDead(TCharacter *cptr)\n  725  {    \n  726    \n  ...\n  778   \n  779  \n  780: 	  TCharacter *cptr2 = &Characters[DemoPoint.CIndex];	\n  781  #ifdef _iceage // alacn\n  782        if (cptr2->AI>=10) {\n  ...\n  799  \n  800  \n  801: void AnimateDiatrDead(TCharacter *cptr)\n  802  {    \n  803  \n  ...\n  834  \n  835  \n  836: void AnimatePigDead(TCharacter *cptr)\n  837  {    \n  838  \n  ...\n  870  \n  871  \n  872: void AnimateDimorDead(TCharacter *cptr)\n  873  {    \n  874  \n  ...\n  944  \n  945  \n  946: void AnimateBronDead(TCharacter *cptr)\n  947  {    \n  948  \n  ...\n  980  \n  981  \n  982: void AnimateHogDead(TCharacter *cptr)\n  983  {    \n  984  \n  ...\n 1016  \n 1017  \n 1018: void AnimateRhinoDead(TCharacter *cptr)\n 1019  {    \n 1020  \n ....\n 1052  \n 1053  \n 1054: void AnimateSmiloDead(TCharacter *cptr)\n 1055  {    \n 1056  \n ....\n 1088  \n 1089  \n 1090: void AnimateDeerDead(TCharacter *cptr)\n 1091  {    \n 1092  \n ....\n 1124  \n 1125  \n 1126: void AnimateDiatr(TCharacter *cptr)\n 1127  {\n 1128  	if (CHEAT_FREEZE) return;\n ....\n 1382  \n 1383  \n 1384: void AnimatePig(TCharacter *cptr)\n 1385  {\n 1386  	if (CHEAT_FREEZE) return;\n ....\n 1561  \n 1562  \n 1563: void AnimateBron(TCharacter *cptr)\n 1564  {\n 1565  	if (CHEAT_FREEZE) return;\n ....\n 1757  \n 1758  \n 1759: void AnimateBear(TCharacter *cptr)\n 1760  {\n 1761  	if (CHEAT_FREEZE) return;\n ....\n 1952  \n 1953  \n 1954: void AnimateFoot(TCharacter *cptr)\n 1955  {\n 1956  	if (CHEAT_FREEZE) return;\n ....\n 2150  }\n 2151  \n 2152: void HumanSetPhase(TCharacter *cptr, int phase) {\n 2153  	char tmp[128];\n 2154  	if (DEBUG) PrintLog(\"Game (DEBUG): HumanSetPhase -> Start...\\n\");\n ....\n 2175  * @date 11.19.2009\n 2176  */\n 2177: void LocalHumanMatchModel(TCharacter *cptr)\n 2178  {\n 2179  //=================== Process animations =========================\n ....\n 2198  \n 2199  \n 2200: void AnimateHumanPlayer(TCharacter *cptr)\n 2201  { \n 2202  	//Simply play the current animations over and over\n ....\n 2213  }\n 2214  \n 2215: void AnimateWolf(TCharacter *cptr)\n 2216  {\n 2217  	if (CHEAT_FREEZE) return;\n ....\n 2417  \n 2418  \n 2419: void AnimateHog(TCharacter *cptr)\n 2420  {\n 2421  	if (CHEAT_FREEZE) return;\n ....\n 2613  \n 2614  \n 2615: void AnimateRhino(TCharacter *cptr)\n 2616  {\n 2617  	if (CHEAT_FREEZE) return;\n ....\n 2809  \n 2810  \n 2811: void AnimateSmilo(TCharacter *cptr)\n 2812  {\n 2813  	if (CHEAT_FREEZE) return;\n ....\n 3013  \n 3014  \n 3015: void AnimateDeer(TCharacter *cptr)\n 3016  {\n 3017  	if (CHEAT_FREEZE) return;\n ....\n 3203  \n 3204  \n 3205: void AnimateMamm(TCharacter *cptr)\n 3206  {\n 3207  	if (CHEAT_FREEZE) return;\n ....\n 3394  \n 3395  \n 3396: void AnimateDimor(TCharacter *cptr)\n 3397  {\n 3398     if (CHEAT_FREEZE) return;\n ....\n 3551  \n 3552  \n 3553: void AnimateRaptorDead(TCharacter *cptr)\n 3554  {    \n 3555  \n ....\n 3586  \n 3587  \n 3588: void AnimateVeloDead(TCharacter *cptr)\n 3589  {    \n 3590  \n ....\n 3621  \n 3622  \n 3623: void AnimateSpinDead(TCharacter *cptr)\n 3624  {    \n 3625  \n ....\n 3666  \n 3667  \n 3668: void AnimateCeraDead(TCharacter *cptr)\n 3669  {    \n 3670  \n ....\n 3701  \n 3702  \n 3703: void AnimateTRexDead(TCharacter *cptr)\n 3704  {    \n 3705  \n ....\n 3731  \n 3732  \n 3733: void AnimateMoshDead(TCharacter *cptr)\n 3734  {    \n 3735  \n ....\n 3767  \n 3768  \n 3769: void AnimateDimetDead(TCharacter *cptr)\n 3770  {    \n 3771  \n ....\n 3803  \n 3804  \n 3805: void AnimateGallDead(TCharacter *cptr)\n 3806  {    \n 3807  \n ....\n 3838  \n 3839  \n 3840: //void AnimateDimorDead(TCharacter *cptr)\n 3841  //{    \n 3842  //\n ....\n 3912  //\n 3913  \n 3914: void AnimateTricDead(TCharacter *cptr)\n 3915  {    \n 3916  \n ....\n 3948  \n 3949  \n 3950: void AnimatePacDead(TCharacter *cptr)\n 3951  {    \n 3952  \n ....\n 3984  \n 3985  \n 3986: void AnimateAnkyDead(TCharacter *cptr)\n 3987  {    \n 3988  \n ....\n 4020  \n 4021  \n 4022: void AnimateStegDead(TCharacter *cptr)\n 4023  {    \n 4024  \n ....\n 4056  \n 4057  \n 4058: void AnimateParDead(TCharacter *cptr)\n 4059  {    \n 4060  \n ....\n 4092  \n 4093  \n 4094: void AnimateRaptor(TCharacter *cptr)\n 4095  {\n 4096  	if (CHEAT_FREEZE) return;\n ....\n 4375  \n 4376  \n 4377: void AnimateVelo(TCharacter *cptr)\n 4378  {\n 4379  	if (CHEAT_FREEZE) return;\n ....\n 4629  \n 4630  \n 4631: void AnimateSpin(TCharacter *cptr)\n 4632  {\n 4633  	if (CHEAT_FREEZE) return;\n ....\n 4911  \n 4912  \n 4913: void AnimateCera(TCharacter *cptr)\n 4914  {\n 4915  	if (CHEAT_FREEZE) return;\n ....\n 5158  }\n 5159  \n 5160: void AnimateTRex(TCharacter *cptr)\n 5161  {\n 5162  	if (CHEAT_FREEZE) return;\n ....\n 5485  \n 5486  \n 5487: void AnimateMosh(TCharacter *cptr)\n 5488  {\n 5489  	if (CHEAT_FREEZE) return;\n ....\n 5673  \n 5674  \n 5675: void AnimateBrahi(TCharacter *cptr)\n 5676  {\n 5677     NewPhase = FALSE;\n ....\n 5799  \n 5800  \n 5801: void AnimateDimet(TCharacter *cptr)\n 5802  {\n 5803  	if (CHEAT_FREEZE) return;\n ....\n 5987  \n 5988  \n 5989: void AnimateTric(TCharacter *cptr)\n 5990  {\n 5991  	if (CHEAT_FREEZE) return;\n ....\n 6183  \n 6184  \n 6185: void AnimatePac(TCharacter *cptr)\n 6186  {\n 6187  	if (CHEAT_FREEZE) return;\n ....\n 6366  \n 6367  \n 6368: void AnimateAnky(TCharacter *cptr)\n 6369  {\n 6370  	if (CHEAT_FREEZE) return;\n ....\n 6558  \n 6559  \n 6560: void AnimateSteg(TCharacter *cptr)\n 6561  {\n 6562  	if (CHEAT_FREEZE) return;\n ....\n 6750  \n 6751  \n 6752: void AnimatePar(TCharacter *cptr)\n 6753  {\n 6754  	if (CHEAT_FREEZE) return;\n ....\n 6933  \n 6934  \n 6935: void AnimateGall(TCharacter *cptr)\n 6936  {\n 6937  	if (CHEAT_FREEZE) return;\n ....\n 7117  \n 7118  \n 7119: //void AnimateDimor(TCharacter *cptr)\n 7120  //{\n 7121  //   NewPhase = FALSE;\n ....\n 7274  	//This is now multi-threaded by Adelphospro: 4.16.9\n 7275  \n 7276: 	TCharacter *cptr;\n 7277  	//if (TrophyMode) return;\n 7278  top:\n ....\n 7390  \n 7391  \n 7392: void AnimateTrophyDino(TCharacter *cptr) {\n 7393  	//Just stand and be idle  \n 7394     cptr->PPMorphTime+=TimeDt;\n ....\n 7406  {  \n 7407    for (int c=0; c<ChCount; c++) {\n 7408: 	TCharacter *cptr = &Characters[c];\n 7409  	if (!cptr->Health) continue;\n 7410  	float l = VectorLength(SubVectors(cptr->pos, pos));\n ....\n 7462  \n 7463     for (int c=0; c<ChCount; c++) {\n 7464: 	 TCharacter *cptr = &Characters[c];\n 7465  \n 7466      if (ANIMAL_ATTACK_MODE)\n ....\n 7569  	               Characters[ChCount].alpha = 0;\n 7570  \n 7571: 	 ResetCharacter(&Characters[ChCount]);\n 7572  \n 7573  	 Characters[ChCount].State = c;\n ....\n 7588  * It simply applies the damage/healing.\n 7589  */\n 7590: void ProcessAdvancedHealthSystem(TCharacter *cptr, int dmg)\n 7591  {\n 7592  	if (!MyHealth || CHEAT_GOD || DEBUG || cptr == NULL) return;\n ....\n 7640  	Characters[ChCount].tgz = Characters[ChCount].pos.z;\n 7641  	Characters[ChCount].tgtime = 0;\n 7642: 	ResetCharacter(&Characters[ChCount]);\n 7643  	Characters[ChCount].Phase = 1;\n 7644  	Characters[ChCount].SetPhase = 1;\n ....\n 7675  	 Characters[ChCount].beta = 0;\n 7676  	int ok;\n 7677: 	 ok = ResetCharacter(&Characters[ChCount]);     \n 7678  	 \n 7679  	 //SetRunSpeedInfo(ChCount);\n ....\n 7757  	 //ManagedC2Characters.push_back(dynamic_cast<C2Character*>(new CE_Allosaurus()));\n 7758  \n 7759: 	 ResetCharacter(&Characters[ChCount]);     \n 7760  \n 7761  #ifdef _iceage // alacn\n ....\n 7800  	 Characters[ChCount].tgtime = 0;\n 7801  \n 7802: 	 ResetCharacter(&Characters[ChCount]);     \n 7803  	 ChCount++;\n 7804     }\n ....\n 7847  	 Characters[ChCount].tgtime = 0;\n 7848  \n 7849: 	 ResetCharacter(&Characters[ChCount]);     \n 7850  	 ChCount++;\n 7851     }\n ....\n 7862  \n 7863  \n 7864: void CreateChMorphedModel(TCharacter *cptr)\n 7865  {   \n 7866     TAni *aptr  = &cptr->pinfo->Animation[cptr->Phase];   \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Game.cpp:\n  425  void AddShipTask(int cindex)\n  426  {\n  427:   TCharacter *cptr = &Characters[cindex];\n  428  \n  429    BOOL TROPHYON  = (GetLandUpH(cptr->pos.x, cptr->pos.z) - GetLandH(cptr->pos.x, cptr->pos.z) < 100) && \n  ...\n  479  void InitShip(int cindex)\n  480  {\n  481: 	TCharacter *cptr = &Characters[cindex];\n  482  \n  483  	Ship.DeltaY = 2048.f + DinoInfo[cptr->CType][cptr->SUBAI].ShDelta * cptr->scale;\n  ...\n  885  \n  886  \n  887: void AddBloodTrail(TCharacter *cptr)\n  888  {\n  889  	if (BloodTrail.Count>508) {\n  ...\n  929  \n  930     for (int c=0; c<ChCount; c++) {\n  931: 	 TCharacter *cptr = &Characters[c];\n  932  \n  933  	 if (DinoInfo[AI_to_CIndex[TargetCall] ][cptr->SUBAI].DangerCall)\n  ...\n 1317  {\n 1318    if (index==-1) return;\n 1319:   memcpy( &Characters[index], &Characters[index+1], (255 - index) * sizeof(TCharacter) );\n 1320    ChCount--;\n 1321     \n ....\n 1916  	  memcpy(&Characters[p],  \n 1917  	         &Characters[p+1], \n 1918: 		     (250-p) * sizeof(TCharacter) );\n 1919  	  ChCount--;\n 1920  	}\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp:\n  399  	float dm = (float)(ctViewR+2)*256;\n  400  	for (int c=0; c<ChCount; c++) {\n  401: 		TCharacter *cptr = &Characters[c];\n  402  		if (!cptr->Health) continue;\n  403  		if (cptr->rpos.z > -512) continue;\n  ...\n  420  }\n  421  \n  422: int GetCharacterIndexOnLook()\n  423  {\n  424  	/**\n  ...\n  430  \n  431  	for (int c=0; c<ChCount; c++) {\n  432: 		TCharacter *cptr = &Characters[c];\n  433  		/*	if (!TraceLook(cptr->pos.x, cptr->pos.y+220, cptr->pos.z,\n  434  				CameraX, CameraY, CameraZ) ) {\n  ...\n  745  				  // -> Play swing sound\n  746  				  PlaySound2d(\"HUNTDAT\\\\SOUNDFX\\\\melee_swing.wav\");\n  747: 				  int dinoISee = GetCharacterIndexOnLook();\n  748  				  if (dinoISee != -1) {\n  749  					  // -> Play bash hit sound\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_messageconsole.cpp:\n   19  void Test_PlaceMPlayer();\n   20  \n   21: int ResetCharacter(TCharacter *cptr);\n   22  \n   23  // -> Local\n   ..\n   38  	//Characters[ChCount].tgz = Characters[ChCount].pos.z;\n   39  	//Characters[ChCount].tgtime = 0;\n   40: 	ResetCharacter(&Characters[ChCount]);\n   41  	Characters[ChCount].Phase = HUNT_FALL;\n   42  	Characters[ChCount].SetPhase = HUNT_FALL;\n   ..\n   67  	//Characters[ChCount].tgz = Characters[ChCount].pos.z;\n   68  	//Characters[ChCount].tgtime = 0;\n   69: 	ResetCharacter(&Characters[ChCount]);\n   70  	Characters[ChCount].Phase = 0;\n   71  	Characters[ChCount].SetPhase = 0;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Network.cpp:\n  155  void SendState();\n  156  int GetLOCfromID(int pid);\n  157: void ProcessAdvancedHealthSystem(TCharacter *cptr, int dmg);\n  158  unsigned char GetPacketIdentifier(RakNet::Packet *p);\n  159  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Render3DFX.cpp:\n 3159  * 6. Render shadows, unless dead or shadows disabled\n 3160  */\n 3161: void RenderCharacterPost(TCharacter *cptr)\n 3162  {      \n 3163     //mdlScale = 1.0f;\n ....\n 3519  void Render3DHardwarePosts()\n 3520  {   	       \n 3521:    TCharacter *cptr;\n 3522     \n 3523     for (int c=0; c<ChCount; c++) {\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_RenderSoft.cpp:\n  353  \n  354  //============= Dinosaurs ====================//\n  355:    TCharacter *cptr;\n  356     for (int c=0; c<ChCount; c++) {\n  357        cptr = &Characters[c];\n  ...\n  390        if (ChRenderList[r].Items[c].CType ==5) RenderAmmoBag();\n  391  	  //if (ChRenderList[r].Items[c].CType == 7) RenderManagedCharacter(ChRenderList[r].Items[c].Index);\n  392: 	  //if CType == 7) RenderManagedCharacter(ChRenderList[r].Items[c].Index); (index is set to index of item in ManagedCharacters array (an array of pointers to TCharacter)\n  393  	  //if (ChRenderList[r].Items[c].CType ==6) RenderPlayerModel();\n  394    }\n  ...\n 2049  void RenderPlayerModel()\n 2050  {\n 2051: 	TCharacter *cptr = &Characters[human_model_ch];\n 2052  \n 2053  	cptr->pos.x = PlayerModel.rpos.x;\n ....\n 2060  void RenderCharacter(int index)\n 2061  {\n 2062:    TCharacter *cptr = &Characters[index];\n 2063  \n 2064     float zs = (float)VectorLength( cptr->rpos );\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n 1652  \n 1653  \n 1654: void ReleaseCharacterInfo(TCharacterInfo &chinfo)\n 1655  {\n 1656  	if (!chinfo.mptr) return;\n ....\n 1678  \n 1679  \n 1680: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName)\n 1681  {\n 1682     ReleaseCharacterInfo(chinfo);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_vehicle.cpp:\n   23  * @date 9.19.2009\n   24  */\n   25: void TVehicle::process(TCharacter *cptr)\n   26  {\n   27  	//Sit idle until human comes near...\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/engine.vcxproj:\n  631      <ClCompile Include=\"mathematics.cpp\" />\n  632      <ClCompile Include=\"RenderD3D5.cpp\" />\n  633:     <ClCompile Include=\"TCharacterInfoCache.cpp\" />\n  634      <ClCompile Include=\"xmlParser.cpp\" />\n  635    </ItemGroup>\n  ...\n  645      <ClInclude Include=\"Hunt.h\" />\n  646      <ClInclude Include=\"resource.h\" />\n  647:     <ClInclude Include=\"TCharacterInfoCache.h\" />\n  648    </ItemGroup>\n  649    <ItemGroup>\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/engine.vcxproj.filters:\n  130        <Filter>Source Files\\Original\\Renderers</Filter>\n  131      </ClCompile>\n  132:     <ClCompile Include=\"TCharacterInfoCache.cpp\">\n  133        <Filter>Source Files\\Characters\\Common</Filter>\n  134      </ClCompile>\n  ...\n  165        <Filter>Header Files\\Characters\\Common</Filter>\n  166      </ClInclude>\n  167:     <ClInclude Include=\"TCharacterInfoCache.h\">\n  168        <Filter>Header Files\\Characters\\Common</Filter>\n  169      </ClInclude>\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  258  } TObject;\n  259  \n  260: typedef struct _TCharacterInfo {\n  261    char ModelName[32];\n  262    int AniCount,SfxCount;\n  ...\n  277    int RUN[10];\n  278    int SWIM[10];\n  279: } TCharacterInfo;\n  280  \n  281  typedef struct _TWeapon {\n  282:   TCharacterInfo chinfo[10];\n  283    TPicture       BulletPic[10];\n  284    Vector3d       normals[1024];\n  ...\n  307  \n  308  \n  309: typedef struct _TCharacter  {\n  310    //-> Modified to support different types PER character\n  311    int CType, AI,SUBAI; //subai is the subai of the CType. Used for different skins per AI\n  312:   TCharacterInfo *pinfo; // pointer to shared 3d model\n  313    int StateF;\n  314    int State;\n  ...\n  328          lookx, lookz;\n  329    int Health, BloodTime, BloodTTime;\n  330: } TCharacter;\n  331  \n  332  class TVehicle\n  ...\n  336  	TVehicle(void);\n  337  	~TVehicle(void);\n  338: 	static void process(TCharacter *cptr);\n  339  	static void process_slide();	\n  340  	static void process_movement();\n  ...\n  588  //============= Characters =======================\n  589  void Characters_AddSecondaryOne(int ctype);\n  590: void AddDeadBody(TCharacter *cptr, int);\n  591  void PlaceCharacters();\n  592  void PlaceTrophy();\n  ...\n  594  void MakeNoise(Vector3d, float);\n  595  void CheckAfraid();\n  596: void CreateChMorphedModel(TCharacter* cptr);\n  597  void CreateMorphedObject(TModel* mptr, TVTL &vtl, int FTime);\n  598  void CreateMorphedModel(TModel* mptr, TAni *aptr, int FTime, float scale);\n  ...\n  661  void LoadPicture(TPicture &pic, LPSTR pname);\n  662  void LoadPictureTGA(TPicture &pic, LPSTR pname);\n  663: void LoadCharacterInfo(TCharacterInfo&, char*);\n  664  void LoadModelEx(TModel* &mptr, char* FName);\n  665  void LoadModel(TModel*&);\n  ...\n  696  \n  697  //======== New AI ===========//\n  698: void AnimateGenericDead(TCharacter *cptr);\n  699  \n  700  \n  ...\n  712                float bx, float by, float bz);\n  713  \n  714: void AddBloodTrail(TCharacter *cptr);\n  715  void AddElements(float, float, float, int, int);\n  716  void AddWCircle(float, float, float);\n  ...\n  813  _EXTORNOT TPicture  PausePic, ExitPic, TrophyExit, TrophyPic,menuback;\n  814  _EXTORNOT TModel *SunModel;\n  815: _EXTORNOT TCharacterInfo WCircleModel;\n  816  _EXTORNOT TModel *CompasModel;\n  817  _EXTORNOT TModel *Binocular;\n  818  _EXTORNOT TDinoInfo DinoInfo[64][256]; //Upto 256 characters AI. This holds script data\n  819  _EXTORNOT TWeapInfo WeapInfo[10];\n  820: _EXTORNOT TCharacterInfo ShipModel, SShipModel, AmmoModel;\n  821  _EXTORNOT int AI_to_CIndex[64];\n  822  _EXTORNOT int ChCount, WCCount, ElCount, SnCount,\n  823                ShotDino, TrophyBody, ServerCh, MPlayersCount, human_model_ch;\n  824: _EXTORNOT TCharacterInfo WindModel;\n  825: _EXTORNOT TCharacterInfo PlayerInfo;\n  826: _EXTORNOT TCharacterInfo ChInfo[64][256]; //Up to 256 characters per AI. This holds model data\n  827: _EXTORNOT TCharacter     Characters[256];\n  828  class C2CharacterCollection;\n  829  _EXTORNOT C2CharacterCollection* ManagedC2Characters; // Pointer to a C2Characters. Replace this with Character Manager in World/Level\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/mathematics.cpp:\n  349  void TraceCharacter(int c)\n  350  {\n  351:   TCharacter *cptr = &Characters[c];\n  352  \n  353    if (PointToVectorD(TraceA, TraceNv, cptr->pos) > 1024.f) return;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/RenderD3D5.cpp:\n 4731  \n 4732  \n 4733: void RenderCharacterPost(TCharacter *cptr)\n 4734  {\n 4735  	//mdlScale = 1.0f;\n ....\n 4857  \n 4858  \n 4859: 	TCharacter *cptr;\n 4860  	for (int c = 0; c<ChCount; c++) {\n 4861  		cptr = &Characters[c];\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.cpp:\n    1: #include <TCharacterInfoCache.h>\n    2  \n    3: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName); // Resources.cpp\n    4  \n    5: TCharacterInfoCache::TCharacterInfoCache() {}\n    6  \n    7: TCharacterInfoCache::~TCharacterInfoCache() {}\n    8  \n    9: TCharacterInfo* TCharacterInfoCache::getInfoByAI(int AI_CODE)\n   10  {\n   11: 	std::map<int, std::unique_ptr<TCharacterInfo>>::iterator it = _objects.find(AI_CODE);\n   12  \n   13    if (it != _objects.end()) {\n   ..\n   16  \n   17    // Object doesn't exist... let's load it\n   18:   _objects[AI_CODE] = std::make_unique<TCharacterInfo>();\n   19:   TCharacterInfo* theNewModel = _objects[AI_CODE].get();\n   20  \n   21    // Use old code to load the model\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.h:\n    6  * Cache to store the model details of dinosaurs. TODO: refactor this into a singleton, and make generic to hold other models.\n    7  */\n    8: //typedef struct _TCharacterInfo TCharacterInfo;\n    9: //typedef std::map<int, std::unique_ptr<TCharacterInfo>> TCharacterInfoCacheMap; //store objects with AI has the key\n   10  \n   11: class TCharacterInfoCache {\n   12  private:\n   13: 	std::map<int, std::unique_ptr<TCharacterInfo>> _objects;\n   14  public:\n   15:   TCharacterInfoCache();\n   16:   ~TCharacterInfoCache();\n   17:   TCharacterInfo* getInfoByAI(int AI_CODE);\n   18  };\n   19  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2Character.h:\n    5  * AI is responsible for telling us how to act.\n    6  *\n    7: * This is basically an OOP wrapper to TCharacter in hunt.h.\n    8  */\n    9  #include <time.h>\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/rak/RakString.cpp:\n  640  	sharedString->c_str[i]=0;\n  641  }\n  642: void RakString::TerminateAtLastCharacter(char c)\n  643  {\n  644  	int i, len=(int) GetLength();\n  ...\n  653  	}\n  654  }\n  655: void RakString::StartAfterLastCharacter(char c)\n  656  {\n  657  	int i, len=(int) GetLength();\n  ...\n  669  	}\n  670  }\n  671: void RakString::TerminateAtFirstCharacter(char c)\n  672  {\n  673  	unsigned int i, len=(unsigned int) GetLength();\n  ...\n  684  	}\n  685  }\n  686: void RakString::StartAfterFirstCharacter(char c)\n  687  {\n  688  	unsigned int i, len=(unsigned int) GetLength();\n  ...\n  700  	}\n  701  }\n  702: int RakString::GetCharacterCount(char c)\n  703  {\n  704  	int count=0;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/rak/RakString.h:\n  157  \n  158  	/// Set the first instance of c with a NULL terminator\n  159: 	void TerminateAtFirstCharacter(char c);\n  160  	/// Set the last instance of c with a NULL terminator\n  161: 	void TerminateAtLastCharacter(char c);\n  162  \n  163: 	void StartAfterFirstCharacter(char c);\n  164: 	void StartAfterLastCharacter(char c);\n  165  \n  166  	/// Returns how many occurances there are of \\a c in the string\n  167: 	int GetCharacterCount(char c);\n  168  	\n  169  	/// Remove all instances of c\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/CE_Characters.xdc:\n    1  <?xml version=\"1.0\"?><doc>\n    2  <members>\n    3: <member name=\"M:LocalHumanMatchModel(_TCharacter*)\" decl=\"false\" source=\"\\\\psf\\home\\downloads\\carnivores-src_minorenhanced_build\\engine\\ce_characters.cpp\" line=\"2171\">\n    4  Match the passed model with the human player's movement and actions\n    5  This should be a multiplayer testing function.\n    .\n    8  \n    9  </member>\n   10: <member name=\"M:ProcessAdvancedHealthSystem(_TCharacter*,System.Int32)\" decl=\"false\" source=\"\\\\psf\\home\\downloads\\carnivores-src_minorenhanced_build\\engine\\ce_characters.cpp\" line=\"7585\">\n   11  Processes advanced health system and affects the hunter.\n   12  This function assumes the character is in damage range.\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/CE_Network.xdc:\n 1415  Erase characters out of the string at index for count\n 1416  </member>\n 1417: <member name=\"M:RakNet.RakString.TerminateAtFirstCharacter(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)\" decl=\"true\" source=\"\\\\psf\\home\\downloads\\carnivores-src_minorenhanced_build\\engine\\rak\\rakstring.h\" line=\"158\">\n 1418  Set the first instance of c with a NULL terminator\n 1419  </member>\n 1420: <member name=\"M:RakNet.RakString.TerminateAtLastCharacter(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)\" decl=\"true\" source=\"\\\\psf\\home\\downloads\\carnivores-src_minorenhanced_build\\engine\\rak\\rakstring.h\" line=\"160\">\n 1421  Set the last instance of c with a NULL terminator\n 1422  </member>\n 1423: <member name=\"M:RakNet.RakString.GetCharacterCount(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)\" decl=\"true\" source=\"\\\\psf\\home\\downloads\\carnivores-src_minorenhanced_build\\engine\\rak\\rakstring.h\" line=\"166\">\n 1424  Returns how many occurances there are of \\a c in the string\n 1425  </member>\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/CE_vehicle.xdc:\n    9  \n   10  </member>\n   11: <member name=\"M:TVehicle.process(_TCharacter*)\" decl=\"false\" source=\"\\\\psf\\home\\downloads\\carnivores-src_minorenhanced_build\\engine\\ce_vehicle.cpp\" line=\"19\">\n   12  Process jeep movement and animation\n   13  @type Static function\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.log:\n   36           Release_C2_Soft\\mathematics.obj\n   37           Release_C2_Soft\\RenderD3D5.obj\n   38:          Release_C2_Soft\\TCharacterInfoCache.obj\n   39           Release_C2_Soft\\xmlParser.obj\n   40           Generating code\n   ..\n   42           engine.vcxproj -> \\\\psf\\Home\\Downloads\\carnivores-src_minorenhanced_build\\engine\\Release_C2_Soft\\engine.exe\n   43         XdcMake:\n   44:          C:\\Program Files\\Microsoft Visual Studio 12.0\\VC\\bin\\xdcmake.exe /old \"engine\" /nologo /Fo\"Release_C2_Soft\\engine.xml\" /FsRelease_C2_Soft\\Audio_DLL.xdc /FsRelease_C2_Soft\\C2CharacterCollection.xdc /FsRelease_C2_Soft\\C2Geometry.xdc /FsRelease_C2_Soft\\C2HuntableCharacter.xdc /FsRelease_C2_Soft\\CE_AI.xdc /FsRelease_C2_Soft\\CE_ArtificialIntelligence.xdc /FsRelease_C2_Soft\\CE_Characters.xdc /FsRelease_C2_Soft\\CE_EnhancedSound.xdc /FsRelease_C2_Soft\\CE_Game.xdc /FsRelease_C2_Soft\\CE_Hunt.xdc /FsRelease_C2_Soft\\CE_Interface.xdc /FsRelease_C2_Soft\\CE_messageconsole.xdc /FsRelease_C2_Soft\\CE_Network.xdc /FsRelease_C2_Soft\\CE_Render3DFX.xdc /FsRelease_C2_Soft\\CE_RenderD3D.xdc /FsRelease_C2_Soft\\CE_RenderDX9.xdc /FsRelease_C2_Soft\\CE_RenderSoft.xdc /FsRelease_C2_Soft\\CE_Resources.xdc /FsRelease_C2_Soft\\CE_vehicle.xdc /FsRelease_C2_Soft\\C2AnimatableModel.xdc /FsRelease_C2_Soft\\C2Character.xdc /FsRelease_C2_Soft\\CE_Allosaurus.xdc /FsRelease_C2_Soft\\irrXML.xdc /FsRelease_C2_Soft\\mathematics.xdc /FsRelease_C2_Soft\\RenderD3D5.xdc /FsRelease_C2_Soft\\TCharacterInfoCache.xdc /FsRelease_C2_Soft\\xmlParser.xdc\n   45       1>Done Building Project \"\\\\psf\\Home\\Downloads\\carnivores-src_minorenhanced_build\\engine\\engine.vcxproj\" (Build target(s)).\n   46  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.xml:\n  741  Remove all instances of c\n  742  </member>\n  743:         <member name=\"M:RakNet.RakString.GetCharacterCount(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)\">\n  744  Returns how many occurances there are of \\a c in the string\n  745  </member>\n  746:         <member name=\"M:RakNet.RakString.TerminateAtLastCharacter(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)\">\n  747  Set the last instance of c with a NULL terminator\n  748  </member>\n  749:         <member name=\"M:RakNet.RakString.TerminateAtFirstCharacter(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)\">\n  750  Set the first instance of c with a NULL terminator\n  751  </member>\n  ...\n 2207  \n 2208  </member>\n 2209:         <member name=\"M:TVehicle.process(_TCharacter*)\">\n 2210  Process jeep movement and animation\n 2211  @type Static function\n ....\n 3218  This is a typedef for unsigned char, it ensures portability of the engine. \n 3219  </member>\n 3220:         <member name=\"M:ProcessAdvancedHealthSystem(_TCharacter*,System.Int32)\">\n 3221  Processes advanced health system and affects the hunter.\n 3222  This function assumes the character is in damage range.\n ....\n 3224  \n 3225  </member>\n 3226:         <member name=\"M:LocalHumanMatchModel(_TCharacter*)\">\n 3227  Match the passed model with the human player's movement and actions\n 3228  This should be a multiplayer testing function.\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/cl.command.1.tlog:\n   57  ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RENDERD3D5.CPP\n   58  /c /Zi /nologo /W0 /WX- /O2 /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo\"RELEASE_C2_SOFT\\\\\" /Fd\"RELEASE_C2_SOFT\\VC120.PDB\" /doc\"Release_C2_Soft\\\\\" /Gd /TP /analyze- \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RENDERD3D5.CPP\n   59: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.CPP\n   60: /c /Zi /nologo /W0 /WX- /O2 /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo\"RELEASE_C2_SOFT\\\\\" /Fd\"RELEASE_C2_SOFT\\VC120.PDB\" /doc\"Release_C2_Soft\\\\\" /Gd /TP /analyze- \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.CPP\n   61  ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2GEOMETRY.CPP\n   62  /c /Zi /nologo /W0 /WX- /O2 /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo\"RELEASE_C2_SOFT\\\\\" /Fd\"RELEASE_C2_SOFT\\VC120.PDB\" /doc\"Release_C2_Soft\\\\\" /Gd /TP /analyze- \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2GEOMETRY.CPP\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/cl.read.1.tlog:\n 4073  C:\\WINDOWS\\REGISTRATION\\R00000000000D.CLB\n 4074  C:\\WINDOWS\\SYSTEM32\\MSXML6R.DLL\n 4075: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.CPP\n 4076: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.H\n 4077  C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO 12.0\\VC\\INCLUDE\\MEMORY\n 4078  C:\\WINDOWS\\REGISTRATION\\R00000000000D.CLB\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/cl.write.1.tlog:\n  538  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC\n  539  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.OBJ\n  540: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2CHARACTERCOLLECTION.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2HUNTABLECHARACTER.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_ALLOSAURUS.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_ARTIFICIALINTELLIGENCE.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_CHARACTERS.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_GAME.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_MESSAGECONSOLE.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_RENDERSOFT.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CHARACTERS\\C2ANIMATABLEMODEL.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CHARACTERS\\C2CHARACTER.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.CPP\n  541  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.PDB\n  542  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.IDB\n  543: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.XDC\n  544  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.XDC\n  545  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.XDC\n  546  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.OBJ\n  547  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.OBJ\n  548: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJ\n  549  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC\n  550  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC\n  ...\n  557  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.OBJ\n  558  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.OBJ\n  559: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.CPP\n  560  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.PDB\n  561: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CHARACTERS\\C2ANIMATABLEMODEL.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.CPP\n  562  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.PDB\n  563  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.IDB\n  564: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.XDC\n  565: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJ\n  566: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2CHARACTERCOLLECTION.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2GEOMETRY.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2HUNTABLECHARACTER.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_ALLOSAURUS.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_ARTIFICIALINTELLIGENCE.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_CHARACTERS.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_GAME.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_MESSAGECONSOLE.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CE_RENDERSOFT.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CHARACTERS\\C2ANIMATABLEMODEL.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\CHARACTERS\\C2CHARACTER.CPP|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\TCHARACTERINFOCACHE.CPP\n  567  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.PDB\n  568  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.IDB\n  569: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.XDC\n  570: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJ\n  571  ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\C2GEOMETRY.CPP\n  572  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\VC120.PDB\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/link.command.1.tlog:\n    1: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTERCOLLECTION.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2GEOMETRY.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RENDERD3D5.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RESOURCE.RES|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.OBJ\n    2: /OUT:\"Z:\\DOWNLOADS\\CCEV1.12.4ADP\\CARNIVORES 2\\CARNIVORES 2\\V_SOFT.REN\" /INCREMENTAL:NO /NOLOGO ddraw.lib winmm.lib RakNetLibStatic.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:\"level='asInvoker' uiAccess='false'\" /manifest:embed /DEBUG /PDB:\"RELEASE_C2_SOFT\\ENGINE.PDB\" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:\"RELEASE_C2_SOFT\\ENGINE.LIB\" /MACHINE:X86 /SAFESEH RELEASE_C2_SOFT\\RESOURCE.RESRELEASE_C2_SOFT\\AUDIO_DLL.OBJRELEASE_C2_SOFT\\C2CHARACTERCOLLECTION.OBJRELEASE_C2_SOFT\\C2GEOMETRY.OBJRELEASE_C2_SOFT\\C2HUNTABLECHARACTER.OBJRELEASE_C2_SOFT\\CE_AI.OBJRELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.OBJRELEASE_C2_SOFT\\CE_CHARACTERS.OBJRELEASE_C2_SOFT\\CE_ENHANCEDSOUND.OBJRELEASE_C2_SOFT\\CE_GAME.OBJRELEASE_C2_SOFT\\CE_HUNT.OBJRELEASE_C2_SOFT\\CE_INTERFACE.OBJRELEASE_C2_SOFT\\CE_MESSAGECONSOLE.OBJRELEASE_C2_SOFT\\CE_NETWORK.OBJRELEASE_C2_SOFT\\CE_RENDER3DFX.OBJRELEASE_C2_SOFT\\CE_RENDERD3D.OBJRELEASE_C2_SOFT\\CE_RENDERDX9.OBJRELEASE_C2_SOFT\\CE_RENDERSOFT.OBJRELEASE_C2_SOFT\\CE_RESOURCES.OBJRELEASE_C2_SOFT\\CE_VEHICLE.OBJRELEASE_C2_SOFT\\C2ANIMATABLEMODEL.OBJRELEASE_C2_SOFT\\C2CHARACTER.OBJRELEASE_C2_SOFT\\CE_ALLOSAURUS.OBJRELEASE_C2_SOFT\\IRRXML.OBJRELEASE_C2_SOFT\\MATHEMATICS.OBJRELEASE_C2_SOFT\\RENDERD3D5.OBJRELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJRELEASE_C2_SOFT\\XMLPARSER.OBJ\n    3  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/link.read.1.tlog:\n    1: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTERCOLLECTION.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2GEOMETRY.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RENDERD3D5.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RESOURCE.RES|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.OBJ\n    2  C:\\PROGRAM FILES\\WINDOWS KITS\\8.1\\LIB\\WINV6.3\\UM\\X86\\DDRAW.LIB\n    3  C:\\PROGRAM FILES\\WINDOWS KITS\\8.1\\LIB\\WINV6.3\\UM\\X86\\WINMM.LIB\n    .\n   42  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.OBJ\n   43  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RENDERD3D5.OBJ\n   44: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJ\n   45  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.OBJ\n   46  C:\\WINDOWS\\GLOBALIZATION\\SORTING\\SORTDEFAULT.NLS\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/link.write.1.tlog:\n    1: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTERCOLLECTION.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2GEOMETRY.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RENDERD3D5.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RESOURCE.RES|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.OBJ|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.OBJ\n    2  Z:\\DOWNLOADS\\CCEV1.12.4ADP\\CARNIVORES 2\\CARNIVORES 2\\V_SOFT.REN\n    3  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\ENGINE.PDB\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/XDCMake.command.1.tlog:\n    5  ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.XDC\n    6  /old \"engine\" /nologo /Fo\"RELEASE_C2_SOFT\\ENGINE.XML\" /FsRelease_C2_Soft\\Audio_DLL.xdc /FsRelease_C2_Soft\\C2HuntableCharacter.xdc /FsRelease_C2_Soft\\CE_AI.xdc /FsRelease_C2_Soft\\CE_ArtificialIntelligence.xdc /FsRelease_C2_Soft\\CE_Characters.xdc /FsRelease_C2_Soft\\CE_EnhancedSound.xdc /FsRelease_C2_Soft\\CE_Game.xdc /FsRelease_C2_Soft\\CE_Hunt.xdc /FsRelease_C2_Soft\\CE_Interface.xdc /FsRelease_C2_Soft\\CE_messageconsole.xdc /FsRelease_C2_Soft\\CE_Network.xdc /FsRelease_C2_Soft\\CE_Render3DFX.xdc /FsRelease_C2_Soft\\CE_RenderD3D.xdc /FsRelease_C2_Soft\\CE_RenderDX9.xdc /FsRelease_C2_Soft\\CE_RenderSoft.xdc /FsRelease_C2_Soft\\CE_Resources.xdc /FsRelease_C2_Soft\\CE_vehicle.xdc /FsRelease_C2_Soft\\C2AnimatableModel.xdc /FsRelease_C2_Soft\\C2Character.xdc /FsRelease_C2_Soft\\CE_Allosaurus.xdc /FsRelease_C2_Soft\\irrXML.xdc /FsRelease_C2_Soft\\mathematics.xdc /FsRelease_C2_Soft\\xmlParser.xdc\n    7: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTERCOLLECTION.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2GEOMETRY.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RENDERD3D5.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.XDC\n    8: /old \"engine\" /nologo /Fo\"RELEASE_C2_SOFT\\ENGINE.XML\" /FsRelease_C2_Soft\\Audio_DLL.xdc /FsRelease_C2_Soft\\C2CharacterCollection.xdc /FsRelease_C2_Soft\\C2Geometry.xdc /FsRelease_C2_Soft\\C2HuntableCharacter.xdc /FsRelease_C2_Soft\\CE_AI.xdc /FsRelease_C2_Soft\\CE_ArtificialIntelligence.xdc /FsRelease_C2_Soft\\CE_Characters.xdc /FsRelease_C2_Soft\\CE_EnhancedSound.xdc /FsRelease_C2_Soft\\CE_Game.xdc /FsRelease_C2_Soft\\CE_Hunt.xdc /FsRelease_C2_Soft\\CE_Interface.xdc /FsRelease_C2_Soft\\CE_messageconsole.xdc /FsRelease_C2_Soft\\CE_Network.xdc /FsRelease_C2_Soft\\CE_Render3DFX.xdc /FsRelease_C2_Soft\\CE_RenderD3D.xdc /FsRelease_C2_Soft\\CE_RenderDX9.xdc /FsRelease_C2_Soft\\CE_RenderSoft.xdc /FsRelease_C2_Soft\\CE_Resources.xdc /FsRelease_C2_Soft\\CE_vehicle.xdc /FsRelease_C2_Soft\\C2AnimatableModel.xdc /FsRelease_C2_Soft\\C2Character.xdc /FsRelease_C2_Soft\\CE_Allosaurus.xdc /FsRelease_C2_Soft\\irrXML.xdc /FsRelease_C2_Soft\\mathematics.xdc /FsRelease_C2_Soft\\RenderD3D5.xdc /FsRelease_C2_Soft\\TCharacterInfoCache.xdc /FsRelease_C2_Soft\\xmlParser.xdc\n    9  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/XDCMake.read.1.tlog:\n   92  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.XDC\n   93  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC\n   94: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTERCOLLECTION.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2GEOMETRY.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RENDERD3D5.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.XDC\n   95  C:\\WINDOWS\\MICROSOFT.NET\\FRAMEWORK\\V2.0.50727\\MSCORWKS.DLL\n   96  C:\\WINDOWS\\MICROSOFT.NET\\FRAMEWORK\\V4.0.30319\\CLR.DLL\n   ..\n  128  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.XDC\n  129  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.XDC\n  130: \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.XDC\n  131  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.XDC\n  132  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Release_C2_Soft/engine.tlog/XDCMake.write.1.tlog:\n    2  ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.XDC\n    3  ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.XDC\n    4: ^\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\AUDIO_DLL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2ANIMATABLEMODEL.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2CHARACTERCOLLECTION.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2GEOMETRY.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\C2HUNTABLECHARACTER.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_AI.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ALLOSAURUS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ARTIFICIALINTELLIGENCE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_CHARACTERS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_ENHANCEDSOUND.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_GAME.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_HUNT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_INTERFACE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_MESSAGECONSOLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_NETWORK.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDER3DFX.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERD3D.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERDX9.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RENDERSOFT.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_RESOURCES.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\CE_VEHICLE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\IRRXML.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\MATHEMATICS.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\RENDERD3D5.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\TCHARACTERINFOCACHE.XDC|\\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\XMLPARSER.XDC\n    5  \\\\PSF\\HOME\\DOWNLOADS\\CARNIVORES-SRC_MINORENHANCED_BUILD\\ENGINE\\RELEASE_C2_SOFT\\ENGINE.XML\n    6  \n\n207 matches across 34 files\n\n\nSearching 1 file for \"TCharacter\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  258  } TObject;\n  259  \n  260: typedef struct _TCharacterInfo {\n  261    char ModelName[32];\n  262    int AniCount,SfxCount;\n  ...\n  277    int RUN[10];\n  278    int SWIM[10];\n  279: } TCharacterInfo;\n  280  \n  281  typedef struct _TWeapon {\n  282:   TCharacterInfo chinfo[10];\n  283    TPicture       BulletPic[10];\n  284    Vector3d       normals[1024];\n  ...\n  307  \n  308  \n  309: typedef struct _TCharacter  {\n  310    //-> Modified to support different types PER character\n  311    int CType, AI,SUBAI; //subai is the subai of the CType. Used for different skins per AI\n  312:   TCharacterInfo *pinfo; // pointer to shared 3d model\n  313    int StateF;\n  314    int State;\n  ...\n  328          lookx, lookz;\n  329    int Health, BloodTime, BloodTTime;\n  330: } TCharacter;\n  331  \n  332  class TVehicle\n  ...\n  336  	TVehicle(void);\n  337  	~TVehicle(void);\n  338: 	static void process(TCharacter *cptr);\n  339  	static void process_slide();	\n  340  	static void process_movement();\n  ...\n  588  //============= Characters =======================\n  589  void Characters_AddSecondaryOne(int ctype);\n  590: void AddDeadBody(TCharacter *cptr, int);\n  591  void PlaceCharacters();\n  592  void PlaceTrophy();\n  ...\n  594  void MakeNoise(Vector3d, float);\n  595  void CheckAfraid();\n  596: void CreateChMorphedModel(TCharacter* cptr);\n  597  void CreateMorphedObject(TModel* mptr, TVTL &vtl, int FTime);\n  598  void CreateMorphedModel(TModel* mptr, TAni *aptr, int FTime, float scale);\n  ...\n  661  void LoadPicture(TPicture &pic, LPSTR pname);\n  662  void LoadPictureTGA(TPicture &pic, LPSTR pname);\n  663: void LoadCharacterInfo(TCharacterInfo&, char*);\n  664  void LoadModelEx(TModel* &mptr, char* FName);\n  665  void LoadModel(TModel*&);\n  ...\n  696  \n  697  //======== New AI ===========//\n  698: void AnimateGenericDead(TCharacter *cptr);\n  699  \n  700  \n  ...\n  712                float bx, float by, float bz);\n  713  \n  714: void AddBloodTrail(TCharacter *cptr);\n  715  void AddElements(float, float, float, int, int);\n  716  void AddWCircle(float, float, float);\n  ...\n  813  _EXTORNOT TPicture  PausePic, ExitPic, TrophyExit, TrophyPic,menuback;\n  814  _EXTORNOT TModel *SunModel;\n  815: _EXTORNOT TCharacterInfo WCircleModel;\n  816  _EXTORNOT TModel *CompasModel;\n  817  _EXTORNOT TModel *Binocular;\n  818  _EXTORNOT TDinoInfo DinoInfo[64][256]; //Upto 256 characters AI. This holds script data\n  819  _EXTORNOT TWeapInfo WeapInfo[10];\n  820: _EXTORNOT TCharacterInfo ShipModel, SShipModel, AmmoModel;\n  821  _EXTORNOT int AI_to_CIndex[64];\n  822  _EXTORNOT int ChCount, WCCount, ElCount, SnCount,\n  823                ShotDino, TrophyBody, ServerCh, MPlayersCount, human_model_ch;\n  824: _EXTORNOT TCharacterInfo WindModel;\n  825: _EXTORNOT TCharacterInfo PlayerInfo;\n  826: _EXTORNOT TCharacterInfo ChInfo[64][256]; //Up to 256 characters per AI. This holds model data\n  827: _EXTORNOT TCharacter     Characters[256];\n  828  class C2CharacterCollection;\n  829  _EXTORNOT C2CharacterCollection* ManagedC2Characters; // Pointer to a C2Characters. Replace this with Character Manager in World/Level\n\n18 matches in 1 file\n\n\nSearching 446 files for \"CreateChMorphed\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp:\n 7862  \n 7863  \n 7864: void CreateChMorphedModel(TCharacter *cptr)\n 7865  {   \n 7866     TAni *aptr  = &cptr->pinfo->Animation[cptr->Phase];   \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Render3DFX.cpp:\n 3162  {      \n 3163     //mdlScale = 1.0f;\n 3164:    CreateChMorphedModel(cptr);   \n 3165     \n 3166     float zs = (float)sqrt( cptr->rpos.x*cptr->rpos.x  +  cptr->rpos.y*cptr->rpos.y  +  cptr->rpos.z*cptr->rpos.z);  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_RenderSoft.cpp:\n 2069  	GlassL = (int)min(255, (zs/4 - 64*(ctViewR-4)));         \n 2070     \n 2071:    CreateChMorphedModel(cptr);\n 2072     \n 2073  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  594  void MakeNoise(Vector3d, float);\n  595  void CheckAfraid();\n  596: void CreateChMorphedModel(TCharacter* cptr);\n  597  void CreateMorphedObject(TModel* mptr, TVTL &vtl, int FTime);\n  598  void CreateMorphedModel(TModel* mptr, TAni *aptr, int FTime, float scale);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/mathematics.cpp:\n  354    \n  355    TModel *mptr = cptr->pinfo->mptr;\n  356:   CreateChMorphedModel(cptr);   \n  357    float ca = (float)cos(-cptr->alpha + pi / 2.f);\n  358    float sa = (float)sin(-cptr->alpha + pi / 2.f);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/RenderD3D5.cpp:\n 4735  	//mdlScale = 1.0f;\n 4736  \n 4737: 	CreateChMorphedModel(cptr);\n 4738  \n 4739  	float zs = (float)sqrt(cptr->rpos.x*cptr->rpos.x + cptr->rpos.y*cptr->rpos.y + cptr->rpos.z*cptr->rpos.z);\n\n6 matches across 6 files\n\n\nSearching 1 file for \"TAni\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n   61    int aniKPS, FramesCount, AniTime;\n   62    short int* aniData;\n   63: } TAni;\n   64  \n   65  typedef struct _VTLdata {  \n   ..\n  236     int  GrRad;\n  237     int  DefLight;\n  238:    int  LastAniTime;   \n  239     float BoundR;\n  240     BYTE res[16];\n  ...\n  262    int AniCount,SfxCount;\n  263    TModel* mptr;\n  264:   TAni Animation[64];\n  265    TSFX SoundFX[64];\n  266  \n  ...\n  596  void CreateChMorphedModel(TCharacter* cptr);\n  597  void CreateMorphedObject(TModel* mptr, TVTL &vtl, int FTime);\n  598: void CreateMorphedModel(TModel* mptr, TAni *aptr, int FTime, float scale);\n  599: void CreateMorphedModelEditor(TModel* mptr, TAni *aptr, int FTime, float scale);\n  600  \n  601  //=============================== Math ==================================//\n\n5 matches in 1 file\n\n\nSearching 446 files for \"aniData\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_AI.cpp:\n   74  	char aniName[32];\n   75  	int aniKPS, FramesCount, AniTime;\n   76: 	short int* aniData;\n   77  \n   78  	/* Sound */\n   ..\n  288  		/* Release animation data */\n  289  		for (int c = 0; c<64; c++) {\n  290: 			if (!this->Animation[c].aniData) break;\n  291: 			_HeapFree(Heap, 0, this->Animation[c].aniData);\n  292: 			this->Animation[c].aniData = NULL;\n  293  		}\n  294  \n  ...\n  412  			ReadFile(hfile, &this->Animation[a].FramesCount, 4, &l, NULL);\n  413  			this->Animation[a].AniTime = (this->Animation[a].FramesCount * 1000) / this->Animation[a].aniKPS;\n  414: 			this->Animation[a].aniData = (short int*) \n  415  				_HeapAlloc(Heap, 0, (this->mptr->VCount*this->Animation[a].FramesCount*6) );\n  416  \n  417: 			ReadFile(hfile, this->Animation[a].aniData, (this->mptr->VCount*this->Animation[a].FramesCount*6), &l, NULL);\n  418  		}\n  419  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp:\n 7904  \n 7905     int VCount = cptr->pinfo->mptr->VCount;\n 7906:    short int* adptr  =  aptr->aniData + CurFrame*VCount*3;\n 7907:    short int* padptr = paptr->aniData + PCurFrame*VCount*3;\n 7908  \n 7909     float sb = (float)sin(cptr->beta) * scale;\n ....\n 7974   \n 7975    int VCount = mptr->VCount;\n 7976:   short int* adptr = &(aptr->aniData[CurFrame*VCount*3]);\n 7977    for (int v=0; v<VCount; v++) {\n 7978     mptr->gVertex[v].x = *(adptr+v*3+0) * k1 + *(adptr+(v+VCount)*3+0) * k2;\n ....\n 8008  \n 8009    PrintLog(\"Get AnimationData from adptr...\\n\");\n 8010:   short int* adptr = &(aptr->aniData[CurFrame*VCount*3]);\n 8011  \n 8012    PrintLog(\"Loop vertexes...\\n\");\n ....\n 8034   \n 8035    int VCount = mptr->VCount;\n 8036:   short int* adptr = &(vtl.aniData[CurFrame*VCount*3]);\n 8037    for (int v=0; v<VCount; v++) {\n 8038     mptr->gVertex[v].x = *(adptr+v*3+0) * k1 + *(adptr+(v+VCount)*3+0) * k2;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n  744  \n  745     vtl.AniTime = (vtl.FramesCount * 1000) / vtl.aniKPS;\n  746:    vtl.aniData = (short int*) \n  747      _HeapAlloc(Heap, 0, (vc*vtl.FramesCount*6) );\n  748:    ReadFile( hfile, vtl.aniData, (vc*vtl.FramesCount*6), &l, NULL);\n  749  \n  750  }\n  ...\n 1146  \n 1147  		if (MObjects[m].vtl.FramesCount>0) {\n 1148: 		 _HeapFree(Heap, 0, MObjects[m].vtl.aniData);\n 1149: 		 MObjects[m].vtl.aniData = NULL;\n 1150  		 }\n 1151  		\n ....\n 1660  \n 1661  	for (int c = 0; c<64; c++) {\n 1662:      if (!chinfo.Animation[c].aniData) break;\n 1663: 	 _HeapFree(Heap, 0, chinfo.Animation[c].aniData);\n 1664:      chinfo.Animation[c].aniData = NULL;\n 1665  	}\n 1666  \n ....\n 1738  \n 1739  #ifndef _dx9\n 1740:       chinfo.Animation[a].aniData = (short int*) \n 1741            _HeapAlloc(Heap, 0, (chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6) );\n 1742  #else\n 1743: 	chinfo.Animation[a].aniData = new short int[(chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6)];\n 1744  #endif\n 1745  \n 1746:       ReadFile(hfile, chinfo.Animation[a].aniData, (chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6), &l, NULL);\n 1747      }\n 1748  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n   60    char aniName[32];\n   61    int aniKPS, FramesCount, AniTime;\n   62:   short int* aniData;\n   63  } TAni;\n   64  \n   65  typedef struct _VTLdata {  \n   66    int aniKPS, FramesCount, AniTime;\n   67:   short int* aniData;\n   68  } TVTL;\n   69  \n\n23 matches across 4 files\n\n\nSearching 446 files for \"aniData\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_AI.cpp:\n   74  	char aniName[32];\n   75  	int aniKPS, FramesCount, AniTime;\n   76: 	short int* aniData;\n   77  \n   78  	/* Sound */\n   ..\n  288  		/* Release animation data */\n  289  		for (int c = 0; c<64; c++) {\n  290: 			if (!this->Animation[c].aniData) break;\n  291: 			_HeapFree(Heap, 0, this->Animation[c].aniData);\n  292: 			this->Animation[c].aniData = NULL;\n  293  		}\n  294  \n  ...\n  412  			ReadFile(hfile, &this->Animation[a].FramesCount, 4, &l, NULL);\n  413  			this->Animation[a].AniTime = (this->Animation[a].FramesCount * 1000) / this->Animation[a].aniKPS;\n  414: 			this->Animation[a].aniData = (short int*) \n  415  				_HeapAlloc(Heap, 0, (this->mptr->VCount*this->Animation[a].FramesCount*6) );\n  416  \n  417: 			ReadFile(hfile, this->Animation[a].aniData, (this->mptr->VCount*this->Animation[a].FramesCount*6), &l, NULL);\n  418  		}\n  419  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp:\n 7904  \n 7905     int VCount = cptr->pinfo->mptr->VCount;\n 7906:    short int* adptr  =  aptr->aniData + CurFrame*VCount*3;\n 7907:    short int* padptr = paptr->aniData + PCurFrame*VCount*3;\n 7908  \n 7909     float sb = (float)sin(cptr->beta) * scale;\n ....\n 7974   \n 7975    int VCount = mptr->VCount;\n 7976:   short int* adptr = &(aptr->aniData[CurFrame*VCount*3]);\n 7977    for (int v=0; v<VCount; v++) {\n 7978     mptr->gVertex[v].x = *(adptr+v*3+0) * k1 + *(adptr+(v+VCount)*3+0) * k2;\n ....\n 8008  \n 8009    PrintLog(\"Get AnimationData from adptr...\\n\");\n 8010:   short int* adptr = &(aptr->aniData[CurFrame*VCount*3]);\n 8011  \n 8012    PrintLog(\"Loop vertexes...\\n\");\n ....\n 8034   \n 8035    int VCount = mptr->VCount;\n 8036:   short int* adptr = &(vtl.aniData[CurFrame*VCount*3]);\n 8037    for (int v=0; v<VCount; v++) {\n 8038     mptr->gVertex[v].x = *(adptr+v*3+0) * k1 + *(adptr+(v+VCount)*3+0) * k2;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n  744  \n  745     vtl.AniTime = (vtl.FramesCount * 1000) / vtl.aniKPS;\n  746:    vtl.aniData = (short int*) \n  747      _HeapAlloc(Heap, 0, (vc*vtl.FramesCount*6) );\n  748:    ReadFile( hfile, vtl.aniData, (vc*vtl.FramesCount*6), &l, NULL);\n  749  \n  750  }\n  ...\n 1146  \n 1147  		if (MObjects[m].vtl.FramesCount>0) {\n 1148: 		 _HeapFree(Heap, 0, MObjects[m].vtl.aniData);\n 1149: 		 MObjects[m].vtl.aniData = NULL;\n 1150  		 }\n 1151  		\n ....\n 1660  \n 1661  	for (int c = 0; c<64; c++) {\n 1662:      if (!chinfo.Animation[c].aniData) break;\n 1663: 	 _HeapFree(Heap, 0, chinfo.Animation[c].aniData);\n 1664:      chinfo.Animation[c].aniData = NULL;\n 1665  	}\n 1666  \n ....\n 1738  \n 1739  #ifndef _dx9\n 1740:       chinfo.Animation[a].aniData = (short int*) \n 1741            _HeapAlloc(Heap, 0, (chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6) );\n 1742  #else\n 1743: 	chinfo.Animation[a].aniData = new short int[(chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6)];\n 1744  #endif\n 1745  \n 1746:       ReadFile(hfile, chinfo.Animation[a].aniData, (chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6), &l, NULL);\n 1747      }\n 1748  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n   60    char aniName[32];\n   61    int aniKPS, FramesCount, AniTime;\n   62:   short int* aniData;\n   63  } TAni;\n   64  \n   65  typedef struct _VTLdata {  \n   66    int aniKPS, FramesCount, AniTime;\n   67:   short int* aniData;\n   68  } TVTL;\n   69  \n\n23 matches across 4 files\n\n\nSearching 446 files for \"aniData\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_AI.cpp:\n   74  	char aniName[32];\n   75  	int aniKPS, FramesCount, AniTime;\n   76: 	short int* aniData;\n   77  \n   78  	/* Sound */\n   ..\n  288  		/* Release animation data */\n  289  		for (int c = 0; c<64; c++) {\n  290: 			if (!this->Animation[c].aniData) break;\n  291: 			_HeapFree(Heap, 0, this->Animation[c].aniData);\n  292: 			this->Animation[c].aniData = NULL;\n  293  		}\n  294  \n  ...\n  412  			ReadFile(hfile, &this->Animation[a].FramesCount, 4, &l, NULL);\n  413  			this->Animation[a].AniTime = (this->Animation[a].FramesCount * 1000) / this->Animation[a].aniKPS;\n  414: 			this->Animation[a].aniData = (short int*) \n  415  				_HeapAlloc(Heap, 0, (this->mptr->VCount*this->Animation[a].FramesCount*6) );\n  416  \n  417: 			ReadFile(hfile, this->Animation[a].aniData, (this->mptr->VCount*this->Animation[a].FramesCount*6), &l, NULL);\n  418  		}\n  419  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp:\n 7904  \n 7905     int VCount = cptr->pinfo->mptr->VCount;\n 7906:    short int* adptr  =  aptr->aniData + CurFrame*VCount*3;\n 7907:    short int* padptr = paptr->aniData + PCurFrame*VCount*3;\n 7908  \n 7909     float sb = (float)sin(cptr->beta) * scale;\n ....\n 7974   \n 7975    int VCount = mptr->VCount;\n 7976:   short int* adptr = &(aptr->aniData[CurFrame*VCount*3]);\n 7977    for (int v=0; v<VCount; v++) {\n 7978     mptr->gVertex[v].x = *(adptr+v*3+0) * k1 + *(adptr+(v+VCount)*3+0) * k2;\n ....\n 8008  \n 8009    PrintLog(\"Get AnimationData from adptr...\\n\");\n 8010:   short int* adptr = &(aptr->aniData[CurFrame*VCount*3]);\n 8011  \n 8012    PrintLog(\"Loop vertexes...\\n\");\n ....\n 8034   \n 8035    int VCount = mptr->VCount;\n 8036:   short int* adptr = &(vtl.aniData[CurFrame*VCount*3]);\n 8037    for (int v=0; v<VCount; v++) {\n 8038     mptr->gVertex[v].x = *(adptr+v*3+0) * k1 + *(adptr+(v+VCount)*3+0) * k2;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n  744  \n  745     vtl.AniTime = (vtl.FramesCount * 1000) / vtl.aniKPS;\n  746:    vtl.aniData = (short int*) \n  747      _HeapAlloc(Heap, 0, (vc*vtl.FramesCount*6) );\n  748:    ReadFile( hfile, vtl.aniData, (vc*vtl.FramesCount*6), &l, NULL);\n  749  \n  750  }\n  ...\n 1146  \n 1147  		if (MObjects[m].vtl.FramesCount>0) {\n 1148: 		 _HeapFree(Heap, 0, MObjects[m].vtl.aniData);\n 1149: 		 MObjects[m].vtl.aniData = NULL;\n 1150  		 }\n 1151  		\n ....\n 1660  \n 1661  	for (int c = 0; c<64; c++) {\n 1662:      if (!chinfo.Animation[c].aniData) break;\n 1663: 	 _HeapFree(Heap, 0, chinfo.Animation[c].aniData);\n 1664:      chinfo.Animation[c].aniData = NULL;\n 1665  	}\n 1666  \n ....\n 1738  \n 1739  #ifndef _dx9\n 1740:       chinfo.Animation[a].aniData = (short int*) \n 1741            _HeapAlloc(Heap, 0, (chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6) );\n 1742  #else\n 1743: 	chinfo.Animation[a].aniData = new short int[(chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6)];\n 1744  #endif\n 1745  \n 1746:       ReadFile(hfile, chinfo.Animation[a].aniData, (chinfo.mptr->VCount*chinfo.Animation[a].FramesCount*6), &l, NULL);\n 1747      }\n 1748  \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n   60    char aniName[32];\n   61    int aniKPS, FramesCount, AniTime;\n   62:   short int* aniData;\n   63  } TAni;\n   64  \n   65  typedef struct _VTLdata {  \n   66    int aniKPS, FramesCount, AniTime;\n   67:   short int* aniData;\n   68  } TVTL;\n   69  \n\n23 matches across 4 files\n",
 			"settings":
 			{
-				"buffer_size": 53626,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "engine/characters/C2AnimatableModel.h",
-			"settings":
-			{
-				"buffer_size": 544,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "engine/CE_Resources.cpp",
-			"settings":
-			{
-				"buffer_size": 64853,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "engine/TCharacterInfoCache.h",
-			"settings":
-			{
-				"buffer_size": 506,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "engine/TCharacterInfoCache.cpp",
-			"settings":
-			{
-				"buffer_size": 760,
-				"line_ending": "Unix",
-				"name": "#include <TCharacterCache.h>"
-			}
-		},
-		{
-			"contents": "Searching 442 files for \"LoadCharacterInfo\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp:\n 2307  \n 2308  	PrintLog(\"Loading common character info...\");\n 2309: 	LoadCharacterInfo(WCircleModel , \"HUNTDAT\\\\WCIRCLE2.CAR\"); 	\n 2310: 	LoadCharacterInfo(ShipModel, \"HUNTDAT\\\\ship2a.car\"); \n 2311: 	LoadCharacterInfo(WindModel, \"HUNTDAT\\\\WIND.CAR\");\n 2312  \n 2313:     LoadCharacterInfo(SShipModel, \"HUNTDAT\\\\sship1.car\"); \n 2314:     LoadCharacterInfo(AmmoModel, \"HUNTDAT\\\\bag1.car\"); \n 2315  	PrintLog(\"done\\n\");\n 2316  \n 2317  	//-> Only display this if in software mode...\n 2318: 	//LoadCharacterInfo(ExploCar,\"HUNTDAT\\\\EXPLO.car\");\n 2319  \n 2320  	LoadWav(\"HUNTDAT\\\\SOUNDFX\\\\a_underw.wav\",  fxUnderwater);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n 1488  	pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!\n 1489  	PrintLog(\"Loading Dead Body Model hunter1rotten...\");\n 1490: 	LoadCharacterInfo(ChInfo[0][1], \"HUNTDAT\\\\hunter1rotten.car\");\n 1491  	//PrintLog(\"...Done\\n\");\n 1492  \n ....\n 1500  			wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1501  			PrintLog(\"Loading: \");	PrintLog(logt);	PrintLog(\"\\n\");\n 1502: 			LoadCharacterInfo(ChInfo[c][0], logt);\n 1503  \n 1504  			//PrintLog(\"Morphing Character... \\n\");\n ....\n 1511  					wsprintf(logt, \"HUNTDAT\\\\MODS\\\\%s\", DinoInfo[c][si+1].FName);\n 1512  					PrintLog(\"Loading Mod: \"); PrintLog(logt);PrintLog(\"\\n\");\n 1513: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1514  				} else {\n 1515  					//-> No file... Just load the skin replacement\n ....\n 1518  					wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1519  					PrintLog(\"Loading Mod Override for: \"); PrintLog(logt);\n 1520: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1521  					wsprintf(logt,\"HUNTDAT\\\\MODS\\\\%s\",DinoInfo[c][si+1].Skin);\n 1522  					LoadPictureTGA(tmppic,logt);\n ....\n 1555  			if (!Weapon.chinfo[c].mptr) {\n 1556  			  wsprintf(logt, \"HUNTDAT\\\\WEAPONS\\\\%s\", WeapInfo[c].FName);\n 1557:               LoadCharacterInfo(Weapon.chinfo[c], logt);\n 1558  			  PrintLog(\"Loading: \");  PrintLog(logt);  PrintLog(\"\\n\");			  \n 1559  			}\n ....\n 1678  \n 1679  \n 1680: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName)\n 1681  {\n 1682     ReleaseCharacterInfo(chinfo);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  661  void LoadPicture(TPicture &pic, LPSTR pname);\n  662  void LoadPictureTGA(TPicture &pic, LPSTR pname);\n  663: void LoadCharacterInfo(TCharacterInfo&, char*);\n  664  void LoadModelEx(TModel* &mptr, char* FName);\n  665  void LoadModel(TModel*&);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.cpp:\n    2  #include <Hunt.h>\n    3  \n    4: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName); //Resources.cpp\n    5  \n    6  TCharacherInfoCache::TCharacherInfoCache() : _objects(new TCharacterInfoCacheMap()) {}\n    .\n   19    TCharacterInfo* theTModelInfo = new TCharacterInfo;\n   20  \n   21:   LoadCharacterInfo(&theTModelInfo , \"HUNTDAT\\\\WCIRCLE2.CAR\"); \n   22    myMap[0] = std::make_unique<Class1>();\n   23  }\n\n15 matches across 4 files\n\n\nSearching 442 files for \"LoadCharacterInfo\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp:\n 2307  \n 2308  	PrintLog(\"Loading common character info...\");\n 2309: 	LoadCharacterInfo(WCircleModel , \"HUNTDAT\\\\WCIRCLE2.CAR\"); 	\n 2310: 	LoadCharacterInfo(ShipModel, \"HUNTDAT\\\\ship2a.car\"); \n 2311: 	LoadCharacterInfo(WindModel, \"HUNTDAT\\\\WIND.CAR\");\n 2312  \n 2313:     LoadCharacterInfo(SShipModel, \"HUNTDAT\\\\sship1.car\"); \n 2314:     LoadCharacterInfo(AmmoModel, \"HUNTDAT\\\\bag1.car\"); \n 2315  	PrintLog(\"done\\n\");\n 2316  \n 2317  	//-> Only display this if in software mode...\n 2318: 	//LoadCharacterInfo(ExploCar,\"HUNTDAT\\\\EXPLO.car\");\n 2319  \n 2320  	LoadWav(\"HUNTDAT\\\\SOUNDFX\\\\a_underw.wav\",  fxUnderwater);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n 1488  	pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!\n 1489  	PrintLog(\"Loading Dead Body Model hunter1rotten...\");\n 1490: 	LoadCharacterInfo(ChInfo[0][1], \"HUNTDAT\\\\hunter1rotten.car\");\n 1491  	//PrintLog(\"...Done\\n\");\n 1492  \n ....\n 1500  			wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1501  			PrintLog(\"Loading: \");	PrintLog(logt);	PrintLog(\"\\n\");\n 1502: 			LoadCharacterInfo(ChInfo[c][0], logt);\n 1503  \n 1504  			//PrintLog(\"Morphing Character... \\n\");\n ....\n 1511  					wsprintf(logt, \"HUNTDAT\\\\MODS\\\\%s\", DinoInfo[c][si+1].FName);\n 1512  					PrintLog(\"Loading Mod: \"); PrintLog(logt);PrintLog(\"\\n\");\n 1513: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1514  				} else {\n 1515  					//-> No file... Just load the skin replacement\n ....\n 1518  					wsprintf(logt, \"HUNTDAT\\\\%s\", DinoInfo[c][0].FName);\n 1519  					PrintLog(\"Loading Mod Override for: \"); PrintLog(logt);\n 1520: 					LoadCharacterInfo(ChInfo[c][si+1], logt);\n 1521  					wsprintf(logt,\"HUNTDAT\\\\MODS\\\\%s\",DinoInfo[c][si+1].Skin);\n 1522  					LoadPictureTGA(tmppic,logt);\n ....\n 1555  			if (!Weapon.chinfo[c].mptr) {\n 1556  			  wsprintf(logt, \"HUNTDAT\\\\WEAPONS\\\\%s\", WeapInfo[c].FName);\n 1557:               LoadCharacterInfo(Weapon.chinfo[c], logt);\n 1558  			  PrintLog(\"Loading: \");  PrintLog(logt);  PrintLog(\"\\n\");			  \n 1559  			}\n ....\n 1678  \n 1679  \n 1680: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName)\n 1681  {\n 1682     ReleaseCharacterInfo(chinfo);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  661  void LoadPicture(TPicture &pic, LPSTR pname);\n  662  void LoadPictureTGA(TPicture &pic, LPSTR pname);\n  663: void LoadCharacterInfo(TCharacterInfo&, char*);\n  664  void LoadModelEx(TModel* &mptr, char* FName);\n  665  void LoadModel(TModel*&);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.cpp:\n    2  #include <Hunt.h>\n    3  \n    4: void LoadCharacterInfo(TCharacterInfo &chinfo, char* FName); //Resources.cpp\n    5  \n    6  TCharacherInfoCache::TCharacherInfoCache() : _objects(new TCharacterInfoCacheMap()) {}\n    .\n   19    TCharacterInfo* theTModelInfo = new TCharacterInfo;\n   20  \n   21:   LoadCharacterInfo(*theTModelInfo , \"HUNTDAT\\\\WCIRCLE2.CAR\"); \n   22    myMap[0] = std::make_unique<Class1>();\n   23  }\n\n15 matches across 4 files\n\n\nSearching 442 files for \"AI_to_CIndex\"\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp:\n 7655  	int tr = 0;\n 7656  	if (pid == 999) ServerCh = ChCount;\n 7657: 	Characters[ChCount].CType = AI_to_CIndex[AI_PLAYERS]; \n 7658  	//I need a command to \"hook\" player to the model\n 7659  	//replaceAgain3:\n ....\n 7782     tr = 0;\n 7783     for (c=0; c<3; c++) {     \n 7784: 	 Characters[ChCount].CType = AI_to_CIndex[AI_BRACH];\n 7785  replace3:\n 7786  	 Characters[ChCount].pos.x = 512*256 + siRand(50*256)*10.f;\n ....\n 7818     for (c=0; c<MC; c++) {     \n 7819  	\n 7820: 	 if ((c<4) || (!TargetDino)) Characters[ChCount].CType = AI_to_CIndex[10] + rRand(6); else\n 7821  #ifdef _iceage // alacn\n 7822       if (c<10) \n 7823  #endif\n 7824: 		 Characters[ChCount].CType = AI_to_CIndex[ TDi[c % (TC)] ]; //Picks one of the target dinosaurs\n 7825  #ifdef _iceage // alacn\n 7826:           else Characters[ChCount].CType = AI_to_CIndex[ TDi[rRand(TC-1)] ];\n 7827  #endif\n 7828:      //Characters[ChCount].CType = AI_to_CIndex[ AI_BIGFOOT];\n 7829  	 //Characters[ChCount].AI = AI_BIGFOOT;\n 7830: 	 //Characters[ChCount].CType = AI_to_CIndex[10] + 7;//rRand(3);     \n 7831  replace2:\n 7832  	 Characters[ChCount].pos.x = (float)(512*256 + siRand(50*256)*10);\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Game.cpp:\n  547  	}\n  548  	// ======== Player Model info ========= //\n  549: 	DinoInfo[AI_to_CIndex[AI_PLAYERS]][0].AI = AI_to_CIndex[AI_PLAYERS];\n  550: 	wsprintf(DinoInfo[AI_to_CIndex[AI_PLAYERS]][0].FName, \"huntdat\\\\bigfoot.car\");\n  551: 	DinoInfo[AI_to_CIndex[AI_PLAYERS]][0].SubAICount = 0;\n  552  /*\n  553      WeapInfo[0].Name = \"Shotgun\";\n  ...\n  931  	 TCharacter *cptr = &Characters[c];\n  932  \n  933: 	 if (DinoInfo[AI_to_CIndex[TargetCall] ][cptr->SUBAI].DangerCall)\n  934  		 if (cptr->AI<10) {\n  935  			 cptr->State=2;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp:\n  797     ChCallTime-=TimeDt;\n  798     if (ChCallTime<0) ChCallTime=0;\n  799:    DrawPicture(WinW - 10 - DinoInfo[ AI_to_CIndex[TargetCall] ][0].CallIcon.W, 7, \n  800: 	           DinoInfo[ AI_to_CIndex[TargetCall] ][0].CallIcon);\n  801    }\n  802  \n  ...\n  891  		if (TargetDino & (1<<TargetCall)) break;\n  892  	}\n  893: 	//wsprintf(logt,\"Call: %s\", DinoInfo[ AI_to_CIndex[TargetCall] ].Name);\n  894  	//AddMessage(logt);\n  895  	//CallLockTime+= 1024;\n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp:\n 1486  	TPicture tmppic;\n 1487  	pres[0]=TRUE;\n 1488: 	pres[AI_to_CIndex[AI_PLAYERS]] = TRUE; //ALWAYS have player model loaded!\n 1489  	PrintLog(\"Loading Dead Body Model hunter1rotten...\");\n 1490  	LoadCharacterInfo(ChInfo[0][1], \"HUNTDAT\\\\hunter1rotten.car\");\n ....\n 1544  #endif\n 1545  		if (TargetDino & (1<<c) && c != AI_PLAYERS) 	\n 1546: 			if (!DinoInfo[AI_to_CIndex[c]][0].CallIcon.lpImage) {		\n 1547  			  wsprintf(logt, \"HUNTDAT\\\\MENU\\\\PICS\\\\call%d.tga\", c-9);\n 1548: 	          LoadPictureTGA(DinoInfo[AI_to_CIndex[c]][0].CallIcon, logt); \n 1549: 			  conv_pic(DinoInfo[AI_to_CIndex[c]][0].CallIcon);\n 1550  			}\n 1551  \n ....\n 2068  					//DinoInfo[TotalC][0].AI        = atoi(value);\n 2069  					//-> Register new mod\n 2070: 					parentAI = AI_to_CIndex[atoi(value)];\n 2071  					DinoInfo[parentAI][0].SubAICount++;\n 2072  					newSUBAI = DinoInfo[parentAI][0].SubAICount; \n ....\n 2178  				\n 2179  				if (strstr(line, \"}\")) { \n 2180:                     AI_to_CIndex[DinoInfo[TotalC][0].AI] = TotalC;\n 2181  					TotalC++; \n 2182  					break; \n\n/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h:\n  819  _EXTORNOT TWeapInfo WeapInfo[10];\n  820  _EXTORNOT TCharacterInfo ShipModel, SShipModel, AmmoModel;\n  821: _EXTORNOT int AI_to_CIndex[64];\n  822  _EXTORNOT int ChCount, WCCount, ElCount, SnCount,\n  823                ShotDino, TrophyBody, ServerCh, MPlayersCount, human_model_ch;\n\n22 matches across 5 files\n",
-			"settings":
-			{
-				"buffer_size": 10328,
+				"buffer_size": 80648,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "engine/characters/C2AnimatableModel.cpp",
+			"file": "engine/CE_AI.cpp",
 			"settings":
 			{
-				"buffer_size": 128,
+				"buffer_size": 14992,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "engine/CE_Characters.cpp",
+			"settings":
+			{
+				"buffer_size": 242586,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "engine/C2Geometry.h",
+			"settings":
+			{
+				"buffer_size": 581,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "engine/characters/C2AnimatableModel.h",
+			"settings":
+			{
+				"buffer_size": 1206,
 				"line_ending": "Unix"
 			}
 		}
@@ -415,24 +394,31 @@
 	},
 	"file_history":
 	[
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2AnimatableModel.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/C2Geometry.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Allosaurus.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2Character.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2Character.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/TCharacterInfoCache.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2AnimatableModel.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Allosaurus.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/C2Geometry.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Game.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_RenderSoft.cpp",
+		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2AnimatableModel_Private.h",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/globals.h",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_ArtificialIntelligence.h",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2Character.h",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Allosaurus.h",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_ArtificialIntelligence.cpp",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Allosaurus.cpp",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Characters.cpp",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2AnimatableModel.h",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2HuntableCharacter.h",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2AnimatableModel.cpp",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/AI_Allosaurus.h",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/C2Character.cpp",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/layout.json",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/CEArtificialIntelligence.h",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/Hunt.h",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_AI.cpp",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Resources.cpp",
-		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/CE_Hunt.cpp",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/CE_Allosaurus.cpp",
 		"/Users/tminard/Downloads/carnivores-src_minorenhanced_build/engine/characters/CEArtificialIntelligence.cpp",
 		"/Users/tminard/Downloads/CCEv1.12.4ADP/CCERelease/HUNTDAT/AREAS/area1.c2map",
@@ -535,14 +521,7 @@
 		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/banned_chauffeur.rb",
 		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/admin_action.rb",
 		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/resource_model.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/controllers/client_portal/invitations_controller.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/models/person.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/controllers/users/invitations_controller.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/client_portal/invitations/edit.html.haml",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/Gemfile.lock",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/config/routes.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/controllers/person_users_controller.rb",
-		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/views/devise/invitations/edit.html.haml"
+		"/Users/tminard/Documents/Source/Fortis/global-driver-2/app/controllers/client_portal/invitations_controller.rb"
 	],
 	"find":
 	{
@@ -553,6 +532,12 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"",
+			"Hunt.h",
+			"",
+			"Hunt.h",
+			"",
+			"Hunt.h",
 			"",
 			"hunt.h",
 			"",
@@ -594,6 +579,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"aniData",
+			"TAni",
+			"CreateChMorphed",
+			"TCharacter",
+			"TCharacterInfo",
+			"LoadCharacterInfo",
+			"LoadCharacter",
+			"Load",
+			"TModel",
+			"WORD",
+			"typedef WORD",
+			"C2Animation",
+			"C2AnimationListPtr",
+			"new TModel",
+			"gFace",
+			"gFacef",
+			"TPoint3d",
+			"shared_ptr",
+			"TModel",
+			"CreateChMorphedModel",
+			"MorphedModel",
+			"LoadCharacter",
+			"mptr",
+			"DIE",
 			"AI_to_CIndex",
 			"LoadCharacterInfo",
 			"WCircleModel",
@@ -697,31 +706,7 @@
 			"ClientPortal::UserInviteMailer",
 			"attr_writer",
 			"attr_accessor",
-			"acts_as_address",
-			"secret_token",
-			"MessageVerifier",
-			"determine_wholesale_transfer_rate_with_description",
-			"calc_transfer_rate_and_markup_percentage",
-			"determine_retail_transfer_rate_with_description",
-			"affiliate_rate_type_transfer_markup_amount",
-			"affiliate_override_transfer_markup_amount",
-			"override_transfer_markup_amount",
-			"Override transfer markup amount",
-			"ApplicationHelper",
-			"add_child_link",
-			"client_portal_invite_presenter",
-			"validates",
-			"email",
-			"validate",
-			".tap",
-			"invite_presenter",
-			"default_url_options",
-			"Rails.application.config.action_mailer",
-			"default_url_options",
-			"_presenter",
-			"Presenter",
-			"presentor",
-			"invoice_presenter"
+			"acts_as_address"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -744,86 +729,6 @@
 			[
 				{
 					"buffer": 0,
-					"file": "engine/characters/C2Character.h",
-					"settings":
-					{
-						"buffer_size": 2145,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								446,
-								446
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "engine/characters/C2Character.cpp",
-					"settings":
-					{
-						"buffer_size": 3088,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								266,
-								282
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 80.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "engine/CE_Hunt.cpp",
-					"settings":
-					{
-						"buffer_size": 66266,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								63442,
-								63442
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 34134.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "engine/Hunt.h",
 					"settings":
 					{
@@ -834,8 +739,8 @@
 						"selection":
 						[
 							[
-								3955,
-								3965
+								980,
+								980
 							]
 						],
 						"settings":
@@ -845,25 +750,1346 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3948.0,
+						"translation.y": 642.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "engine/CE_Game.cpp",
+					"buffer": 1,
 					"settings":
 					{
-						"buffer_size": 53626,
+						"buffer_size": 80648,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										183,
+										193
+									],
+									[
+										281,
+										291
+									],
+									[
+										332,
+										342
+									],
+									[
+										390,
+										400
+									],
+									[
+										599,
+										609
+									],
+									[
+										657,
+										667
+									],
+									[
+										716,
+										726
+									],
+									[
+										789,
+										799
+									],
+									[
+										907,
+										917
+									],
+									[
+										1014,
+										1024
+									],
+									[
+										1025,
+										1035
+									],
+									[
+										1151,
+										1161
+									],
+									[
+										1350,
+										1360
+									],
+									[
+										1543,
+										1553
+									],
+									[
+										1666,
+										1676
+									],
+									[
+										1855,
+										1865
+									],
+									[
+										1979,
+										1989
+									],
+									[
+										2120,
+										2130
+									],
+									[
+										2279,
+										2289
+									],
+									[
+										2395,
+										2405
+									],
+									[
+										2543,
+										2553
+									],
+									[
+										2668,
+										2678
+									],
+									[
+										2783,
+										2793
+									],
+									[
+										2890,
+										2900
+									],
+									[
+										2964,
+										2974
+									],
+									[
+										3132,
+										3142
+									],
+									[
+										3220,
+										3230
+									],
+									[
+										3310,
+										3320
+									],
+									[
+										3399,
+										3409
+									],
+									[
+										3487,
+										3497
+									],
+									[
+										3577,
+										3587
+									],
+									[
+										3667,
+										3677
+									],
+									[
+										3756,
+										3766
+									],
+									[
+										3842,
+										3852
+									],
+									[
+										3948,
+										3958
+									],
+									[
+										4055,
+										4065
+									],
+									[
+										4162,
+										4172
+									],
+									[
+										4269,
+										4279
+									],
+									[
+										4379,
+										4389
+									],
+									[
+										4582,
+										4592
+									],
+									[
+										4736,
+										4746
+									],
+									[
+										4870,
+										4880
+									],
+									[
+										4976,
+										4986
+									],
+									[
+										5084,
+										5094
+									],
+									[
+										5192,
+										5202
+									],
+									[
+										5299,
+										5309
+									],
+									[
+										5406,
+										5416
+									],
+									[
+										5514,
+										5524
+									],
+									[
+										5629,
+										5639
+									],
+									[
+										5718,
+										5728
+									],
+									[
+										5807,
+										5817
+									],
+									[
+										5896,
+										5906
+									],
+									[
+										5985,
+										5995
+									],
+									[
+										6074,
+										6084
+									],
+									[
+										6164,
+										6174
+									],
+									[
+										6253,
+										6263
+									],
+									[
+										6345,
+										6355
+									],
+									[
+										6440,
+										6450
+									],
+									[
+										6528,
+										6538
+									],
+									[
+										6617,
+										6627
+									],
+									[
+										6706,
+										6716
+									],
+									[
+										6794,
+										6804
+									],
+									[
+										6881,
+										6891
+									],
+									[
+										6988,
+										6998
+									],
+									[
+										7095,
+										7105
+									],
+									[
+										7202,
+										7212
+									],
+									[
+										7310,
+										7320
+									],
+									[
+										7417,
+										7427
+									],
+									[
+										7525,
+										7535
+									],
+									[
+										7627,
+										7637
+									],
+									[
+										7734,
+										7744
+									],
+									[
+										7840,
+										7850
+									],
+									[
+										7947,
+										7957
+									],
+									[
+										8054,
+										8064
+									],
+									[
+										8160,
+										8170
+									],
+									[
+										8267,
+										8277
+									],
+									[
+										8377,
+										8387
+									],
+									[
+										8518,
+										8528
+									],
+									[
+										8634,
+										8644
+									],
+									[
+										8792,
+										8802
+									],
+									[
+										8989,
+										8999
+									],
+									[
+										9148,
+										9158
+									],
+									[
+										9333,
+										9343
+									],
+									[
+										9557,
+										9567
+									],
+									[
+										9751,
+										9761
+									],
+									[
+										9955,
+										9965
+									],
+									[
+										10101,
+										10111
+									],
+									[
+										10240,
+										10250
+									],
+									[
+										10366,
+										10376
+									],
+									[
+										10596,
+										10606
+									],
+									[
+										10812,
+										10822
+									],
+									[
+										10997,
+										11007
+									],
+									[
+										11125,
+										11135
+									],
+									[
+										11371,
+										11381
+									],
+									[
+										11525,
+										11535
+									],
+									[
+										11744,
+										11754
+									],
+									[
+										11897,
+										11907
+									],
+									[
+										12005,
+										12015
+									],
+									[
+										12287,
+										12297
+									],
+									[
+										12534,
+										12544
+									],
+									[
+										12545,
+										12555
+									],
+									[
+										12714,
+										12724
+									],
+									[
+										12968,
+										12978
+									],
+									[
+										13266,
+										13276
+									],
+									[
+										13552,
+										13562
+									],
+									[
+										13686,
+										13696
+									],
+									[
+										13918,
+										13928
+									],
+									[
+										14365,
+										14375
+									],
+									[
+										14516,
+										14526
+									],
+									[
+										14678,
+										14688
+									],
+									[
+										14916,
+										14926
+									],
+									[
+										15035,
+										15045
+									],
+									[
+										15270,
+										15280
+									],
+									[
+										15558,
+										15568
+									],
+									[
+										15782,
+										15792
+									],
+									[
+										16060,
+										16070
+									],
+									[
+										16293,
+										16303
+									],
+									[
+										16527,
+										16537
+									],
+									[
+										16665,
+										16675
+									],
+									[
+										16731,
+										16741
+									],
+									[
+										16881,
+										16891
+									],
+									[
+										17065,
+										17075
+									],
+									[
+										17247,
+										17257
+									],
+									[
+										17372,
+										17382
+									],
+									[
+										17608,
+										17618
+									],
+									[
+										17796,
+										17806
+									],
+									[
+										18111,
+										18121
+									],
+									[
+										18306,
+										18316
+									],
+									[
+										18433,
+										18443
+									],
+									[
+										18689,
+										18699
+									],
+									[
+										18945,
+										18955
+									],
+									[
+										19191,
+										19201
+									],
+									[
+										19234,
+										19244
+									],
+									[
+										19278,
+										19288
+									],
+									[
+										19380,
+										19390
+									],
+									[
+										19727,
+										19737
+									],
+									[
+										19976,
+										19986
+									],
+									[
+										20060,
+										20070
+									],
+									[
+										20262,
+										20272
+									],
+									[
+										20323,
+										20333
+									],
+									[
+										20393,
+										20403
+									],
+									[
+										20414,
+										20424
+									],
+									[
+										20454,
+										20464
+									],
+									[
+										20476,
+										20486
+									],
+									[
+										20516,
+										20526
+									],
+									[
+										20532,
+										20542
+									],
+									[
+										20625,
+										20635
+									],
+									[
+										20836,
+										20846
+									],
+									[
+										20864,
+										20874
+									],
+									[
+										21229,
+										21239
+									],
+									[
+										21244,
+										21254
+									],
+									[
+										21307,
+										21317
+									],
+									[
+										21324,
+										21334
+									],
+									[
+										21405,
+										21415
+									],
+									[
+										21481,
+										21491
+									],
+									[
+										21532,
+										21542
+									],
+									[
+										21565,
+										21575
+									],
+									[
+										21597,
+										21607
+									],
+									[
+										21859,
+										21869
+									],
+									[
+										22083,
+										22093
+									],
+									[
+										22210,
+										22220
+									],
+									[
+										22339,
+										22349
+									],
+									[
+										22485,
+										22495
+									],
+									[
+										22618,
+										22628
+									],
+									[
+										22856,
+										22866
+									],
+									[
+										22965,
+										22975
+									],
+									[
+										23020,
+										23030
+									],
+									[
+										23066,
+										23076
+									],
+									[
+										23180,
+										23190
+									],
+									[
+										23451,
+										23461
+									],
+									[
+										23793,
+										23803
+									],
+									[
+										24296,
+										24306
+									],
+									[
+										24617,
+										24627
+									],
+									[
+										24925,
+										24935
+									],
+									[
+										25372,
+										25382
+									],
+									[
+										25792,
+										25802
+									],
+									[
+										27112,
+										27122
+									],
+									[
+										27508,
+										27518
+									],
+									[
+										27740,
+										27750
+									],
+									[
+										27958,
+										27968
+									],
+									[
+										28194,
+										28204
+									],
+									[
+										28447,
+										28457
+									],
+									[
+										28686,
+										28696
+									],
+									[
+										29472,
+										29482
+									],
+									[
+										29851,
+										29861
+									],
+									[
+										30602,
+										30612
+									],
+									[
+										30696,
+										30706
+									],
+									[
+										32096,
+										32106
+									],
+									[
+										32398,
+										32408
+									],
+									[
+										32920,
+										32930
+									],
+									[
+										33445,
+										33455
+									],
+									[
+										33732,
+										33742
+									],
+									[
+										34034,
+										34044
+									],
+									[
+										34144,
+										34154
+									],
+									[
+										35175,
+										35185
+									],
+									[
+										35477,
+										35487
+									],
+									[
+										35587,
+										35597
+									],
+									[
+										38500,
+										38510
+									],
+									[
+										40010,
+										40020
+									],
+									[
+										42775,
+										42785
+									],
+									[
+										43327,
+										43337
+									],
+									[
+										46212,
+										46222
+									],
+									[
+										52226,
+										52236
+									],
+									[
+										53334,
+										53344
+									],
+									[
+										56222,
+										56232
+									],
+									[
+										56768,
+										56778
+									],
+									[
+										63848,
+										63858
+									],
+									[
+										64260,
+										64270
+									],
+									[
+										64398,
+										64408
+									],
+									[
+										64464,
+										64474
+									],
+									[
+										64614,
+										64624
+									],
+									[
+										64798,
+										64808
+									],
+									[
+										64980,
+										64990
+									],
+									[
+										65105,
+										65115
+									],
+									[
+										65341,
+										65351
+									],
+									[
+										65529,
+										65539
+									],
+									[
+										65844,
+										65854
+									],
+									[
+										66039,
+										66049
+									],
+									[
+										66166,
+										66176
+									],
+									[
+										66422,
+										66432
+									],
+									[
+										66678,
+										66688
+									],
+									[
+										66924,
+										66934
+									],
+									[
+										66967,
+										66977
+									],
+									[
+										67011,
+										67021
+									],
+									[
+										67113,
+										67123
+									],
+									[
+										67504,
+										67519
+									],
+									[
+										67761,
+										67776
+									],
+									[
+										68101,
+										68116
+									],
+									[
+										68303,
+										68318
+									],
+									[
+										68641,
+										68656
+									],
+									[
+										68913,
+										68928
+									],
+									[
+										69277,
+										69281
+									],
+									[
+										69397,
+										69401
+									],
+									[
+										69528,
+										69532
+									],
+									[
+										69755,
+										69759
+									],
+									[
+										69843,
+										69847
+									],
+									[
+										70194,
+										70201
+									],
+									[
+										70347,
+										70354
+									],
+									[
+										70411,
+										70418
+									],
+									[
+										70450,
+										70457
+									],
+									[
+										70701,
+										70708
+									],
+									[
+										70866,
+										70873
+									],
+									[
+										71142,
+										71149
+									],
+									[
+										71208,
+										71215
+									],
+									[
+										71386,
+										71393
+									],
+									[
+										71644,
+										71651
+									],
+									[
+										71807,
+										71814
+									],
+									[
+										72130,
+										72137
+									],
+									[
+										72242,
+										72249
+									],
+									[
+										72408,
+										72415
+									],
+									[
+										72444,
+										72451
+									],
+									[
+										72570,
+										72577
+									],
+									[
+										72634,
+										72641
+									],
+									[
+										72676,
+										72683
+									],
+									[
+										72777,
+										72784
+									],
+									[
+										72938,
+										72945
+									],
+									[
+										73091,
+										73098
+									],
+									[
+										73355,
+										73362
+									],
+									[
+										73485,
+										73492
+									],
+									[
+										73746,
+										73753
+									],
+									[
+										73899,
+										73906
+									],
+									[
+										73963,
+										73970
+									],
+									[
+										74002,
+										74009
+									],
+									[
+										74253,
+										74260
+									],
+									[
+										74418,
+										74425
+									],
+									[
+										74694,
+										74701
+									],
+									[
+										74760,
+										74767
+									],
+									[
+										74938,
+										74945
+									],
+									[
+										75196,
+										75203
+									],
+									[
+										75359,
+										75366
+									],
+									[
+										75682,
+										75689
+									],
+									[
+										75794,
+										75801
+									],
+									[
+										75960,
+										75967
+									],
+									[
+										75996,
+										76003
+									],
+									[
+										76122,
+										76129
+									],
+									[
+										76186,
+										76193
+									],
+									[
+										76228,
+										76235
+									],
+									[
+										76329,
+										76336
+									],
+									[
+										76490,
+										76497
+									],
+									[
+										76643,
+										76650
+									],
+									[
+										76907,
+										76914
+									],
+									[
+										77037,
+										77044
+									],
+									[
+										77298,
+										77305
+									],
+									[
+										77451,
+										77458
+									],
+									[
+										77515,
+										77522
+									],
+									[
+										77554,
+										77561
+									],
+									[
+										77805,
+										77812
+									],
+									[
+										77970,
+										77977
+									],
+									[
+										78246,
+										78253
+									],
+									[
+										78312,
+										78319
+									],
+									[
+										78490,
+										78497
+									],
+									[
+										78748,
+										78755
+									],
+									[
+										78911,
+										78918
+									],
+									[
+										79234,
+										79241
+									],
+									[
+										79346,
+										79353
+									],
+									[
+										79512,
+										79519
+									],
+									[
+										79548,
+										79555
+									],
+									[
+										79674,
+										79681
+									],
+									[
+										79738,
+										79745
+									],
+									[
+										79780,
+										79787
+									],
+									[
+										79881,
+										79888
+									],
+									[
+										80042,
+										80049
+									],
+									[
+										80195,
+										80202
+									],
+									[
+										80459,
+										80466
+									],
+									[
+										80589,
+										80596
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								77098,
+								77098
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 7,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 32610.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "engine/CE_AI.cpp",
+					"settings":
+					{
+						"buffer_size": 14992,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19845,
-								19845
+								11674,
+								11674
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6483.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "engine/CE_Characters.cpp",
+					"settings":
+					{
+						"buffer_size": 242586,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								238695,
+								238700
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 119213.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "engine/C2Geometry.h",
+					"settings":
+					{
+						"buffer_size": 581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								421,
+								438
 							]
 						],
 						"settings":
@@ -881,370 +2107,15 @@
 					"file": "engine/characters/C2AnimatableModel.h",
 					"settings":
 					{
-						"buffer_size": 544,
+						"buffer_size": 1206,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								512,
-								518
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "engine/CE_Resources.cpp",
-					"settings":
-					{
-						"buffer_size": 64853,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								38398,
-								38410
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 22068.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "engine/TCharacterInfoCache.h",
-					"settings":
-					{
-						"buffer_size": 506,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								165,
-								165
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "engine/TCharacterInfoCache.cpp",
-					"settings":
-					{
-						"buffer_size": 760,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								756,
-								756
-							]
-						],
-						"settings":
-						{
-							"auto_name": "#include <TCharacterCache.h>",
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"settings":
-					{
-						"buffer_size": 10328,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										195,
-										212
-									],
-									[
-										264,
-										281
-									],
-									[
-										326,
-										343
-									],
-									[
-										396,
-										413
-									],
-									[
-										462,
-										479
-									],
-									[
-										614,
-										631
-									],
-									[
-										976,
-										993
-									],
-									[
-										1224,
-										1241
-									],
-									[
-										1483,
-										1500
-									],
-									[
-										1755,
-										1772
-									],
-									[
-										2047,
-										2064
-									],
-									[
-										2210,
-										2227
-									],
-									[
-										2511,
-										2528
-									],
-									[
-										2778,
-										2795
-									],
-									[
-										3036,
-										3053
-									],
-									[
-										3379,
-										3396
-									],
-									[
-										3448,
-										3465
-									],
-									[
-										3510,
-										3527
-									],
-									[
-										3580,
-										3597
-									],
-									[
-										3646,
-										3663
-									],
-									[
-										3798,
-										3815
-									],
-									[
-										4160,
-										4177
-									],
-									[
-										4408,
-										4425
-									],
-									[
-										4667,
-										4684
-									],
-									[
-										4939,
-										4956
-									],
-									[
-										5231,
-										5248
-									],
-									[
-										5394,
-										5411
-									],
-									[
-										5695,
-										5712
-									],
-									[
-										5962,
-										5979
-									],
-									[
-										6220,
-										6237
-									],
-									[
-										6594,
-										6606
-									],
-									[
-										6801,
-										6813
-									],
-									[
-										7028,
-										7040
-									],
-									[
-										7168,
-										7180
-									],
-									[
-										7316,
-										7328
-									],
-									[
-										7406,
-										7418
-									],
-									[
-										7520,
-										7532
-									],
-									[
-										7809,
-										7821
-									],
-									[
-										7843,
-										7855
-									],
-									[
-										7895,
-										7907
-									],
-									[
-										7973,
-										7985
-									],
-									[
-										8149,
-										8161
-									],
-									[
-										8453,
-										8465
-									],
-									[
-										8528,
-										8540
-									],
-									[
-										8700,
-										8712
-									],
-									[
-										8939,
-										8951
-									],
-									[
-										9240,
-										9252
-									],
-									[
-										9392,
-										9404
-									],
-									[
-										9460,
-										9472
-									],
-									[
-										9633,
-										9645
-									],
-									[
-										9848,
-										9860
-									],
-									[
-										10142,
-										10154
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								6368,
-								6368
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 3,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2325.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "engine/characters/C2AnimatableModel.cpp",
-					"settings":
-					{
-						"buffer_size": 128,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								784,
+								784
 							]
 						],
 						"settings":
@@ -1257,11 +2128,6 @@
 					},
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -1293,7 +2159,7 @@
 		"cols":
 		[
 			0.0,
-			0.898274265063,
+			0.598693677885,
 			1.0
 		],
 		"rows":
@@ -1317,6 +2183,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"hunt",
+				"Hunt.h"
+			],
 			[
 				"_grid.html.haml",
 				"app/views/grid_reservations/_grid.html.haml"
@@ -1824,10 +2694,6 @@
 			[
 				"waypo",
 				"app/models/waypoint.rb"
-			],
-			[
-				"createairlin",
-				"db/migrate/20110615190842_create_airlines.rb"
 			]
 		],
 		"width": 0.0

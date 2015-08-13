@@ -1,7 +1,9 @@
 #include "Hunt.h"
 #include <memory>
 #include <vector>
-#include "C2CharacterCollection.h"
+
+#include "modern_src\C2CarFilePreloader.h"
+#include "modern_src\C2CarFile.h"
 
 void SetupRes()
 {
@@ -675,7 +677,10 @@ void InitGameInfo()
 }
 
 
-
+void CE_InitManagedResources()
+{
+  CarFileManager = std::make_unique<C2CarFilePreloader>();
+}
 
 void InitEngine()
 {
@@ -835,8 +840,6 @@ void InitEngine()
 
 	FillMemory( FogsMap, sizeof(FogsMap), 0);
 
-  // Init managed characters
-  ManagedC2Characters = new C2CharacterCollection();
   PrintLog("Init Engine: Ok.\n");
 }
 

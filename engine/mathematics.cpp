@@ -24,6 +24,7 @@ float SGN(float f)
       else return  1.f;  
 }
 
+// Take angle A, and add/sub D until angle = B
 void DeltaFunc(float &a, float b, float d)
 {
   if (b > a) {

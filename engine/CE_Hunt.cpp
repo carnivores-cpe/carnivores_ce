@@ -2,6 +2,10 @@
 #include "Hunt.h"
 #include "stdio.h"
 
+#include "modern_src\C2CarFilePreloader.h"
+#include "modern_src\C2CarFile.h"
+#include "modern_src\C2Character.h"
+
 float rav=0;
 float rbv=0;
 
@@ -25,6 +29,10 @@ int flashWarningTime;
 
 void HideWeapon();
 void PrintText(LPSTR s, int x, int y, int rgb);
+
+void CE_InitManagedResources();
+void CE_AnimateManagedCharacters();
+void CE_RenderManagedCharacters();
 
 char cheatcode[16] = "DEBUGUP";
 int  cheati = 0;
@@ -371,7 +379,9 @@ void DrawScene()
    RenderModelsList();
 
    Render3DHardwarePosts();
-    if (NeedWater) RenderWater();
+   // Render managed characters here
+   CE_RenderManagedCharacters();
+   if (NeedWater) RenderWater();
    
 
    RenderElements();
@@ -2240,15 +2250,9 @@ void ProcessGame()
 	if (!PAUSE || !MyHealth) {
 		ProcessControls();
 		AudioSetCameraPos(CameraX, CameraY, CameraZ, CameraAlpha, CameraBeta);
-		// -> Run AI thread
-		if (USE_THREADS) {
-			if (!AI_THREAD_ACTIVE) {
-				AI_THREAD_ACTIVE = TRUE;
-				_beginthread( AnimateCharacters,0,NULL);
-			}
-		} else {
-			AnimateCharacters(NULL);
-		}
+		
+    AnimateCharacters(NULL);
+    CE_AnimateManagedCharacters();
 		AnimateProcesses();
 	}
 		    
@@ -2287,6 +2291,9 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	InitAudioSystem(hwndMain, hlog, OptSound);	
 	InitSoundEngine(); //Init secondary sound engine
 	InitNetwork(); //YAY!
+
+  PrintLog("Init managed resources...\n");
+  CE_InitManagedResources();
 
 	StartLoading();    
 	PrintLoad("Loading...");

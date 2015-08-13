@@ -13,24 +13,6 @@
       <UniqueIdentifier>{c34505d2-6186-4e68-81fb-93cad5b00130}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
-    <Filter Include="Source Files\Characters">
-      <UniqueIdentifier>{73b21311-6220-4627-b942-b93ff8ef1a1f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Characters">
-      <UniqueIdentifier>{d229b7d7-3b77-4a99-83b5-90d05b1648cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Characters\AI">
-      <UniqueIdentifier>{db24edb8-cf67-492b-9091-d5bba92fdac5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Characters\AI">
-      <UniqueIdentifier>{446da609-b943-4b84-930b-a12b29cdd373}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Characters\Common">
-      <UniqueIdentifier>{4c85d927-e894-4bd1-a17c-fd5d5f2a79e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Characters\Common">
-      <UniqueIdentifier>{1aa711bc-942f-40f7-afd8-b1d77135e9bf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Original">
       <UniqueIdentifier>{b74fdf17-fd30-4048-b52b-0e2ea92a79cd}</UniqueIdentifier>
     </Filter>
@@ -46,6 +28,9 @@
     <Filter Include="Source Files\Level">
       <UniqueIdentifier>{081ae9c4-d359-422f-b83f-3a3c7d746a52}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Resources">
+      <UniqueIdentifier>{edba2b35-c88c-4e99-afd1-c236ba793a2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CE_Game.cpp">
@@ -53,18 +38,6 @@
     </ClCompile>
     <ClCompile Include="CE_Hunt.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CE_Allosaurus.cpp">
-      <Filter>Source Files\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="CE_ArtificialIntelligence.cpp">
-      <Filter>Source Files\Characters\AI</Filter>
-    </ClCompile>
-    <ClCompile Include="characters\C2AnimatableModel.cpp">
-      <Filter>Source Files\Characters\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="characters\C2Character.cpp">
-      <Filter>Source Files\Characters\Common</Filter>
     </ClCompile>
     <ClCompile Include="Audio_DLL.cpp">
       <Filter>Source Files\Audio</Filter>
@@ -114,17 +87,44 @@
     <ClCompile Include="xmlParser.cpp">
       <Filter>Source Files\CE</Filter>
     </ClCompile>
-    <ClCompile Include="C2HuntableCharacter.cpp">
-      <Filter>Source Files\Characters\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="C2CharacterCollection.cpp">
-      <Filter>Source Files\Characters\Common</Filter>
-    </ClCompile>
     <ClCompile Include="RenderD3D5.cpp">
       <Filter>Source Files\Original\Renderers</Filter>
     </ClCompile>
-    <ClCompile Include="TCharacterInfoCache.cpp">
-      <Filter>Source Files\Characters\Common</Filter>
+    <ClCompile Include="modern_src\AI_Allosaurus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2AnimatableModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2CarFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2CarFilePreloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2Character.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2Geometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2HuntableCharacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\C2SoundFX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\CE_AIUtilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\CE_Allosaurus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modern_src\CE_ArtificialIntelligence.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,34 +134,57 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CE_Allosaurus.h">
-      <Filter>Header Files\Characters</Filter>
+    <ClInclude Include="C2Geometry.h">
+      <Filter>Header Files\Resources</Filter>
     </ClInclude>
-    <ClInclude Include="CE_ArtificialIntelligence.h">
-      <Filter>Header Files\Characters\AI</Filter>
+    <ClInclude Include="modern_src\AI_Allosaurus.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="characters\AI_Allosaurus.h">
-      <Filter>Header Files\Characters\AI</Filter>
+    <ClInclude Include="modern_src\C2AnimatableModel.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="characters\C2AnimatableModel.h">
-      <Filter>Header Files\Characters\Common</Filter>
+    <ClInclude Include="modern_src\C2Animation.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="characters\C2Character.h">
-      <Filter>Header Files\Characters\Common</Filter>
+    <ClInclude Include="modern_src\C2CarFile.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="characters\C2HuntableCharacter.h">
-      <Filter>Header Files\Characters\Common</Filter>
+    <ClInclude Include="modern_src\C2CarFilePreloader.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="C2CharacterCollection.h">
-      <Filter>Header Files\Characters\Common</Filter>
+    <ClInclude Include="modern_src\C2Character.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="TCharacterInfoCache.h">
-      <Filter>Header Files\Characters\Common</Filter>
+    <ClInclude Include="modern_src\C2Geometry.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modern_src\C2HuntableCharacter.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modern_src\C2SoundFX.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modern_src\CE_AIUtilities.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modern_src\CE_Allosaurus.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modern_src\CE_ArtificialIntelligence.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modern_src\g_shared.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="modern_src\Notes.rtf">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

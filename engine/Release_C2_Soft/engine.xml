@@ -4,23 +4,176 @@
         "engine"
     </assembly>
     <members>
-        <member name="M:ProcessAdvancedHealthSystem(_TCharacter*,System.Int32)">
-Processes advanced health system and affects the hunter.
-This function assumes the character is in damage range.
-It simply applies the damage/healing.
-
+        <member name="D:irr.f64">
+This is a typedef for double, it ensures portability of the engine. 
 </member>
-        <member name="M:LocalHumanMatchModel(_TCharacter*)">
-Match the passed model with the human player's movement and actions
-This should be a multiplayer testing function.
-@author adelphospro
-@date 11.19.2009
-
+        <member name="D:irr.f32">
+This is a typedef for float, it ensures portability of the engine. 
 </member>
-        <member name="M:DrawWarningHUD">
-Draw a warning HUD if dangerous dinosaurs are nearby
-@author tminard
-
+        <member name="D:irr.s32">
+This is a typedef for signed int, it ensures portability of the engine. 
+</member>
+        <member name="D:irr.u32">
+This is a typedef for unsigned int, it ensures portability of the engine. 
+</member>
+        <member name="D:irr.s16">
+This is a typedef for signed short, it ensures portability of the engine. 
+</member>
+        <member name="D:irr.u16">
+This is a typedef for unsigned short, it ensures portability of the engine. 
+</member>
+        <member name="D:irr.c8">
+This is a typedef for char, it ensures portability of the engine. 
+</member>
+        <member name="D:irr.s8">
+This is a typedef for signed char, it ensures portability of the engine. 
+</member>
+        <member name="D:irr.u8">
+This is a typedef for unsigned char, it ensures portability of the engine. 
+</member>
+        <member name="M:irr.io.createIrrXMLReaderUTF32(irr.io.IFileReadCallBack*)">
+This means that
+	all character data will be returned in UTF-32. The file to read can 
+	be in any format, it will be converted to UTF-32 if it is not in this format.
+	If you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReader() instead.
+	\param callback: Callback for file read abstraction. Implement your own
+	callback to make the xml parser read in other things than just files. See
+	IFileReadCallBack for more information about this.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReaderUTF32(_iobuf*)">
+This means that all character data will be returned in UTF-32. The file to read can 
+	be in any format, it will be converted to UTF-32 if it is not in this format.
+	if you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReader() instead.
+	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
+	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReaderUTF32(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)">
+This means that all character data will be returned in UTF-32. The file to read can 
+	be in any format, it will be converted to UTF-32 if it is not in this format.
+	If you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReader() instead.
+	\param filename: Name of file to be opened.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReaderUTF16(irr.io.IFileReadCallBack*)">
+This means that all character data will be returned in UTF-16. The file to read can 
+	be in any format, it will be converted to UTF-16 if it is not in this format.
+	If you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReader() instead.
+	\param callback: Callback for file read abstraction. Implement your own
+	callback to make the xml parser read in other things than just files. See
+	IFileReadCallBack for more information about this.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReaderUTF16(_iobuf*)">
+This means that all character data will be returned in UTF-16. The file to read can 
+	be in any format, it will be converted to UTF-16 if it is not in this format.
+	If you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReader() instead.
+	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
+	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReaderUTF16(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)">
+This means that
+	all character data will be returned in UTF-16. The file to read can 
+	be in any format, it will be converted to UTF-16 if it is not in this format.
+	If you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReader() instead.
+	\param filename: Name of file to be opened.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReader(irr.io.IFileReadCallBack*)">
+This means that all character data will be returned in 8 bit ASCII or UTF-8. The file to read can 
+	 be in any format, it will be converted to UTF-8 if it is not in this format.
+	 If you are using the Irrlicht Engine, it is better not to use this function but
+	 IFileSystem::createXMLReaderUTF8() instead.
+	 \param callback: Callback for file read abstraction. Implement your own
+	 callback to make the xml parser read in other things than just files. See
+	 IFileReadCallBack for more information about this.
+	 \return Returns a pointer to the created xml parser. This pointer should be 
+	 deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	 and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReader(_iobuf*)">
+This means that all character data will be returned in 8 bit ASCII or UTF-8. The file to read can 
+	be in any format, it will be converted to UTF-8 if it is not in this format.
+	If you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReaderUTF8() instead.
+	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
+	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="M:irr.io.createIrrXMLReader(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)">
+This means that all character data will be returned in 8 bit ASCII or UTF-8. 
+	The file to read can be in any format, it will be converted to UTF-8 if it is not in this format.
+	If you are using the Irrlicht Engine, it is better not to use this function but
+	IFileSystem::createXMLReaderUTF8() instead.
+	\param filename: Name of file to be opened.
+	\return Returns a pointer to the created xml parser. This pointer should be 
+	deleted using 'delete' after no longer needed. Returns 0 if an error occured
+	and the file could not be opened. 
+</member>
+        <member name="D:irr.io.IrrXMLReaderUTF32">
+This means that all character data will be returned in UTF-32 by this parser. 
+	The file to read can be in any format, it will be converted to UTF-32 if it is not
+	in this format.
+	Create an instance of this with createIrrXMLReaderUTF32(); 
+	See IIrrXMLReader for description on how to use it. 
+</member>
+        <member name="D:irr.io.IrrXMLReaderUTF16">
+This means that all character data will be returned in UTF-16 by this parser. 
+	The file to read can be in any format, it will be converted to UTF-16 if it is not
+	in this format.
+	Create an instance of this with createIrrXMLReaderUTF16(); 
+	See IIrrXMLReader for description on how to use it.  
+</member>
+        <member name="D:irr.io.IrrXMLReader">
+This means that all character data will be returned in 8 bit ASCII or UTF-8 by this parser. 
+	The file to read can be in any format, it will be converted to UTF-8 if it is not
+	in this format.
+	Create an instance of this with createIrrXMLReader(); 
+	See IIrrXMLReader for description on how to use it. 
+</member>
+        <member name="D:irr.io.char32">
+Not using wchar_t for this because 
+	wchar_t has 16 bit on windows and 32 bit on other operating systems. 
+</member>
+        <member name="D:irr.io.char16">
+Not using wchar_t for this because 
+	wchar_t has 16 bit on windows and 32 bit on other operating systems. 
+</member>
+        <member name="M:irr.io.IFileReadCallBack.read(System.Void*,System.Int32)">
+\param buffer: Pointer to buffer where to read bytes will be written to.
+		\param sizeToRead: Amount of bytes to read from the file.
+		\return Returns how much bytes were read. 
+</member>
+        <member name="T:irr.io.IFileReadCallBack">
+With this, it is possible to make the xml parser read in other things 
+	than just files. The Irrlicht engine is using this for example to 
+	read xml from compressed .zip files. To make the parser read in 
+	any other data, derive a class from this interface, implement the 
+	two methods to read your data and give a pointer to an instance of
+	your implementation when calling createIrrXMLReader(), 
+	createIrrXMLReaderUTF16() or createIrrXMLReaderUTF32() 
 </member>
         <member name="M:CreatureBrain.Boot">
 Load main storage "memory" and temp/current_state "memory"
@@ -74,12 +227,12 @@ Not sure what this does
 @access protected
 
 </member>
-        <member name="M:CharacterModel._generateModelMipMaps(TagMODEL*)">
+        <member name="M:CharacterModel._generateModelMipMaps(TModel*)">
 Generate the models mipmaps on the textures
 @access protected
 
 </member>
-        <member name="M:CharacterModel._generateAlphaFlags(TagMODEL*)">
+        <member name="M:CharacterModel._generateAlphaFlags(TModel*)">
 Generate alpha transparency for model textures
 NOTE: Only in D3d or Glide mode; not in software
 @access protected
@@ -105,25 +258,6 @@ It does, however, contain its own sound and manages the playing of it(maybe?).
 Each animation has only one sound at the moment.
 Access is public, because CharacterAnimation is primarily a container of information. It does not manage its 'models'
 animation process.
-
-</member>
-        <member name="M:TVehicle.process_slide">
-Process gravity in vehicle
-
-</member>
-        <member name="M:TVehicle.process(_TCharacter*)">
-Process jeep movement and animation
-@type Static function
-@author adelphospro
-@date 9.19.2009
-
-</member>
-        <member name="M:TVehicle.Dispose">
-Vehicle destructor
-
-</member>
-        <member name="M:TVehicle.#ctor">
-Vehicle constructor
 
 </member>
         <member name="F:RakNet.BitStream.stackData">
@@ -689,12 +823,6 @@ Implicit return of const char*
 -Reference counting: Suitable to store in lists
 -Variadic assignment operator
 -Doesn't cause linker errors
-</member>
-        <member name="T:_iobuf">
-\file BitStream.h
-\brief This class allows you to write and read native types as a string of bits.  
-\details BitStream is used extensively throughout RakNet and is designed to be used by users as well.
-
 </member>
         <member name="M:RakNet.StatisticsToString(RakNet.RakNetStatistics*,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte*,System.Int32)">
 Verbosity level currently supports 0 (low), 1 (medium), 2 (high)
@@ -1300,6 +1428,11 @@ To then start that thread, call RakCreateThread(functionName, arguments);
         <member name="T:RakNet.RakThread">
 To define a thread, use RAK_THREAD_DECLARATION(functionName);
 </member>
+        <member name="F:rakMalloc">
+\file
+\brief If _USE_RAK_MEMORY_OVERRIDE is defined, memory allocations go through rakMalloc, rakRealloc, and rakFree
+
+</member>
         <member name="F:RakNet.Packet.wasGeneratedLocally">
 @internal
 If true, this message is meant for the user, not for the plugins, so do not process it through plugins
@@ -1501,38 +1634,6 @@ Forward declarations
 The primary interface for RakNet, RakPeer contains all major functions for the library.
 See the individual functions for what the class can do.
 \brief The main interface for network communications
-</member>
-        <member name="D:uint8_t">
-\file
-\brief Types used by RakNet, most of which involve user code.
-
-Define __GET_TIME_64BIT to have RakNet::TimeMS use a 64, rather than 32 bit value.  A 32 bit value will overflow after about 5 weeks.
-However, this doubles the bandwidth use for sending times, so don't do it unless you have a reason to.
-Comment out if you are using the iPod Touch TG. See http://www.jenkinssoftware.com/forum/index.php?topic=2717.0
-This must be the same on all systems, or they won't connect
-Define __BITSTREAM_NATIVE_END to NOT support endian swapping in the BitStream class.  This is faster and is what you should use
-unless you actually plan to have different endianness systems connect to each other
-Enabled by default.
-Maximum (stack) size to use with _alloca before using new and delete instead.
-Uncomment to use RakMemoryOverride for custom memory tracking
-See RakMemoryOverride.h. 
-If defined, OpenSSL is enabled for the class TCPInterface
-This is necessary to use the SendEmail class with Google POP servers
-Note that OpenSSL carries its own license restrictions that you should be aware of. If you don't agree, don't enable this define
-This also requires that you enable header search paths to DependentExtensions\openssl-1.0.0d
-Threshold at which to do a malloc / free rather than pushing data onto a fixed stack for the bitstream class
-Arbitrary size, just picking something likely to be larger than most packets
-This controls the amount of memory used per connection.
-This many datagrams are tracked by datagramNumber. If more than this many datagrams are sent, then an ack for an older datagram would be ignored
-This results in an unnecessary resend in that case
-This is the maximum number of reliable user messages that can be on the wire at a time
-If this is too low, then high ping connections with a large throughput will be underutilized
-This will be evident because RakNetStatistics::messagesInSend buffer will increase over time, yet at the same time the outgoing bandwidth per second is less than your connection supports
-Uncomment if you want to link in the DLMalloc library to use with RakMemoryOverride
-Workaround for http://support.microsoft.com/kb/274323
-If two calls between RakNet::GetTime() happen farther apart than this time in microseconds, this delta will be returned instead
-Note: This will cause ID_TIMESTAMP to be temporarily inaccurate if you set a breakpoint that pauses the UpdateNetworkLoop() thread in RakPeer
-Define in RakNetDefinesOverrides.h to enable (non-zero) or disable (0)
 </member>
         <member name="T:PacketReliability">
 These enumerations are used to describe how packets are delivered.
@@ -2057,32 +2158,35 @@ Parse text using string compare and return true if comand is the requested comma
 @date 11.15.2009
 
 </member>
-        <member name="D:irr.f64">
-This is a typedef for double, it ensures portability of the engine. 
+        <member name="M:MakeShotNew(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+This function has more advanced water-hit detection (to enable bullets passing
+through water), but the path is messed up (bullet path is a few inches below where
+the player is aiming....
+
 </member>
-        <member name="D:irr.f32">
-This is a typedef for float, it ensures portability of the engine. 
+        <member name="M:DrawWarningHUD">
+Draw a warning HUD if dangerous dinosaurs are nearby
+@author tminard
+
 </member>
-        <member name="D:irr.s32">
-This is a typedef for signed int, it ensures portability of the engine. 
+        <member name="M:TVehicle.process_slide">
+Process gravity in vehicle
+
 </member>
-        <member name="D:irr.u32">
-This is a typedef for unsigned int, it ensures portability of the engine. 
+        <member name="M:TVehicle.process(_TCharacter*)">
+Process jeep movement and animation
+@type Static function
+@author adelphospro
+@date 9.19.2009
+
 </member>
-        <member name="D:irr.s16">
-This is a typedef for signed short, it ensures portability of the engine. 
+        <member name="M:TVehicle.Dispose">
+Vehicle destructor
+
 </member>
-        <member name="D:irr.u16">
-This is a typedef for unsigned short, it ensures portability of the engine. 
-</member>
-        <member name="D:irr.c8">
-This is a typedef for char, it ensures portability of the engine. 
-</member>
-        <member name="D:irr.s8">
-This is a typedef for signed char, it ensures portability of the engine. 
-</member>
-        <member name="D:irr.u8">
-This is a typedef for unsigned char, it ensures portability of the engine. 
+        <member name="M:TVehicle.#ctor">
+Vehicle constructor
+
 </member>
         <member name="M:irrklang.createAudioRecorderDeviceList(irrklang.E_SOUND_OUTPUT_DRIVER,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)">
 The device IDs in this list can be used as parameter to createIrrKlangAudioRecorder() to
@@ -3080,163 +3184,26 @@ This is a typedef for signed char, it ensures portability of the engine.
         <member name="D:irrklang.ik_u8">
 This is a typedef for unsigned char, it ensures portability of the engine. 
 </member>
-        <member name="M:irr.io.createIrrXMLReaderUTF32(irr.io.IFileReadCallBack*)">
-This means that
-	all character data will be returned in UTF-32. The file to read can 
-	be in any format, it will be converted to UTF-32 if it is not in this format.
-	If you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReader() instead.
-	\param callback: Callback for file read abstraction. Implement your own
-	callback to make the xml parser read in other things than just files. See
-	IFileReadCallBack for more information about this.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReaderUTF32(_iobuf*)">
-This means that all character data will be returned in UTF-32. The file to read can 
-	be in any format, it will be converted to UTF-32 if it is not in this format.
-	if you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReader() instead.
-	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
-	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReaderUTF32(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)">
-This means that all character data will be returned in UTF-32. The file to read can 
-	be in any format, it will be converted to UTF-32 if it is not in this format.
-	If you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReader() instead.
-	\param filename: Name of file to be opened.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReaderUTF16(irr.io.IFileReadCallBack*)">
-This means that all character data will be returned in UTF-16. The file to read can 
-	be in any format, it will be converted to UTF-16 if it is not in this format.
-	If you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReader() instead.
-	\param callback: Callback for file read abstraction. Implement your own
-	callback to make the xml parser read in other things than just files. See
-	IFileReadCallBack for more information about this.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReaderUTF16(_iobuf*)">
-This means that all character data will be returned in UTF-16. The file to read can 
-	be in any format, it will be converted to UTF-16 if it is not in this format.
-	If you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReader() instead.
-	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
-	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReaderUTF16(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)">
-This means that
-	all character data will be returned in UTF-16. The file to read can 
-	be in any format, it will be converted to UTF-16 if it is not in this format.
-	If you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReader() instead.
-	\param filename: Name of file to be opened.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReader(irr.io.IFileReadCallBack*)">
-This means that all character data will be returned in 8 bit ASCII or UTF-8. The file to read can 
-	 be in any format, it will be converted to UTF-8 if it is not in this format.
-	 If you are using the Irrlicht Engine, it is better not to use this function but
-	 IFileSystem::createXMLReaderUTF8() instead.
-	 \param callback: Callback for file read abstraction. Implement your own
-	 callback to make the xml parser read in other things than just files. See
-	 IFileReadCallBack for more information about this.
-	 \return Returns a pointer to the created xml parser. This pointer should be 
-	 deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	 and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReader(_iobuf*)">
-This means that all character data will be returned in 8 bit ASCII or UTF-8. The file to read can 
-	be in any format, it will be converted to UTF-8 if it is not in this format.
-	If you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReaderUTF8() instead.
-	\param file: Pointer to opened file, must have been opened in binary mode, e.g.
-	using fopen("foo.bar", "wb"); The file will not be closed after it has been read.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="M:irr.io.createIrrXMLReader(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)">
-This means that all character data will be returned in 8 bit ASCII or UTF-8. 
-	The file to read can be in any format, it will be converted to UTF-8 if it is not in this format.
-	If you are using the Irrlicht Engine, it is better not to use this function but
-	IFileSystem::createXMLReaderUTF8() instead.
-	\param filename: Name of file to be opened.
-	\return Returns a pointer to the created xml parser. This pointer should be 
-	deleted using 'delete' after no longer needed. Returns 0 if an error occured
-	and the file could not be opened. 
-</member>
-        <member name="D:irr.io.IrrXMLReaderUTF32">
-This means that all character data will be returned in UTF-32 by this parser. 
-	The file to read can be in any format, it will be converted to UTF-32 if it is not
-	in this format.
-	Create an instance of this with createIrrXMLReaderUTF32(); 
-	See IIrrXMLReader for description on how to use it. 
-</member>
-        <member name="D:irr.io.IrrXMLReaderUTF16">
-This means that all character data will be returned in UTF-16 by this parser. 
-	The file to read can be in any format, it will be converted to UTF-16 if it is not
-	in this format.
-	Create an instance of this with createIrrXMLReaderUTF16(); 
-	See IIrrXMLReader for description on how to use it.  
-</member>
-        <member name="D:irr.io.IrrXMLReader">
-This means that all character data will be returned in 8 bit ASCII or UTF-8 by this parser. 
-	The file to read can be in any format, it will be converted to UTF-8 if it is not
-	in this format.
-	Create an instance of this with createIrrXMLReader(); 
-	See IIrrXMLReader for description on how to use it. 
-</member>
-        <member name="D:irr.io.char32">
-Not using wchar_t for this because 
-	wchar_t has 16 bit on windows and 32 bit on other operating systems. 
-</member>
-        <member name="D:irr.io.char16">
-Not using wchar_t for this because 
-	wchar_t has 16 bit on windows and 32 bit on other operating systems. 
-</member>
-        <member name="M:irr.io.IFileReadCallBack.read(System.Void*,System.Int32)">
-\param buffer: Pointer to buffer where to read bytes will be written to.
-		\param sizeToRead: Amount of bytes to read from the file.
-		\return Returns how much bytes were read. 
-</member>
-        <member name="T:irr.io.IFileReadCallBack">
-With this, it is possible to make the xml parser read in other things 
-	than just files. The Irrlicht engine is using this for example to 
-	read xml from compressed .zip files. To make the parser read in 
-	any other data, derive a class from this interface, implement the 
-	two methods to read your data and give a pointer to an instance of
-	your implementation when calling createIrrXMLReader(), 
-	createIrrXMLReaderUTF16() or createIrrXMLReaderUTF32() 
-</member>
-        <member name="M:MakeShotNew(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
-This function has more advanced water-hit detection (to enable bullets passing
-through water), but the path is messed up (bullet path is a few inches below where
-the player is aiming....
+        <member name="M:ProcessAdvancedHealthSystem(_TCharacter*,System.Int32)">
+Processes advanced health system and affects the hunter.
+This function assumes the character is in damage range.
+It simply applies the damage/healing.
 
 </member>
-        <!-- Discarding badly formed XML document comment for member 'T:irr.io.IXMLBase'. -->
-        <!-- Discarding badly formed XML document comment for member 'T:irr.io.IXMLBase'. -->
+        <member name="M:LocalHumanMatchModel(_TCharacter*)">
+Match the passed model with the human player's movement and actions
+This should be a multiplayer testing function.
+@author adelphospro
+@date 11.19.2009
+
+</member>
         <!-- Discarding badly formed XML document comment for member 'F:ID_DOWNLOAD_PROGRESS'. -->
         <!-- Discarding badly formed XML document comment for member 'T:RakNet.SystemAddress'. -->
         <!-- Discarding badly formed XML document comment for member 'M:RakNet.RakPeerInterface.Startup(System.UInt32,RakNet.SocketDescriptor*,System.UInt32,System.Int32)'. -->
         <!-- Discarding badly formed XML document comment for member 'M:RakNet.RakPeerInterface.GetMaximumIncomingConnections'. -->
         <!-- Discarding badly formed XML document comment for member 'M:RakNet.RakPeerInterface.SendList(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst**,System.Int32!System.Runtime.CompilerServices.IsConst*,System.Int32!System.Runtime.CompilerServices.IsConst,PacketPriority,PacketReliability,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,RakNet.AddressOrGUID!System.Runtime.CompilerServices.IsConst,System.Boolean,System.UInt32)'. -->
         <!-- Discarding badly formed XML document comment for member 'M:RakNet.RakString.FormatForDELETE(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*,System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte!System.Runtime.CompilerServices.IsConst*)'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:irr.io.IXMLBase'. -->
+        <!-- Discarding badly formed XML document comment for member 'T:irr.io.IXMLBase'. -->
     </members>
 </doc>

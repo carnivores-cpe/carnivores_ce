@@ -22,13 +22,13 @@ Contains Animation and model data for the model. The model hasMany animations an
 This class only manages animation and model data, not sounds or AI characteristics.
 
 </member>
-<member name="M:CharacterModel._generateAlphaFlags(TagMODEL*)" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_ai.cpp" line="108">
+<member name="M:CharacterModel._generateAlphaFlags(TModel*)" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_ai.cpp" line="108">
 Generate alpha transparency for model textures
 NOTE: Only in D3d or Glide mode; not in software
 @access protected
 
 </member>
-<member name="M:CharacterModel._generateModelMipMaps(TagMODEL*)" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_ai.cpp" line="155">
+<member name="M:CharacterModel._generateModelMipMaps(TModel*)" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\ce_ai.cpp" line="155">
 Generate the models mipmaps on the textures
 @access protected
 

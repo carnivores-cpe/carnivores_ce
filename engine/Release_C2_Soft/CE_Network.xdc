@@ -489,38 +489,6 @@ These enumerations are used to describe how packets are delivered.
 \note In ReliabilityLayer::WriteToBitStreamFromInternalPacket I assume there are 5 major types
 \note Do not reorder, I check on &gt;= UNRELIABLE_WITH_ACK_RECEIPT
 </member>
-<member name="D:uint8_t" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\rak\raknettypes.h" line="11">
-\file
-\brief Types used by RakNet, most of which involve user code.
-
-Define __GET_TIME_64BIT to have RakNet::TimeMS use a 64, rather than 32 bit value.  A 32 bit value will overflow after about 5 weeks.
-However, this doubles the bandwidth use for sending times, so don't do it unless you have a reason to.
-Comment out if you are using the iPod Touch TG. See http://www.jenkinssoftware.com/forum/index.php?topic=2717.0
-This must be the same on all systems, or they won't connect
-Define __BITSTREAM_NATIVE_END to NOT support endian swapping in the BitStream class.  This is faster and is what you should use
-unless you actually plan to have different endianness systems connect to each other
-Enabled by default.
-Maximum (stack) size to use with _alloca before using new and delete instead.
-Uncomment to use RakMemoryOverride for custom memory tracking
-See RakMemoryOverride.h. 
-If defined, OpenSSL is enabled for the class TCPInterface
-This is necessary to use the SendEmail class with Google POP servers
-Note that OpenSSL carries its own license restrictions that you should be aware of. If you don't agree, don't enable this define
-This also requires that you enable header search paths to DependentExtensions\openssl-1.0.0d
-Threshold at which to do a malloc / free rather than pushing data onto a fixed stack for the bitstream class
-Arbitrary size, just picking something likely to be larger than most packets
-This controls the amount of memory used per connection.
-This many datagrams are tracked by datagramNumber. If more than this many datagrams are sent, then an ack for an older datagram would be ignored
-This results in an unnecessary resend in that case
-This is the maximum number of reliable user messages that can be on the wire at a time
-If this is too low, then high ping connections with a large throughput will be underutilized
-This will be evident because RakNetStatistics::messagesInSend buffer will increase over time, yet at the same time the outgoing bandwidth per second is less than your connection supports
-Uncomment if you want to link in the DLMalloc library to use with RakMemoryOverride
-Workaround for http://support.microsoft.com/kb/274323
-If two calls between RakNet::GetTime() happen farther apart than this time in microseconds, this delta will be returned instead
-Note: This will cause ID_TIMESTAMP to be temporarily inaccurate if you set a breakpoint that pauses the UpdateNetworkLoop() thread in RakPeer
-Define in RakNetDefinesOverrides.h to enable (non-zero) or disable (0)
-</member>
 <member name="T:RakNet.RakPeerInterface" decl="true" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\rak\raknettypes.h" line="36">
 Forward declarations
 </member>
@@ -719,6 +687,11 @@ Indicates whether to delete the data, or to simply delete the packet.
 <member name="F:RakNet.Packet.wasGeneratedLocally" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\rak\raknettypes.h" line="451">
 @internal
 If true, this message is meant for the user, not for the plugins, so do not process it through plugins
+</member>
+<member name="F:rakMalloc" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\rak\rakmemoryoverride.h" line="11">
+\file
+\brief If _USE_RAK_MEMORY_OVERRIDE is defined, memory allocations go through rakMalloc, rakRealloc, and rakFree
+
 </member>
 <member name="T:RakNet.RakThread" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\rak\rakthread.h" line="36">
 To define a thread, use RAK_THREAD_DECLARATION(functionName);
@@ -1329,12 +1302,6 @@ Verbosity level currently supports 0 (low), 1 (medium), 2 (high)
 1 medium 
 2 high 
 3 debugging congestion control
-</member>
-<member name="T:_iobuf" decl="false" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\rak\bitstream.h" line="11">
-\file BitStream.h
-\brief This class allows you to write and read native types as a string of bits.  
-\details BitStream is used extensively throughout RakNet and is designed to be used by users as well.
-
 </member>
 <member name="T:RakNet.SimpleMutex" decl="true" source="\\psf\home\downloads\carnivores-src_minorenhanced_build\engine\rak\rakstring.h" line="30">
 Forward declarations

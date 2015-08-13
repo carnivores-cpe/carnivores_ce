@@ -2,9 +2,6 @@
 #include "stdio.h"
 #include "vehicle.h"
 
-#include "C2CharacterCollection.h"
-#include "CE_Allosaurus.h"
-
 BOOL NewPhase;
 
 #define fx_DIE    0
@@ -194,6 +191,18 @@ void SetNewTargetPlace(TCharacter *cptr, float R);
 void AnimateTrophyDino(TCharacter *cptr);
 void ProcessAdvancedHealthSystem(TCharacter *cptr, int dmg);
 
+#include "modern_src\C2CarFilePreloader.h"
+#include "modern_src\C2Character.h"
+#include "modern_src\CE_ArtificialIntelligence.h"
+
+void CE_AnimateManagedCharacters()
+{
+  int numberOfManagedCharacters = ManagedCharacters.size();
+
+  for (int c = 0; c<numberOfManagedCharacters; c++) {
+    ManagedCharacters[c]->intelligence->think(TimeDt);
+  }
+}
 
 void ProcessPrevPhase(TCharacter *cptr)
 {
@@ -374,9 +383,9 @@ void ThinkY_Beta_Gamma(TCharacter *cptr, float blook, float glook, float blim, f
     //=== beta ===//
     float hlook  = GetLandH(cptr->pos.x + cptr->lookx * blook, cptr->pos.z + cptr->lookz * blook);
     float hlook2 = GetLandH(cptr->pos.x - cptr->lookx * blook, cptr->pos.z - cptr->lookz * blook);    
-	DeltaFunc(cptr->beta, (hlook2 - hlook) / (blook * 3.2f), TimeDt / 800.f);
+	DeltaFunc(cptr->beta, (hlook2 - hlook) / (blook * 3.2f), TimeDt / 800.f); // set front/back rotation based on height difference
 
-    if (cptr->beta > blim) cptr->beta = blim;
+    if (cptr->beta > blim) cptr->beta = blim; // but limit it
     if (cptr->beta <-blim) cptr->beta =-blim;
 
     //=== gamma ===//
@@ -518,15 +527,19 @@ int CheckPossiblePath(TCharacter *cptr, BOOL wc, BOOL mc)
   float lookx = (float)cos(cptr->tgalpha);
   float lookz = (float)sin(cptr->tgalpha);
   int c=0;
+  // check 20 segments ahead for a path and count collisions
   for (int t=0; t<20; t++) {    
     p.x+=lookx * 64.f;
-	p.z+=lookz * 64.f;
+	  p.z+=lookz * 64.f;
     if (CheckPlaceCollision(p, wc, mc)) c++;
   }
   return c;
 }
 
 
+/*
+* Takes the target alpha
+*/
 void LookForAWay(TCharacter *cptr, BOOL wc, BOOL mc)
 {
   float alpha = cptr->tgalpha;
@@ -535,30 +548,30 @@ void LookForAWay(TCharacter *cptr, BOOL wc, BOOL mc)
   int maxp = 16;
   int curp;
 
-  if (!CheckPossiblePath(cptr, wc, mc)) { cptr->NoWayCnt=0; return; }
+  if (!CheckPossiblePath(cptr, wc, mc)) { cptr->NoWayCnt=0; return; } // got lucky. No collisions; go this route.
   
-  cptr->NoWayCnt++;
-  for (int i=0; i<12; i++) {
+  cptr->NoWayCnt++; // this way is blocked... let's find another.
+  for (int i=0; i<12; i++) { // allow up to 180 degree turn to find a route (to my right)
 	cptr->tgalpha = alpha+dalpha*pi/180.f;
 	curp=CheckPossiblePath(cptr, wc, mc) + (i>>1);
-	if (!curp) return;
-	if (curp<maxp) {
-		maxp = curp;
+	if (!curp) return; // found the perfect route
+	if (curp<maxp) { // found one with less than 16 collisions. Go with it and keep trying to find a better route.
+		    maxp = curp;
         afound = cptr->tgalpha;
 	}
 
-	cptr->tgalpha = alpha-dalpha*pi/180.f;
+	cptr->tgalpha = alpha-dalpha*pi/180.f; // check the other 180 degree turn (to my left)
 	curp=CheckPossiblePath(cptr, wc, mc) + (i>>1);
-	if (!curp) return;
-	if (curp<maxp) {
+	if (!curp) return; // found the perfect route. Go with it.
+	if (curp<maxp) { // see if it beats going right
 		maxp = curp;
         afound = cptr->tgalpha;
 	}
 
-	dalpha+=15.f;
+	dalpha+=15.f; // try the next 15 degrees
   }
  
-  cptr->tgalpha = afound;
+  cptr->tgalpha = afound; // go with the best option. Worst case, I ALWAYS go 15 degrees to my right
 }
 
 
@@ -5090,7 +5103,9 @@ ENDPSELECT:
    tgbend = drspd/3;
    if (tgbend>pi/5) tgbend = pi/5;
 
-   tgbend*= SGN(currspeed);
+   tgbend*= SGN(currspeed); // rotate directional change based on speed
+   // 'cptr->bend' reflects the current angle of the trajectory that character is aiming towards its real target
+   // This affects the character's current speed, as sharp angles will keep character still.
    if (fabs(tgbend) > fabs(cptr->bend)) DeltaFunc(cptr->bend, tgbend, (float)TimeDt / 800.f);
                                    else DeltaFunc(cptr->bend, tgbend, (float)TimeDt / 600.f);
 
@@ -7753,9 +7768,6 @@ void PlaceCharacters()
 
 	 if (CheckPlaceCollisionP(Characters[ChCount].pos)) goto replace1;
 
-	 // Test managed characters
-	 //ManagedC2Characters.push_back(dynamic_cast<C2Character*>(new CE_Allosaurus()));
-
 	 ResetCharacter(&Characters[ChCount]);     
 
 #ifdef _iceage // alacn
@@ -7849,12 +7861,6 @@ replace2:
 	 ResetCharacter(&Characters[ChCount]);     
 	 ChCount++;
    }
-
-   // Place test character
-   CE_Allosaurus* allo = new CE_Allosaurus();
-   allo->place(PlayerX, PlayerZ, GetLandH(PlayerX, PlayerZ));
-
-   ManagedC2Characters->add(allo);
 
    PrintLog("\n");
    DemoPoint.DemoTime = 0;

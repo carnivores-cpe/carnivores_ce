@@ -1,0 +1,328 @@
+#include "C2AnimatableModel.h"
+#include "C2CarFile.h"
+
+#include "C2Geometry.h"
+#include "C2Animation.h"
+
+#include <cmath>
+#include <iostream>
+
+// C Forward declares
+//#warning Deprecation: please remove these old references and bake code into ultilities class
+int CheckPlaceCollision2(Vector3d &v, int wc);
+
+C2AnimatableModel::C2AnimatableModel()
+{
+	this->m_frame_time = 0;
+	this->m_position.x = 0.f;
+	this->m_position.z = 0.f;
+	this->m_position.y = 0.f;
+
+	this->m_current_animation_name = "";
+	this->m_previous_animation_name = "";
+}
+C2AnimatableModel::C2AnimatableModel(C2CarFile* carFile)
+  : m_car_file(carFile)
+{
+  this->m_frame_time = 0;
+
+  this->m_position.x = 0.f;
+  this->m_position.z = 0.f;
+  this->m_position.y = 0.f;
+  
+  this->m_current_animation_name = "";
+  this->m_previous_animation_name = "";
+}
+
+void C2AnimatableModel::setCarFile(C2CarFile* car_file)
+{
+	m_car_file = car_file;
+}
+
+C2AnimatableModel::~C2AnimatableModel()
+{
+}
+
+//#warning Using the old code for movement. Need to fix collision detection to use world resource
+void C2AnimatableModel::moveTo(float x, float z, bool blocked_by_water, bool blocked_by_models)
+{
+  Vector3d p = this->m_position;
+  
+  if (CheckPlaceCollision2(p, (int)blocked_by_water)) {
+    this->m_position.x += x / 2;
+    this->m_position.z += z / 2;
+    return;
+  }
+
+  p.x+=x;
+  p.z+=z;
+  
+  if (!CheckPlaceCollision2(p, (int)blocked_by_water)) {
+    this->m_position = p;
+    return;
+  }
+  
+  p = this->m_position;
+  p.x += x / 2;
+  p.z += z / 2;
+  if (!CheckPlaceCollision2(p, (int)blocked_by_water)) this->m_position = p;
+  p = this->m_position;
+  
+  p.x+=x/4;
+  p.z+=z/4;
+  this->m_position = p;
+}
+
+void C2AnimatableModel::setScale(float scale)
+{
+  this->m_scale = scale;
+}
+
+float C2AnimatableModel::getScale()
+{
+  return this->m_scale;
+}
+
+void C2AnimatableModel::setPosition(float x, float z, float y)
+{
+  this->m_position.x = x;
+  this->m_position.z = z;
+  this->m_position.y = y;
+}
+
+Vector3d C2AnimatableModel::getCurrentPosition()
+{
+  return this->m_position;
+}
+
+void C2AnimatableModel::setAlpha(float alpha)
+{
+  this->m_alpha = alpha;
+}
+
+float C2AnimatableModel::getCurrentAlpha()
+{
+  return this->m_alpha;
+}
+
+void C2AnimatableModel::setBeta(float beta)
+{
+  this->m_beta = beta;
+}
+
+float C2AnimatableModel::getBeta()
+{
+  return this->m_beta;
+}
+
+void C2AnimatableModel::setGamma(float gamma)
+{
+  this->m_gamma = gamma;
+}
+
+float C2AnimatableModel::getGamma()
+{
+  return this->m_gamma;
+}
+
+/*
+ * Keep playing the current animation + sound, and process loop behavior.
+ */
+void C2AnimatableModel::animate(int time_delta)
+{
+  if (this->m_current_animation_name == "") {
+    return;
+  }
+  C2Animation* animation = m_car_file->getAnimationByName(this->m_current_animation_name);
+  this->m_frame_time += time_delta;
+
+  if (this->m_frame_time >= animation->m_total_time)
+  {
+    this->m_frame_time %= animation->m_total_time;
+    this->m_did_animation_finish = true;
+//#warning Incomplete integration: notify something that the animation did finish, and play the audio again
+  }
+}
+
+bool C2AnimatableModel::didAnimationFinish()
+{
+  return this->m_did_animation_finish;
+}
+
+void C2AnimatableModel::setAnimation(std::string animation_name)
+{
+  this->m_did_animation_finish = false;
+
+  this->m_previous_animation_name = this->m_current_animation_name;
+  this->m_previous_animation_frame_time = this->m_frame_time;
+  this->m_previous_animation_to_new_morph_time = 0.f;
+
+  this->m_frame_time = 0;
+  this->m_current_animation_name = animation_name;
+//#warning Play sound
+  //ActivateCharacterFx(cptr);
+}
+
+C2Geometry* C2AnimatableModel::getCurrentModelForRender()
+{
+  if (this->m_previous_animation_name != this->m_current_animation_name && this->m_previous_animation_name != "") {
+//#warning gamma, beta, and bend not integrated
+    return this->getBetweenMorphedModel(this->m_previous_animation_name, this->m_current_animation_name, this->m_previous_animation_frame_time, this->m_frame_time, this->m_previous_animation_to_new_morph_time, this->m_scale, 0, 0, 0);
+  } else {
+    return this->getMorphedModel(this->m_current_animation_name, this->m_frame_time, this->m_scale);
+  }
+}
+
+C2Geometry* C2AnimatableModel::getMorphedModel(std::string animation_name, int at_time, float scale)
+{
+//  #warning TODO: This modifies the original shared model. Fix this. Also check for nulls
+  C2Geometry* sharedGeo = m_car_file->getGeometry();
+  C2Animation* animation = m_car_file->getAnimationByName(animation_name);
+  
+  int currentFrame = ((animation->m_number_of_frames-1) * at_time * 256) / animation->m_total_time;
+  int splineDelta = currentFrame & 0xFF;
+  currentFrame = currentFrame >> 8;
+  
+  float k2 = (float)(splineDelta) / 256.f;
+  float k1 = 1.0f - k2;
+  k1 *= scale/8.f;
+  k2 *= scale/8.f;
+
+  TModel* originModel = sharedGeo->getCModelData();
+  
+  int vcount = originModel->VCount;
+  
+  for (int v=0; v<vcount; v++) {
+    originModel->gVertex[v].x = animation->m_animation_data[v*3+0] * k1 + animation->m_animation_data[(v+vcount)*3+0] * k2;
+    originModel->gVertex[v].y = animation->m_animation_data[v*3+1] * k1 + animation->m_animation_data[(v+vcount)*3+1] * k2;
+    originModel->gVertex[v].z = - (animation->m_animation_data[v*3+2] * k1 + animation->m_animation_data[(v+vcount)*3+2] * k2);
+  }
+
+  return sharedGeo;
+}
+
+C2Geometry* C2AnimatableModel::getBetweenMorphedModel(std::string animation_previous_name, std::string animation_target_name, int at_time_previous, int at_time_target, int current_morph_time, float scale, float character_beta, float character_gamma, float character_bend)
+{
+//#warning This method suffers from the same incompleteness as getMorphedModel()
+  C2Geometry* sharedGeo = this->m_car_file->getGeometry();
+
+  C2Animation* previous_animation = m_car_file->getAnimationByName(animation_previous_name);
+  C2Animation* target_animation = m_car_file->getAnimationByName(animation_target_name);
+  
+  int previousFrame = 0, previousSplineDelta = 0;
+  
+  int currentFrame = ((target_animation->m_number_of_frames-1) * at_time_target * 256) / target_animation->m_total_time;
+  int splineDelta = currentFrame & 0xFF;
+  currentFrame = currentFrame >> 8;
+  
+  // Should I even try to morph?
+  const int MAXMORPHTIME = 256;
+  bool ShouldMorphPrevious = (animation_previous_name != animation_target_name) && (current_morph_time < MAXMORPHTIME);
+  
+  if (ShouldMorphPrevious) {
+    previousFrame = ((previous_animation->m_number_of_frames-1) * at_time_previous * 256) / previous_animation->m_total_time;
+    previousSplineDelta = previousFrame & 0xFF;
+    previousFrame = previousFrame >> 8;
+  }
+  
+  float k2 = (float)(splineDelta) / 256.f;
+  float k1 = 1.0f - k2;
+  k1 /= 8.f;
+  k2 /= 8.f;
+  
+  float previous_k1 = 0.f, previous_k2 = 0.f, pmk1 = 0.f, pmk2 = 0.f;
+  
+  if (ShouldMorphPrevious) {
+    previous_k2 = (float)(previousSplineDelta) / 256.f;
+    previous_k1 = 1.0f - previous_k2;
+    
+    previous_k1 /= 8.f;
+    previous_k2 /= 8.f;
+    pmk1 = (float)current_morph_time / MAXMORPHTIME;
+    pmk2 = 1.f - pmk1;
+  }
+  
+  TModel* originModel = sharedGeo->getCModelData();
+  
+  int vcount = originModel->VCount;
+  float sb = (float)std::sin(character_beta) * scale;
+  float cb = (float)std::cos(character_beta) * scale;
+  float sg = (float)std::sin(character_gamma);
+  float cg = (float)std::cos(character_gamma);
+  
+  float x, xx, y, yy, z, zz, px, py, pz;
+
+  for (int v=0; v<vcount; v++) {
+    x = target_animation->m_animation_data[v*3+0] * k1 + target_animation->m_animation_data[(v+vcount)*3+0] * k2;
+    y = target_animation->m_animation_data[v*3+1] * k1 + target_animation->m_animation_data[(v+vcount)*3+1] * k2;
+    z = -(target_animation->m_animation_data[v*3+2] * k1 + target_animation->m_animation_data[(v+vcount)*3+2] * k2);
+    
+    if (ShouldMorphPrevious) {
+      px = previous_animation->m_animation_data[v*3+0] * previous_k1 + previous_animation->m_animation_data[(v+vcount)*3+0] * previous_k2;
+      py = previous_animation->m_animation_data[v*3+1] * previous_k1 + previous_animation->m_animation_data[(v+vcount)*3+1] * previous_k2;
+      pz = -(previous_animation->m_animation_data[v*3+2] * previous_k1 + previous_animation->m_animation_data[(v+vcount)*3+2] * previous_k2);
+      
+      x = x*pmk1 + px * pmk2;
+      y = y*pmk1 + py * pmk2;
+      z = z*pmk1 + pz * pmk2;
+    }
+    
+    // Calculate 'FI' (used to determine whether or not to slow down the animation morph)
+    
+    zz = z;
+    xx = cg * x - sg * y;
+    yy = cg * y + sg * x;
+    
+    float fi = 0.f;
+    if (z > 0) {
+      fi = z / 240.f;
+      if (fi > 1.f) fi = 1.f;
+    } else {
+      fi = z / 380.f;
+      if (fi < -1.f) fi = - 1.f;
+    }
+    
+    // FI value will be in range -1.0...+1.0
+    /*
+     STANDARD:
+     Y represents forward/back.
+     Z is height.
+     X is shift right/left
+     
+     beta is front-back rotation off X-0
+     gamma is side-side rotation off Y-0
+     alpha is facing direction off Z-0
+     
+     NOTE: In carnivores, Y axis acts as the Z axis and vice versa (per RexHunter99, 30-July 2008):
+     
+     C2:
+     Z represents forward/back.
+     Y is height.
+     X is shift right/left
+     
+     beta is front-back rotation off X-0
+     gamma is side-side rotation off Z-0
+     alpha is facing direction off Y-0
+     */
+    
+    // character bend represents how sharp of an angle the character is currently turning towards
+    // his target alpha (where PI speed means complete 180). Taking this into account here
+    // allows us to speed up/slow down the animation process based on bend (the animation effectively slows down when character makes a sharp turn).
+    fi *= character_bend;
+    
+    // bend will be max of 0.628
+    float bendc = (float)std::cos(fi); // right/left bend
+    float bends = (float)std::sin(fi); // forward/back bend
+    float bx = bendc * xx - bends * zz;
+    float bz = bendc * zz + bends * xx;
+    zz = bz;
+    xx = bx;
+    
+    // finally done...
+    originModel->gVertex[v].x = xx * scale;
+    originModel->gVertex[v].y = cb * yy - sb * zz;
+    originModel->gVertex[v].z = cb * zz + sb * yy;
+  }
+  
+  return sharedGeo;
+}

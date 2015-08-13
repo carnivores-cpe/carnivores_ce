@@ -606,10 +606,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Audio_DLL.cpp" />
-    <ClCompile Include="C2CharacterCollection.cpp" />
-    <ClCompile Include="C2HuntableCharacter.cpp" />
     <ClCompile Include="CE_AI.cpp" />
-    <ClCompile Include="CE_ArtificialIntelligence.cpp" />
     <ClCompile Include="CE_Characters.cpp" />
     <ClCompile Include="CE_EnhancedSound.cpp" />
     <ClCompile Include="CE_Game.cpp" />
@@ -623,29 +620,46 @@
     <ClCompile Include="CE_RenderSoft.cpp" />
     <ClCompile Include="CE_Resources.cpp" />
     <ClCompile Include="CE_vehicle.cpp" />
-    <ClCompile Include="characters\C2AnimatableModel.cpp" />
-    <ClCompile Include="characters\C2Character.cpp" />
-    <ClCompile Include="CE_Allosaurus.cpp" />
     <ClCompile Include="IrrXML1.2\irrXML.cpp" />
     <ClCompile Include="mathematics.cpp" />
+    <ClCompile Include="modern_src\AI_Allosaurus.cpp" />
+    <ClCompile Include="modern_src\C2AnimatableModel.cpp" />
+    <ClCompile Include="modern_src\C2Animation.cpp" />
+    <ClCompile Include="modern_src\C2CarFile.cpp" />
+    <ClCompile Include="modern_src\C2CarFilePreloader.cpp" />
+    <ClCompile Include="modern_src\C2Character.cpp" />
+    <ClCompile Include="modern_src\C2Geometry.cpp" />
+    <ClCompile Include="modern_src\C2HuntableCharacter.cpp" />
+    <ClCompile Include="modern_src\C2SoundFX.cpp" />
+    <ClCompile Include="modern_src\CE_AIUtilities.cpp" />
+    <ClCompile Include="modern_src\CE_Allosaurus.cpp" />
+    <ClCompile Include="modern_src\CE_ArtificialIntelligence.cpp" />
     <ClCompile Include="RenderD3D5.cpp" />
-    <ClCompile Include="TCharacterInfoCache.cpp" />
     <ClCompile Include="xmlParser.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C2CharacterCollection.h" />
-    <ClInclude Include="CE_ArtificialIntelligence.h" />
-    <ClInclude Include="characters\AI_Allosaurus.h" />
-    <ClInclude Include="characters\C2AnimatableModel.h" />
-    <ClInclude Include="characters\C2Character.h" />
-    <ClInclude Include="characters\C2HuntableCharacter.h" />
-    <ClInclude Include="CE_Allosaurus.h" />
+    <ClInclude Include="C2Geometry.h" />
     <ClInclude Include="Hunt.h" />
+    <ClInclude Include="modern_src\AI_Allosaurus.h" />
+    <ClInclude Include="modern_src\C2AnimatableModel.h" />
+    <ClInclude Include="modern_src\C2Animation.h" />
+    <ClInclude Include="modern_src\C2CarFile.h" />
+    <ClInclude Include="modern_src\C2CarFilePreloader.h" />
+    <ClInclude Include="modern_src\C2Character.h" />
+    <ClInclude Include="modern_src\C2Geometry.h" />
+    <ClInclude Include="modern_src\C2HuntableCharacter.h" />
+    <ClInclude Include="modern_src\C2SoundFX.h" />
+    <ClInclude Include="modern_src\CE_AIUtilities.h" />
+    <ClInclude Include="modern_src\CE_Allosaurus.h" />
+    <ClInclude Include="modern_src\CE_ArtificialIntelligence.h" />
+    <ClInclude Include="modern_src\g_shared.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="TCharacterInfoCache.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="modern_src\Notes.rtf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

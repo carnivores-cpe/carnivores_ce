@@ -5,8 +5,10 @@
 
 #include "hunt.h"
 
-#include "C2CharacterCollection.h"
-#include "CE_Allosaurus.h"
+#include <vector>
+#include "modern_src\C2CarFilePreloader.h"
+#include "modern_src\C2CarFile.h"
+#include "modern_src\CE_Allosaurus.h"
 
 // -> External Functions accessed
 void CallSupply();
@@ -74,22 +76,34 @@ void Console_PlaceJeep()
 	Console_PrintLog(logt);
 }
 
+void Console_PrintLogString(std::string);
+void Console_LoadManagedAllo()
+{
+	C2CarFilePreloader* mcarloader = CarFileManager.get();
+	C2CarFile* allo_car = mcarloader->fetch("HUNTDAT\\ALLO.CAR");
+
+	Console_PrintLogString("Allo loaded.");
+	return;
+}
+
+// Insert an allo at the player position
+void Console_PlaceManagedAllo()
+{
+	//std::unique_ptr<CE_Allosaurus> allo = std::unique_ptr<CE_Allosaurus>(new CE_Allosaurus(CarFileManager.get(), "HUNTDAT\\ALLO.CAR"));
+	ManagedCharacters.push_back(std::unique_ptr<CE_Allosaurus>(new CE_Allosaurus(CarFileManager.get(), "HUNTDAT\\ALLO.CAR")));
+
+	C2Character* nChar = ManagedCharacters.at(ManagedCharacters.size()-1).get();
+	nChar->setScale(2.f);
+	nChar->setPosition(PlayerX, PlayerZ, PlayerY);
+	wsprintf(logt, "Added new allo to managed stack");
+	Console_PrintLog(logt);
+}
+
 void Console_PrintManagedCharacterStats()
 {
-	int numCharacters = ManagedC2Characters->size();
-	wsprintf(logt, "Number of Managed Characters: %d", numCharacters);
+	int numberOfManagedCharacters = ManagedCharacters.size();
+	wsprintf(logt, "Number of managed characters: %d", numberOfManagedCharacters);
 	Console_PrintLog(logt);
-
-	for (int c = 0; c < numCharacters; c++) {
-		C2Character* charDetail = ManagedC2Characters->at(0);
-		std::string debugginInfo = "";
-		charDetail->printDebuggingInfo(debugginInfo);
-		char *cstr = new char[debugginInfo.length() + 1];
-		strcpy(cstr, debugginInfo.c_str());
-
-		wsprintf(logt, "Debugging Info: %s", cstr);
-		Console_PrintLog(logt);
-	}
 }
 
 void Console_ProcessInput(void*) {
@@ -100,7 +114,11 @@ void Console_ProcessInput(void*) {
 
 	/* -> List <- */
 	// -> Developer Toggles/Tools
-	if (Console_TypedTextParseCheck("managed_characters debug"))
+	if (Console_TypedTextParseCheck("mchar load_allo"))
+		Console_LoadManagedAllo();
+	if (Console_TypedTextParseCheck("mchar place_allo"))
+		Console_PlaceManagedAllo();
+	if (Console_TypedTextParseCheck("mchar stat"))
 		Console_PrintManagedCharacterStats();
 	if (Console_TypedTextParseCheck("place jeep"))
 		Console_PlaceJeep();
@@ -455,6 +473,21 @@ void Console_PrintLog(LPSTR l) {
 		Console_DropFirstMessage(); //Drop the first message and resort the array
 		//-> Now Add it
 		lstrcpy(CommandLog[CommandLogCnt].mtext, l);
+		CommandLogCnt++;
+	}
+}
+
+void Console_PrintLogString(std::string log_msg)
+{
+	if (CommandLogCnt < 512) {
+		lstrcpy(CommandLog[CommandLogCnt].mtext, log_msg.c_str());
+		CommandLogCnt++;
+	}
+	else {
+		//-> Force expire the first message
+		Console_DropFirstMessage(); //Drop the first message and resort the array
+		//-> Now Add it
+		lstrcpy(CommandLog[CommandLogCnt].mtext, log_msg.c_str());
 		CommandLogCnt++;
 	}
 }

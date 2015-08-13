@@ -17,6 +17,10 @@
 #include <d3d.h>
 #endif
 
+#include <memory>
+#include <vector>
+#include "modern_src/g_shared.h"
+
 // alacn
 // #define __rus
 // #define __high_priority_process
@@ -41,6 +45,14 @@
 #define pi 3.1415926535f
 #define ctMapSize 1024
 
+/* Engine port globals - eventually move these into a globals manager or singletons */
+//#warning C-style globals
+
+class C2CarFilePreloader;
+class C2Character;
+_EXTORNOT std::unique_ptr<C2CarFilePreloader> CarFileManager;
+_EXTORNOT std::vector < std::unique_ptr<C2Character> > ManagedCharacters;
+
 
 
 
@@ -56,21 +68,21 @@ typedef struct tagTRGB {
      BYTE R;
 } TRGB;
 
-typedef struct _Animation {
+/*typedef struct _Animation {
   char aniName[32];
   int aniKPS, FramesCount, AniTime;
   short int* aniData;
-} TAni;
+} TAni;*/
 
 typedef struct _VTLdata {  
   int aniKPS, FramesCount, AniTime;
   short int* aniData;
 } TVTL;
 
-typedef struct _SoundFX {
+/*typedef struct _SoundFX {
   int  length;
   short int* lpData;
-} TSFX;
+} TSFX;*/
 
 
 
@@ -105,9 +117,9 @@ typedef struct _TPicture {
 } TPicture;
 
 
-typedef struct TagVector3d {
+/*typedef struct TagVector3d {
  float x,y,z;
-} Vector3d;
+} Vector3d;*/
 
 typedef struct TagPoint3di {
  int x,y,z;
@@ -165,17 +177,17 @@ typedef struct TagClipPoint {
 
 
 //================= MODEL ========================
-typedef struct _Point3d {
+/*typedef struct _Point3d {
 	float x; 
 	float y; 
 	float z;
 	short owner; 
 	short hide;
-} TPoint3d;
+} TPoint3d;*/
 
 
 
-typedef struct _Face {
+/*typedef struct _Face {
    int v1, v2, v3;   
 #ifdef _soft
    int   tax, tbx, tcx, tay, tby, tcy;
@@ -185,16 +197,16 @@ typedef struct _Face {
    WORD Flags,DMask;
    int Distant, Next, group;
    char reserv[12];  
-} TFace;
+} TFace;*/
 
 
-typedef struct _Facef {
+/*typedef struct _Facef {
    int v1, v2, v3;   
    float tax, tbx, tcx, tay, tby, tcy;
    WORD Flags,DMask;
    int Distant, Next, group;
    char reserv[12];  
-} TFacef;
+} TFacef;*/
 
 
 
@@ -207,7 +219,7 @@ typedef struct _Obj {
    short hide;
 } TObj;
 
-
+/*
 typedef struct TagMODEL {
     int VCount, FCount, TextureSize, TextureHeight;
     TPoint3d gVertex[1024];    
@@ -221,7 +233,7 @@ typedef struct TagMODEL {
 #else
 	float    VLight[4][1024];
 #endif
-} TModel;
+} TModel;*/
 
 
 //=========== END MODEL ==============================//
@@ -257,7 +269,7 @@ typedef struct TagObject {
    TVTL    vtl;   
 } TObject;
 
-typedef struct _TCharacterInfo {
+/*typedef struct _TCharacterInfo {
   char ModelName[32];
   int AniCount,SfxCount;
   TModel* mptr;
@@ -276,7 +288,7 @@ typedef struct _TCharacterInfo {
   int SLIDE[10];
   int RUN[10];
   int SWIM[10];
-} TCharacterInfo;
+} TCharacterInfo;*/
 
 typedef struct _TWeapon {
   TCharacterInfo chinfo[10];
@@ -825,8 +837,6 @@ _EXTORNOT TCharacterInfo WindModel;
 _EXTORNOT TCharacterInfo PlayerInfo;
 _EXTORNOT TCharacterInfo ChInfo[64][256]; //Up to 256 characters per AI. This holds model data
 _EXTORNOT TCharacter     Characters[256];
-class C2CharacterCollection;
-_EXTORNOT C2CharacterCollection* ManagedC2Characters; // Pointer to a C2Characters. Replace this with Character Manager in World/Level
 _EXTORNOT TVehicle		 Vehicles[5];
 _EXTORNOT TWCircle       WCircles[128];
 _EXTORNOT TSnowElement   Snow[8024];
