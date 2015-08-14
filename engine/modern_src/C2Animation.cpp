@@ -8,13 +8,17 @@
 
 #include "C2Animation.h"
 
-C2Animation::C2Animation(std::string name, int kps, int total_frames, int total_time_ms, std::vector<short int>& raw_animation_data) :
-  m_name(name), m_kps(kps), m_number_of_frames(total_frames), m_total_time(total_time_ms)
+C2Animation::C2Animation(const std::string& ani_name, int kps, int total_frames, int total_time_ms) :
+m_name(ani_name), m_kps(kps), m_number_of_frames(total_frames), m_total_time(total_time_ms)
 {
-  m_animation_data = raw_animation_data;
 }
 
 C2Animation::~C2Animation()
 {
   
+}
+
+void C2Animation::setAnimationData(std::vector<short int> raw_animation_data)
+{
+	this->m_animation_data = raw_animation_data;
 }

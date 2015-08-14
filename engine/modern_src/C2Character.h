@@ -19,7 +19,7 @@ class C2Character: public C2AnimatableModel {
     CE_ArtificialIntelligence* intelligence; // dont let go out of scope... need to fix this
 
     /* (De)Constructor */
-    C2Character(CE_ArtificialIntelligence* intelligence_strategy, C2CarFile* car_file);
+	C2Character(CE_ArtificialIntelligence* intelligence_strategy, const std::shared_ptr<C2CarFile>& car_file);
 	C2Character();
     ~C2Character();
 

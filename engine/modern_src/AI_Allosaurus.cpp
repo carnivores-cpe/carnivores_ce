@@ -94,8 +94,6 @@ NOTHINK:
   
 //#warning move this to the animation loop (tracks previous state morphing)
   this->flush_previous_state();
-  this->character->animate(time_delta);
-  
   //======== select new phase =======================//
   NewPhase = this->character->didAnimationFinish();
   

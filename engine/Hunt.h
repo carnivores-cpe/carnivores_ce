@@ -968,7 +968,6 @@ _EXTORNOT   struct _t {
 #define ofNOSOFT2          1024
 #define ofANIMATED         0x80000000
 
-#define csONWATER          0x00010000
 #define MAX_HEALTH         128000
 #define MAX_ENERGY		   100000 //Set to 99999 for a bar that's always visible
 

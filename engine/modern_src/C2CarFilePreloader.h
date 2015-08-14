@@ -17,10 +17,10 @@ class C2CarFile;
 
 class C2CarFilePreloader
 {
-  std::map<std::string, std::unique_ptr<C2CarFile>> _files;
+  std::map<std::string, std::shared_ptr<C2CarFile>> _files;
   
 public:
-  C2CarFile* fetch(std::string file_name);
+	const std::shared_ptr<C2CarFile>& fetch(std::string file_name);
 };
 
 #endif /* defined(__CE_Character_Lab__C2CarFilePreloader__) */

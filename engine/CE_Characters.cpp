@@ -200,7 +200,8 @@ void CE_AnimateManagedCharacters()
   int numberOfManagedCharacters = ManagedCharacters.size();
 
   for (int c = 0; c<numberOfManagedCharacters; c++) {
-    ManagedCharacters[c]->intelligence->think(TimeDt);
+    ManagedCharacters[c]->animate(TimeDt);
+    //ManagedCharacters[c]->intelligence->think(TimeDt);
   }
 }
 

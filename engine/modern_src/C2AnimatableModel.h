@@ -13,15 +13,14 @@
 #include <map>
 
 //#warning Bad C integration: remove hunt.h references
-#include "Hunt.h"
+#include "g_shared.h"
 
 class C2Geometry;
 class C2CarFile;
 
 class C2AnimatableModel {
 private:
-  C2CarFile* m_car_file;
-  C2Geometry* m_modified_geometry;
+  std::shared_ptr<C2CarFile> m_car_file;
   
 //#warning Do these belong in the C2Geometry object? (and set for Characters in the m_modified geo member)
   Vector3d m_position;
@@ -40,10 +39,8 @@ private:
   bool m_did_animation_finish;
 
 public:
-  C2AnimatableModel(C2CarFile* carFile);
-  C2AnimatableModel();
+  C2AnimatableModel(const std::shared_ptr<C2CarFile>& car_file);
   ~C2AnimatableModel();
-  void setCarFile(C2CarFile* car_file);
   
   /* Positioning details */
   Vector3d getCurrentPosition();

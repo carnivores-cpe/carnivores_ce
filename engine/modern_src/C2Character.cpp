@@ -5,12 +5,8 @@
 
 #include "C2CarFile.h"
 
-C2Character::C2Character(CE_ArtificialIntelligence* intelligence_strategy, C2CarFile* carFile)
-	: intelligence(intelligence_strategy), C2AnimatableModel(carFile)
-{
-}
-
-C2Character::C2Character()
+C2Character::C2Character(CE_ArtificialIntelligence* intelligence_strategy, const std::shared_ptr<C2CarFile>& car_file)
+	: intelligence(intelligence_strategy), C2AnimatableModel(car_file)
 {
 }
 

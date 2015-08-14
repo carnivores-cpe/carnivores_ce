@@ -9,6 +9,8 @@
 #ifndef CE_Character_Lab_g_shared_h
 #define CE_Character_Lab_g_shared_h
 
+#define csONWATER          0x00010000
+
 typedef struct TagVector3d {
   float x,y,z;
 } Vector3d;

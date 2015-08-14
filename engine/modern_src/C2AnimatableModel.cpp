@@ -11,18 +11,8 @@
 //#warning Deprecation: please remove these old references and bake code into ultilities class
 int CheckPlaceCollision2(Vector3d &v, int wc);
 
-C2AnimatableModel::C2AnimatableModel()
-{
-	this->m_frame_time = 0;
-	this->m_position.x = 0.f;
-	this->m_position.z = 0.f;
-	this->m_position.y = 0.f;
-
-	this->m_current_animation_name = "";
-	this->m_previous_animation_name = "";
-}
-C2AnimatableModel::C2AnimatableModel(C2CarFile* carFile)
-  : m_car_file(carFile)
+C2AnimatableModel::C2AnimatableModel(const std::shared_ptr<C2CarFile>& car_file)
+  : m_car_file(car_file)
 {
   this->m_frame_time = 0;
 
@@ -34,16 +24,13 @@ C2AnimatableModel::C2AnimatableModel(C2CarFile* carFile)
   this->m_previous_animation_name = "";
 }
 
-void C2AnimatableModel::setCarFile(C2CarFile* car_file)
-{
-	m_car_file = car_file;
-}
-
 C2AnimatableModel::~C2AnimatableModel()
 {
 }
 
 //#warning Using the old code for movement. Need to fix collision detection to use world resource
+// This should be done in Character, which simply setsPos after transition. An animatableModel doesnt care
+// about collisions.
 void C2AnimatableModel::moveTo(float x, float z, bool blocked_by_water, bool blocked_by_models)
 {
   Vector3d p = this->m_position;
@@ -127,15 +114,16 @@ float C2AnimatableModel::getGamma()
 
 /*
  * Keep playing the current animation + sound, and process loop behavior.
+ * TODO: Actually process loop behavior. Currently the AI controls this, and it shouldn't (?).
  */
-void C2AnimatableModel::animate(int time_delta)
+void C2AnimatableModel::animate(const int dtime)
 {
-  if (this->m_current_animation_name == "") {
+  if (this->m_current_animation_name.empty()) {
     return;
   }
-  C2Animation* animation = m_car_file->getAnimationByName(this->m_current_animation_name);
-  this->m_frame_time += time_delta;
-
+  this->m_frame_time += dtime;
+  C2Animation* animation = this->m_car_file->getAnimationByName(this->m_current_animation_name);
+ 
   if (this->m_frame_time >= animation->m_total_time)
   {
     this->m_frame_time %= animation->m_total_time;
@@ -165,6 +153,10 @@ void C2AnimatableModel::setAnimation(std::string animation_name)
 
 C2Geometry* C2AnimatableModel::getCurrentModelForRender()
 {
+  if (this->m_current_animation_name == "") {
+	  return this->m_car_file->getGeometry();
+  }
+
   if (this->m_previous_animation_name != this->m_current_animation_name && this->m_previous_animation_name != "") {
 //#warning gamma, beta, and bend not integrated
     return this->getBetweenMorphedModel(this->m_previous_animation_name, this->m_current_animation_name, this->m_previous_animation_frame_time, this->m_frame_time, this->m_previous_animation_to_new_morph_time, this->m_scale, 0, 0, 0);
@@ -176,8 +168,8 @@ C2Geometry* C2AnimatableModel::getCurrentModelForRender()
 C2Geometry* C2AnimatableModel::getMorphedModel(std::string animation_name, int at_time, float scale)
 {
 //  #warning TODO: This modifies the original shared model. Fix this. Also check for nulls
-  C2Geometry* sharedGeo = m_car_file->getGeometry();
-  C2Animation* animation = m_car_file->getAnimationByName(animation_name);
+  C2Geometry* sharedGeo = this->m_car_file->getGeometry();
+  C2Animation* animation = this->m_car_file->getAnimationByName(animation_name);
   
   int currentFrame = ((animation->m_number_of_frames-1) * at_time * 256) / animation->m_total_time;
   int splineDelta = currentFrame & 0xFF;
@@ -185,17 +177,15 @@ C2Geometry* C2AnimatableModel::getMorphedModel(std::string animation_name, int a
   
   float k2 = (float)(splineDelta) / 256.f;
   float k1 = 1.0f - k2;
-  k1 *= scale/8.f;
-  k2 *= scale/8.f;
+  k1 = k1/8.f;
+  k2 = k2/8.f;
 
-  TModel* originModel = sharedGeo->getCModelData();
-  
-  int vcount = originModel->VCount;
+  int vcount = sharedGeo->m_vertices.size();
   
   for (int v=0; v<vcount; v++) {
-    originModel->gVertex[v].x = animation->m_animation_data[v*3+0] * k1 + animation->m_animation_data[(v+vcount)*3+0] * k2;
-    originModel->gVertex[v].y = animation->m_animation_data[v*3+1] * k1 + animation->m_animation_data[(v+vcount)*3+1] * k2;
-    originModel->gVertex[v].z = - (animation->m_animation_data[v*3+2] * k1 + animation->m_animation_data[(v+vcount)*3+2] * k2);
+	sharedGeo->m_vertices[v].x = animation->m_animation_data[v * 3 + 0] * k1 + animation->m_animation_data[(v + vcount) * 3 + 0] * k2;
+	sharedGeo->m_vertices[v].y = animation->m_animation_data[v * 3 + 1] * k1 + animation->m_animation_data[(v + vcount) * 3 + 1] * k2;
+	sharedGeo->m_vertices[v].z = -(animation->m_animation_data[v * 3 + 2] * k1 + animation->m_animation_data[(v + vcount) * 3 + 2] * k2);
   }
 
   return sharedGeo;
@@ -241,10 +231,8 @@ C2Geometry* C2AnimatableModel::getBetweenMorphedModel(std::string animation_prev
     pmk1 = (float)current_morph_time / MAXMORPHTIME;
     pmk2 = 1.f - pmk1;
   }
-  
-  TModel* originModel = sharedGeo->getCModelData();
-  
-  int vcount = originModel->VCount;
+ 
+  int vcount = sharedGeo->m_vertices.size();
   float sb = (float)std::sin(character_beta) * scale;
   float cb = (float)std::cos(character_beta) * scale;
   float sg = (float)std::sin(character_gamma);
@@ -319,9 +307,9 @@ C2Geometry* C2AnimatableModel::getBetweenMorphedModel(std::string animation_prev
     xx = bx;
     
     // finally done...
-    originModel->gVertex[v].x = xx * scale;
-    originModel->gVertex[v].y = cb * yy - sb * zz;
-    originModel->gVertex[v].z = cb * zz + sb * yy;
+	sharedGeo->m_vertices[v].x = xx * scale;
+	sharedGeo->m_vertices[v].y = cb * yy - sb * zz;
+	sharedGeo->m_vertices[v].z = cb * zz + sb * yy;
   }
   
   return sharedGeo;

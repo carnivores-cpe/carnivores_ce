@@ -19,24 +19,20 @@
 
 void Console_PrintLogString(std::string log_msg);
 
-template <typename T, typename... Args>
+/*template <typename T, typename... Args>
 auto make_unique(Args&&... args) -> std::unique_ptr<T>
 {
   return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
-}
+}*/
 
 C2CarFile::C2CarFile(std::string file_name)
 {
 	Console_PrintLogString("Loading file " + file_name);
-	this->m_character_info = new TCharacterInfo();
-	this->m_model_data = new TModel();
 	this->load_file(file_name);
 }
 
 C2CarFile::~C2CarFile()
 {
-	delete this->m_character_info;
-	delete this->m_model_data;
 }
 
 C2Geometry* C2CarFile::getGeometry()
@@ -49,84 +45,100 @@ C2Animation* C2CarFile::getAnimationByName(std::string animation_name)
   return this->m_animations[animation_name].get();
 }
 
-
+/*
 void C2CarFile::generate_animations()
 {
-  for (int a = 0; a < this->m_character_info->AniCount; a++) {
-    std::string animation_name = this->m_character_info->Animation[a].aniName;
-    int animation_KPS = this->m_character_info->Animation[a].aniKPS;
+  for (int a = 0; a < c_char_info.AniCount; a++) {
+    std::string animation_name = c_char_info.Animation[a].aniName;
+    int animation_KPS = c_char_info.Animation[a].aniKPS;
     
-    int animation_data_length = (this->m_model_data->VCount*this->m_character_info->Animation[a].FramesCount*6);
+    int animation_data_length = (this->m_model_data->VCount*c_char_info.Animation[a].FramesCount*6);
     std::vector<short int> animation_data;
 
     for (int a_d = 0; a_d < animation_data_length; a_d++)
     {
-      animation_data.push_back(this->m_character_info->Animation[a].aniData[a_d]);
+      animation_data.push_back(c_char_info.Animation[a].aniData[a_d]);
     }
 
     //std::cout << "Animation loaded: " << animation_name << "\n";
     this->m_animations[animation_name] = std::make_unique<C2Animation>(animation_name, animation_KPS,
-                                                              this->m_character_info->Animation[a].FramesCount,this->m_character_info->Animation[a].AniTime,animation_data);
+                                                              c_char_info.Animation[a].FramesCount,c_char_info.Animation[a].AniTime,animation_data);
 
   }
-}
+}*/
 
 void C2CarFile::load_file(std::string file_name)
 {
   std::ifstream infile;
+  TCharacterInfo c_char_info; //place holder for information from file
+
+  int _vcount, _fcount, _texture_size, _texture_height;
+  std::vector<TPoint3d> _vertices;
+  std::vector<TFace> _faces;
+  std::vector<WORD> _texture_data;
+
   infile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
   try {
   infile.open(file_name.c_str(), std::ios::binary | std::ios::in);
   
-  infile.read(this->m_character_info->ModelName, 32);
+  infile.read(c_char_info.ModelName, 32);
 
-  infile.read(reinterpret_cast<char *>(&this->m_character_info->AniCount), 4);
-  infile.read(reinterpret_cast<char *>(&this->m_character_info->SfxCount), 4);
+  infile.read(reinterpret_cast<char *>(&c_char_info.AniCount), 4);
+  infile.read(reinterpret_cast<char *>(&c_char_info.SfxCount), 4);
   
-  infile.read(reinterpret_cast<char *>(&this->m_model_data->VCount), 4);
-  infile.read(reinterpret_cast<char *>(&this->m_model_data->FCount), 4);
-  infile.read(reinterpret_cast<char *>(&this->m_model_data->TextureSize), 4);
-  this->m_model_data->TextureHeight = this->m_model_data->TextureSize >> 9;
+  infile.read(reinterpret_cast<char *>(&_vcount), 4);
+  infile.read(reinterpret_cast<char *>(&_fcount), 4);
+  infile.read(reinterpret_cast<char *>(&_texture_size), 4);
 
-  infile.read(reinterpret_cast<char *>(&this->m_model_data->gFace), this->m_model_data->FCount<<6);
-  infile.read(reinterpret_cast<char *>(&this->m_model_data->gVertex), this->m_model_data->VCount<<4);
+  _faces.resize(_fcount);
+  _vertices.resize(_vcount);
+  infile.read(reinterpret_cast<char *>(_faces.data()), _fcount<<6);
+  infile.read(reinterpret_cast<char *>(_vertices.data()), _vcount<<4);
   
-  int tsize = this->m_model_data->TextureSize;
-  this->m_model_data->TextureHeight = tsize>>9;
+  int tsize = _texture_size;
+  _texture_height = tsize>>9;
 
-  this->m_model_data->TextureSize = this->m_model_data->TextureHeight*512;
+  _texture_size = _texture_height*512;
   
-  this->m_model_data->lpTexture = new WORD[tsize];
-  
+  _texture_data.resize(tsize);
+  infile.read(reinterpret_cast<char *>(_texture_data.data()), tsize);
 
-  infile.read(reinterpret_cast<char *>(this->m_model_data->lpTexture), tsize);
+  for (int ani = 0; ani < c_char_info.AniCount; ani++) {
+	  int _ani_kps, _frames_count;
+	  float animation_length;
+	  std::vector<short int> _aniData;
+	  char _aniName[32];
 
-  for (int ani = 0; ani < this->m_character_info->AniCount; ani++) {
-    infile.read(this->m_character_info->Animation[ani].aniName, 32);
-    infile.read(reinterpret_cast<char *>(&this->m_character_info->Animation[ani].aniKPS), 4);
-    infile.read(reinterpret_cast<char *>(&this->m_character_info->Animation[ani].FramesCount), 4);
+    infile.read(_aniName, 32);
+    infile.read(reinterpret_cast<char *>(&_ani_kps), 4);
+    infile.read(reinterpret_cast<char *>(&_frames_count), 4);
     
-    this->m_character_info->Animation[ani].AniTime = (this->m_character_info->Animation[ani].FramesCount * 1000) / this->m_character_info->Animation[ani].aniKPS;
-    int aniDataSize = (this->m_model_data->VCount*this->m_character_info->Animation[ani].FramesCount*6);
-    this->m_character_info->Animation[ani].aniData = new short int[aniDataSize];
-    
-    infile.read(reinterpret_cast<char *>(this->m_character_info->Animation[ani].aniData), aniDataSize);
+	animation_length = (float)(_frames_count * 1000) / (float)_ani_kps;
+    _aniData.resize(_frames_count*_vcount*6);
+    infile.read(reinterpret_cast<char *>(_aniData.data()), _vcount*_frames_count*6);
+
+    std::string animation_name(_aniName);
+	std::unique_ptr<C2Animation> chAni = std::make_unique<C2Animation>(animation_name, _ani_kps,
+		_frames_count, (int)animation_length);
+	chAni->setAnimationData(_aniData);
+
+	this->m_animations.insert(std::make_pair(animation_name, std::move(chAni)));
   }
   
-  char soundNameBuffer[32];
-  for (int soundfx = 0; soundfx < this->m_character_info->SfxCount; soundfx++) {
+  /*char soundNameBuffer[32];
+  for (int soundfx = 0; soundfx < c_char_info.SfxCount; soundfx++) {
     infile.read(soundNameBuffer, 32);
-    infile.read(reinterpret_cast<char *>(&this->m_character_info->SoundFX[soundfx].length), 4);
+    infile.read(reinterpret_cast<char *>(&c_char_info.SoundFX[soundfx].length), 4);
     
-    this->m_character_info->SoundFX[soundfx].lpData = new short int[this->m_character_info->SoundFX[soundfx].length];
+    c_char_info.SoundFX[soundfx].lpData = new short int[c_char_info.SoundFX[soundfx].length];
     
-    infile.read(reinterpret_cast<char *>(this->m_character_info->SoundFX[soundfx].lpData), this->m_character_info->SoundFX[soundfx].length);
+    infile.read(reinterpret_cast<char *>(c_char_info.SoundFX[soundfx].lpData), c_char_info.SoundFX[soundfx].length);
   }
   
-  infile.read(reinterpret_cast<char *>(&this->m_character_info->Anifx), 64*4);
+  infile.read(reinterpret_cast<char *>(&c_char_info.Anifx), 64*4);*/
   
   // brighten texture
-  // scale base model
   infile.close();
   }
   catch (std::ifstream::failure e) {
@@ -137,18 +149,12 @@ void C2CarFile::load_file(std::string file_name)
   Console_PrintLogString("Loaded " + file_name);
 
   // data correction
-  this->_correct_model_and_animations();
+  for (int v=0; v < _vcount; v++) {
+    _vertices[v].x *= 2.f;
+    _vertices[v].y *= 2.f;
+    _vertices[v].z *= -2.f;
+  }
 
   // load instance
-  this->m_geometry = make_unique<C2Geometry>(*this->m_model_data);
-  this->generate_animations();
-}
-
-void C2CarFile::_correct_model_and_animations()
-{
-	for (int v = 0; v<this->m_model_data->VCount; v++) {
-		this->m_model_data->gVertex[v].x *= 2.f;
-		this->m_model_data->gVertex[v].y *= 2.f;
-		this->m_model_data->gVertex[v].z *= -2.f;
-	}
+  this->m_geometry = std::make_unique<C2Geometry>(_vertices, _faces, _texture_data, _texture_height);
 }

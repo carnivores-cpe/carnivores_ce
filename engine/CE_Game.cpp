@@ -840,6 +840,8 @@ void InitEngine()
 
 	FillMemory( FogsMap, sizeof(FogsMap), 0);
 
+  PrevTime = timeGetTime();
+
   PrintLog("Init Engine: Ok.\n");
 }
 

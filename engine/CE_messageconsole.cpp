@@ -80,7 +80,7 @@ void Console_PrintLogString(std::string);
 void Console_LoadManagedAllo()
 {
 	C2CarFilePreloader* mcarloader = CarFileManager.get();
-	C2CarFile* allo_car = mcarloader->fetch("HUNTDAT\\ALLO.CAR");
+	std::shared_ptr<C2CarFile> allo_car = mcarloader->fetch("HUNTDAT\\ALLO.CAR");
 
 	Console_PrintLogString("Allo loaded.");
 	return;
@@ -95,6 +95,7 @@ void Console_PlaceManagedAllo()
 	C2Character* nChar = ManagedCharacters.at(ManagedCharacters.size()-1).get();
 	nChar->setScale(2.f);
 	nChar->setPosition(PlayerX, PlayerZ, PlayerY);
+	nChar->performWalkAction();
 	wsprintf(logt, "Added new allo to managed stack");
 	Console_PrintLog(logt);
 }

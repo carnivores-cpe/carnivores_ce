@@ -8,13 +8,10 @@
 
 
 CE_Allosaurus::CE_Allosaurus(C2CarFilePreloader* preloader, const std::string& car_file_name)
+	: C2Character(new AI_Allosaurus(), preloader->fetch(car_file_name))
 {
 //#warning Blah. Refactor this.
-	this->intelligence = new AI_Allosaurus();
 	this->intelligence->character = this;
-
-	C2CarFile* allo_car = preloader->fetch(car_file_name);
-	this->setCarFile(allo_car);
 }
 
 void CE_Allosaurus::spawn()

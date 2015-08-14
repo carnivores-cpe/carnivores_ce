@@ -26,7 +26,7 @@
 
 class C2Geometry;
 class C2Animation;
-class C2SoundFX;
+//class C2SoundFX;
 
 class C2CarFile {
 
@@ -37,19 +37,13 @@ public:
 
   C2Geometry* getGeometry();
   C2Animation* getAnimationByName(std::string animation_name);
-  std::vector<C2SoundFX*> getSoundsByAnimationName(std::string animation_name);
+  //std::vector<C2SoundFX*> getSoundsByAnimationName(std::string animation_name);
 
 private:
-  TModel* m_model_data; // used ONLY for loading!!!
-  
-  TCharacterInfo* m_character_info; // holds other data about the model
-  
   std::unique_ptr<C2Geometry> m_geometry;
-  std::map<std::string, std::unique_ptr<C2Animation>> m_animations;
-  std::multimap<std::string, std::unique_ptr<C2SoundFX> > m_animation_sounds;
   
-  void generate_animations();
-  void _correct_model_and_animations(); // CarFiles contain compressed info. Correct it.
+  std::map<std::string, std::unique_ptr<C2Animation>> m_animations;
+  //std::multimap<std::string, std::unique_ptr<C2SoundFX> > m_animation_sounds;
 };
 
 #endif
