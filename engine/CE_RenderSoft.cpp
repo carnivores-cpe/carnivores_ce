@@ -419,6 +419,7 @@ void CE_RenderC2Character(C2Character* character)
 		GlassL = (int)min(255, (zs / 4 - 64 * (ctViewR - 4)));
 
 	C2Geometry* mGeo = character->getCurrentModelForRender();
+	TModel* mMptr = mGeo->getTModel();
 
 	float wh = GetLandUpH(character->getCurrentPosition().x, character->getCurrentPosition().z);
 	waterclip = FALSE;

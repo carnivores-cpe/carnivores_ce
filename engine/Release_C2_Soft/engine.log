@@ -1,8 +1,10 @@
-﻿Build started 8/13/2015 10:43:50 PM.
+﻿Build started 8/14/2015 12:22:07 AM.
      1>Project "\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\engine.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /Od /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_Soft\\" /Fd"Release_C2_Soft\vc120.pdb" /doc"Release_C2_Soft\\" /Gd /TP /analyze- /errorReport:prompt modern_src\C2CarFile.cpp
-         C2CarFile.cpp
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /Od /Ob1 /Oi /Ot /Oy /GT /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _soft /D _VC80_UPGRADE=0x0700 /D _MBCS /GF /Gm /EHsc /MT /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release_C2_Soft\\" /Fd"Release_C2_Soft\vc120.pdb" /doc"Release_C2_Soft\\" /Gd /TP /analyze- /errorReport:prompt CE_messageconsole.cpp modern_src\AI_Allosaurus.cpp modern_src\C2Geometry.cpp
+         C2Geometry.cpp
+         AI_Allosaurus.cpp
+         CE_messageconsole.cpp
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1193,5): warning MSB8012: TargetPath(\\psf\Home\Downloads\carnivores-src_minorenhanced_build\engine\Release_C2_Soft\engine.exe) does not match the Linker's OutputFile property value (Z:\Downloads\CCEv1.12.4ADP\Carnivores 2\Carnivores 2\V_SOFT.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1194,5): warning MSB8012: TargetExt(.exe) does not match the Linker's OutputFile property value (.REN). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
      1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1195,5): warning MSB8012: TargetName(engine) does not match the Linker's OutputFile property value (V_SOFT). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
@@ -48,4 +50,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.42
+Time Elapsed 00:00:06.42

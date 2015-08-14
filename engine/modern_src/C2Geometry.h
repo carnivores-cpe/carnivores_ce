@@ -25,35 +25,17 @@ private:
   std::vector<WORD> m_texture_data_b; //lpTextur2
   std::vector<WORD> m_texture_data_c; //lpTextur3
 
+  TModel* m_old_model_data;
+
   void _generate_textures(std::vector<WORD> texture_data, int texture_height);
+  void _generate_old_model_data();
 
 public:
 	std::vector<TPoint3d> m_vertices; //TODO: Protect this. make it const
   C2Geometry(std::vector<TPoint3d> vertex_data, std::vector<TFace> face_data, std::vector<WORD> texture_data, int texture_height);
   ~C2Geometry();
+
+  void syncOldVerticeData(); // make the old Tmodel vertice data synced
+  TModel* getTModel();
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-  int VCount, FCount, TextureSize, TextureHeight;
-  TPoint3d gVertex[1024];
-  union {
-    TFace    gFace  [1024];
-    TFacef   gFacef [1024];
-  };
-  WORD     *lpTexture, *lpTexture2, *lpTexture3;
-  float    VLight[4][1024];
-  */

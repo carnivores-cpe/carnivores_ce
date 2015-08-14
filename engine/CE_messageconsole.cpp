@@ -94,8 +94,9 @@ void Console_PlaceManagedAllo()
 
 	C2Character* nChar = ManagedCharacters.at(ManagedCharacters.size()-1).get();
 	nChar->setScale(2.f);
-	nChar->setPosition(PlayerX, PlayerZ, PlayerY);
 	nChar->performWalkAction();
+	Console_PrintLogString("X: " + std::to_string(PlayerX) + " Y: " + std::to_string(PlayerY) + " Z: " + std::to_string(PlayerZ));
+	nChar->setPosition(PlayerX, PlayerZ, PlayerY);
 	wsprintf(logt, "Added new allo to managed stack");
 	Console_PrintLog(logt);
 }

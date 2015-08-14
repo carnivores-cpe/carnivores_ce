@@ -181,13 +181,15 @@ C2Geometry* C2AnimatableModel::getMorphedModel(std::string animation_name, int a
   k2 = k2/8.f;
 
   int vcount = sharedGeo->m_vertices.size();
+  int aniOffset = currentFrame*vcount*3;
   
   for (int v=0; v<vcount; v++) {
-	sharedGeo->m_vertices[v].x = animation->m_animation_data[v * 3 + 0] * k1 + animation->m_animation_data[(v + vcount) * 3 + 0] * k2;
-	sharedGeo->m_vertices[v].y = animation->m_animation_data[v * 3 + 1] * k1 + animation->m_animation_data[(v + vcount) * 3 + 1] * k2;
-	sharedGeo->m_vertices[v].z = -(animation->m_animation_data[v * 3 + 2] * k1 + animation->m_animation_data[(v + vcount) * 3 + 2] * k2);
+	  sharedGeo->m_vertices[v].x = (float)animation->m_animation_data[(aniOffset)+(v * 3 + 0)] * k1 + (float)animation->m_animation_data[(aniOffset) + ((v + vcount) * 3 + 0)] * k2;
+	  sharedGeo->m_vertices[v].y = (float)animation->m_animation_data[(aniOffset)+(v * 3 + 1)] * k1 + (float)animation->m_animation_data[(aniOffset) + ((v + vcount) * 3 + 1)] * k2;
+	  sharedGeo->m_vertices[v].z = -((float)animation->m_animation_data[(aniOffset)+(v * 3 + 2)] * k1 + (float)animation->m_animation_data[(aniOffset) + ((v + vcount) * 3 + 2)] * k2);
   }
 
+  sharedGeo->syncOldVerticeData(); //support the old way. TODO: Eventually remove them when renderer can be refactord
   return sharedGeo;
 }
 
@@ -312,5 +314,6 @@ C2Geometry* C2AnimatableModel::getBetweenMorphedModel(std::string animation_prev
 	sharedGeo->m_vertices[v].z = cb * zz + sb * yy;
   }
   
+  sharedGeo->syncOldVerticeData();
   return sharedGeo;
 }

@@ -64,9 +64,13 @@ TBEGIN:
   }
   
   
-  if (GetLandUpH(this->character->getCurrentPosition().x, this->character->getCurrentPosition().z) - GetLandH(this->character->getCurrentPosition().x, this->character->getCurrentPosition().z) > 180 * this->character->getScale())
-	   this->StateF |= csONWATER; else
-       this->StateF &= (!csONWATER);
+  if (GetLandUpH(this->character->getCurrentPosition().x, this->character->getCurrentPosition().z) - GetLandH(this->character->getCurrentPosition().x, this->character->getCurrentPosition().z) > 180 * this->character->getScale()) {
+	  this->StateF |= csONWATER;
+  }
+  else {
+	  this->StateF &= (!csONWATER);
+  }
+       
   
   if (this->Phase == RAP_EAT) goto NOTHINK;
 

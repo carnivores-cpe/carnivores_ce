@@ -201,7 +201,7 @@ void CE_AnimateManagedCharacters()
 
   for (int c = 0; c<numberOfManagedCharacters; c++) {
     ManagedCharacters[c]->animate(TimeDt);
-    //ManagedCharacters[c]->intelligence->think(TimeDt);
+    ManagedCharacters[c]->intelligence->think(TimeDt);
   }
 }
 
